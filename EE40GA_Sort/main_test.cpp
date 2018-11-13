@@ -32,7 +32,7 @@ void test_array(int array_size, basic_item* ref_item)
 }
 
 
-void main()
+int main()
 {
 	int array_size = 10;
 	int temp;	
@@ -40,8 +40,12 @@ void main()
 	integer_item ref_int_item;
 	// used as "example item" by the general_array to populate the entire array with neg_int_item 
 	neg_int_item ref_nint_item;
-	// used as "example item" by the general_array to populate the entire array with string_item
-	string_item ref_string_item;
+	// used as "example item" by the general_array to populate the entire array with firstname_item
+	firstname_item ref_fname_item;
+	// used as "example item" by the general_array to populate the entire array with surname_item
+	surname_item ref_sname_item;
+	// used as "example item" by the general_array to populate the entire array with bloodtype_item
+	bloodtype_item ref_btype_item;
 
 	// first test with the inger item
 	cout << " testing array with integer (positve and negative) items: " << endl << endl;
@@ -54,9 +58,21 @@ void main()
 	cout << " done. enter any nymber to progress to the next test." << endl;
 	cin>>temp;
 	//finally test with string
-	cout << " testing array with string items: " << endl << endl;
-	test_array(array_size, &ref_string_item);
+	cout << " testing array with firstname items: " << endl << endl;
+	test_array(array_size, &ref_fname_item);
 	cout << " done. enter any nymber to finish." << endl;
 	cin >> temp;
+	//
+	cout << " testing array with surname items: " << endl << endl;
+	test_array(array_size, &ref_sname_item);
+	cout << " done. enter any nymber to finish." << endl;
+	cin >> temp;
+	//
+	cout << " testing array with bloodtype items: " << endl << endl;
+	test_array(array_size, &ref_btype_item);
+	cout << " done. enter any nymber to finish." << endl;
+	cin >> temp;
+    
+    return 0;
 
 }
