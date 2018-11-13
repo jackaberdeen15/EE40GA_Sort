@@ -259,3 +259,11 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+.DS_Store
+EE40GA_sort.xcodeproj/project.pbxproj
+EE40GA_sort.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+EE40GA_sort.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+EE40GA_sort.xcodeproj/project.xcworkspace/xcuserdata/willatherton.xcuserdatad/UserInterfaceState.xcuserstate
+EE40GA_sort.xcodeproj/xcuserdata/willatherton.xcuserdatad/xcschemes/xcschememanagement.plist
+.DS_Store
+.DS_Store

@@ -32,7 +32,7 @@ void test_array(int array_size, basic_item* ref_item)
 }
 
 
-void main()
+int main()
 {
 	int array_size = 10;
 	int temp;	
@@ -72,5 +72,7 @@ void main()
 	test_array(array_size, &ref_btype_item);
 	cout << " done. enter any nymber to finish." << endl;
 	cin >> temp;
+    
+    return 0;
 
 }
