@@ -35,7 +35,7 @@ void test_array(int array_size, basic_item* ref_item)
 int main()
 {
 	int array_size = 10;
-	int temp;	
+	int temp;
 	// used as "example item" by the general_array to populate the entire array with integer_item 
 	height_item ref_height_item;
 	// used as "example item" by the general_array to populate the entire array with neg_int_item 
@@ -46,33 +46,51 @@ int main()
 	surname_item ref_sname_item;
 	// used as "example item" by the general_array to populate the entire array with bloodtype_item
 	bloodtype_item ref_btype_item;
+    
+    cout << "Type R to populate database Randomly and M to populate Manually" << endl;
 
-	// first test with the inger item
-	cout << " testing array with integer (positve and negative) items: " << endl << endl;
-	test_array(array_size, &ref_height_item);
-	cout << " done. enter any nymber to progress to the next test." << endl;
-	cin>>temp;
-	// next test with the negative ingteger item
-	cout << " testing array with negative only integer items: " << endl << endl;
-	test_array(array_size, &ref_weight_item);
-	cout << " done. enter any nymber to progress to the next test." << endl;
-	cin>>temp;
-	//finally test with string
-	cout << " testing array with firstname items: " << endl << endl;
-	test_array(array_size, &ref_fname_item);
-	cout << " done. enter any nymber to finish." << endl;
-	cin >> temp;
-	//
-	cout << " testing array with surname items: " << endl << endl;
-	test_array(array_size, &ref_sname_item);
-	cout << " done. enter any nymber to finish." << endl;
-	cin >> temp;
-	//
-	cout << " testing array with bloodtype items: " << endl << endl;
-	test_array(array_size, &ref_btype_item);
-	cout << " done. enter any nymber to finish." << endl;
-	cin >> temp;
+    char mode;
+    while (cin.get(mode)) {
+        if(mode=='r' || mode == 'R'){
+                cout << "Populating database randomly" << endl;
+            
+                // first test with the inger item
+                cout << " testing array with integer (positve and negative) items: " << endl << endl;
+                test_array(array_size, &ref_height_item);
+                cout << " done. enter any nymber to progress to the next test." << endl;
+                cin>>temp;
+                // next test with the negative ingteger item
+                cout << " testing array with negative only integer items: " << endl << endl;
+                test_array(array_size, &ref_weight_item);
+                cout << " done. enter any nymber to progress to the next test." << endl;
+                cin>>temp;
+                //finally test with string
+                cout << " testing array with firstname items: " << endl << endl;
+                test_array(array_size, &ref_fname_item);
+                cout << " done. enter any nymber to finish." << endl;
+                cin >> temp;
+                //
+                cout << " testing array with surname items: " << endl << endl;
+                test_array(array_size, &ref_sname_item);
+                cout << " done. enter any nymber to finish." << endl;
+                cin >> temp;
+                //
+                cout << " testing array with bloodtype items: " << endl << endl;
+                test_array(array_size, &ref_btype_item);
+                cout << " done. enter any nymber to finish." << endl;
+                cin >> temp;
+            
+            return 0;
+            
+                break;
+        }else if(mode=='m' || mode == 'M'){
+                cout << "Populating database manually" << endl;
+                break;
+        }else{
+                cout << "Error: please enter a valid choice" << endl;
+                return 0;
+        }
+    }
     
     return 0;
-
 }
