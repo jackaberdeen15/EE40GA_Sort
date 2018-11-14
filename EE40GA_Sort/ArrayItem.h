@@ -68,7 +68,7 @@ public:
 
 };
 
-// Example of derived class implementing an integer item
+// height item
 class height_item: public basic_item{
 protected:
 	int item_value;
@@ -172,8 +172,7 @@ public:
 };
 
 
-// This object only accepts negative elements; it is readily derived from integer_item 
-// by implementing only a few functions (all others are inhereited from the parent).
+//weight item
 class weight_item: public basic_item{
 protected:
 	int item_value;
@@ -644,6 +643,62 @@ public:
 		if (result == NULL)
 			cout << " Error in string_item::allocateItem(): out of memory" << endl;
 		return result;
+	}
+
+	//virtual void setstringtype(int i) { type = i; }
+
+};
+
+class composite_item : public: basic_item {
+protected:
+	height_item h_item;
+	weight_item w_item;
+	firstname_item fn_item;
+	surname_item sn_item;
+	bloodtype_item bt_item;
+
+public:
+	composite_item() { ; }
+	~composite_item() { ; }
+
+	basic_item getItemVal() {
+
+	}
+
+	virtual void printItemOnScreen()
+	{
+		h_item.printItemOnScreen();
+		w_item.printItemOnScreen();
+		fn_item.printItemOnScreen();
+		sn_item.printItemOnScreen();
+		bt_item.printItemOnScreen();
+
+	}
+
+	virtual void enterItemFromKeyboard()
+	{
+		
+	}
+
+	//function to get random string from the protected
+	virtual void generateRandomItem()//1 is firstname, 2 is surname, 3 is blood type
+	{
+		
+	}
+
+	virtual bool IsLargerThan(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		
+	}
+
+	virtual void deallocateItem(basic_item* item_ptr)
+	{
+		
+	}
+
+	virtual basic_item* allocateItem()
+	{
+		
 	}
 
 	//virtual void setstringtype(int i) { type = i; }
