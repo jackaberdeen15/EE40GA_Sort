@@ -69,14 +69,14 @@ public:
 };
 
 // Example of derived class implementing an integer item
-class integer_item: public basic_item{
+class height_item: public basic_item{
 protected:
 	int item_value;
 	
 public:
 	// default constructor and destructor: do nothing
-	integer_item(){;}
-	~integer_item(){;}
+	height_item(){;}
+	~height_item(){;}
 
 	int getItemVal(){return item_value;}
 	
@@ -101,14 +101,10 @@ public:
 	virtual void generateRandomItem()
 	{
 		int item;
-		int max_rand_val = 1000;
+		int max_rand_val = 193;
 
 		item=rand();
 		item = item % (max_rand_val+1);
-
-		// turn to negative 50% of the time
-		if( (rand()%10) >=5 )
-			item=(-1)*item;
 
 		item_value=item;
 		// item filled
@@ -126,7 +122,7 @@ public:
 			return false;
 
 		// first typecast the other item to confimr it is the same as this;
-		integer_item* typecasted_other_item = typecastItem(other_item, this);
+		height_item* typecasted_other_item = typecastItem(other_item, this);
 		
 		// check that it worked
 		if(typecasted_other_item==NULL)
@@ -155,7 +151,7 @@ public:
 	virtual void deallocateItem(basic_item* item_ptr)
 	{
 		// first typecast the other item to confimr it is the same as this;
-		integer_item* typecasted_item_ptr = typecastItem(item_ptr, this);
+		height_item* typecasted_item_ptr = typecastItem(item_ptr, this);
 		
 		// check that it worked
 		if(typecasted_item_ptr==NULL)
@@ -168,7 +164,7 @@ public:
 	}
 	virtual basic_item* allocateItem()
 	{
-		integer_item* result = new integer_item;
+		height_item* result = new height_item;
 		if(result==NULL)
 			cout << " Error in integer_item::allocateItem(): out of memory"<< endl;
 		return result;
@@ -178,57 +174,106 @@ public:
 
 // This object only accepts negative elements; it is readily derived from integer_item 
 // by implementing only a few functions (all others are inhereited from the parent).
-class neg_int_item: public integer_item{
+class weight_item: public basic_item{
+protected:
+	int item_value;
+
 public:
-	// We must implement the following two functions to allocate/free neg_int_item differently from integer_item
+	// default constructor and destructor: do nothing
+	weight_item() { ; }
+	~weight_item() { ; }
+
+	int getItemVal() { return item_value; }
+
+	virtual void printItemOnScreen()
+	{
+		if (isEmpty())
+			cout << "Item is empty." << endl;
+		else
+			cout << "Item value is " << getItemVal() << " . " << endl;
+	}
+
+	virtual void enterItemFromKeyboard()
+	{
+		cout << "Insert element then hit enter." << endl;
+		cin >> item_value;
+		cout << endl;
+
+		// item filled
+		empty = false;
+	}
+
+	virtual void generateRandomItem()
+	{
+		int item;
+		int max_rand_val = 120;
+
+		item = rand();
+		item = item % (max_rand_val + 1);
+
+		item_value = item;
+		// item filled
+		empty = false;
+
+	}
+
+	//virtual void loadItemFromFile(FILE* fin);
+
+	virtual bool IsLargerThan(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		bool result = false;
+		// if the other item is "empty" (non allocated) don't do any comparison
+		if (other_item == NULL)
+			return false;
+
+		// first typecast the other item to confimr it is the same as this;
+		weight_item* typecasted_other_item = typecastItem(other_item, this);
+
+		// check that it worked
+		if (typecasted_other_item == NULL)
+		{
+			cout << "Other item is not of type integer_item." << endl;
+			return false;
+			// items of the wrong type (or null pointers) will be pushed to the end of the list
+		}
+
+		// now verify if the other item is larger than the curren
+		if (getItemVal() > (typecasted_other_item->getItemVal()))
+			result = true;
+
+
+		// chek if there are sorting options to apply 
+		if (sort_criteria != NULL)
+		{
+			// if sorting is in descending order the result is reversed 
+			if (!(sort_criteria->getAscending()))
+				result = !result;
+		}
+
+		return result;
+	}
+
 	virtual void deallocateItem(basic_item* item_ptr)
 	{
 		// first typecast the other item to confimr it is the same as this;
-		neg_int_item* typecasted_item_ptr = typecastItem(item_ptr, this);
-		
+		weight_item* typecasted_item_ptr = typecastItem(item_ptr, this);
+
 		// check that it worked
-		if(typecasted_item_ptr==NULL)
+		if (typecasted_item_ptr == NULL)
 		{
 			// items of the wrong type (or null pointers)
-			cout << "Error in deallocateItem (for neg_int_item): "<< endl << "Other item is not of type integer_item." << endl;
+			cout << "Error in deallocateItem (for integer_item): " << endl << "Other item is not of type integer_item." << endl;
 			return;
 		}
 		delete typecasted_item_ptr;
 	}
 	virtual basic_item* allocateItem()
 	{
-		neg_int_item* result = new neg_int_item;
-		if(result==NULL)
-			cout << " Error in neg_int_item::allocateItem(): out of memory"<< endl;
+		weight_item* result = new weight_item;
+		if (result == NULL)
+			cout << " Error in integer_item::allocateItem(): out of memory" << endl;
 		return result;
 	}
-	//---------------------------------------------------------------------------------------//
-	// We implement the following two functions to fill neg_int_item differently from integer_item
-	virtual void enterItemFromKeyboard()
-	{
-		//warn the user:
-		cout << "Insertion of neg_int_item: element value must be negative." << endl;
-		// loop till you get a negative input number
-		while(empty)
-		{
-			//call the parent funciton to fill the object
-			integer_item::enterItemFromKeyboard();
-			if(getItemVal()>=0)
-				empty=true;
-		}
-	}
-	virtual void generateRandomItem()
-	{
-		// loop till you get a negative random number
-		while(empty)
-		{
-			//call the parent funciton to fill the object
-			integer_item::generateRandomItem();
-			if(getItemVal()>=0)
-				empty=true;
-		}
-	}
-
 };
 
 //class to use string items

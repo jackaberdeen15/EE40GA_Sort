@@ -37,9 +37,9 @@ int main()
 	int array_size = 10;
 	int temp;	
 	// used as "example item" by the general_array to populate the entire array with integer_item 
-	integer_item ref_int_item;
+	height_item ref_height_item;
 	// used as "example item" by the general_array to populate the entire array with neg_int_item 
-	neg_int_item ref_nint_item;
+	weight_item ref_weight_item;
 	// used as "example item" by the general_array to populate the entire array with firstname_item
 	firstname_item ref_fname_item;
 	// used as "example item" by the general_array to populate the entire array with surname_item
@@ -49,12 +49,12 @@ int main()
 
 	// first test with the inger item
 	cout << " testing array with integer (positve and negative) items: " << endl << endl;
-	test_array(array_size, &ref_int_item);
+	test_array(array_size, &ref_height_item);
 	cout << " done. enter any nymber to progress to the next test." << endl;
 	cin>>temp;
 	// next test with the negative ingteger item
 	cout << " testing array with negative only integer items: " << endl << endl;
-	test_array(array_size, &ref_nint_item);
+	test_array(array_size, &ref_weight_item);
 	cout << " done. enter any nymber to progress to the next test." << endl;
 	cin>>temp;
 	//finally test with string
