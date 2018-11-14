@@ -2,7 +2,7 @@
 #define __GENERALARRAY_H_
 
 
-#include "arrayItem.h"
+#include "ArrayItem.h"
 
 
 
@@ -133,7 +133,7 @@ protected:
 		if(memIsAllocated() && checkIndexIsAllowed(index) )
 		{
 			// add the item if array element is not occupied already
-			if( (thearray[index]==NULL) )
+			if(thearray[index]==NULL)
 			{
 				if( (item_ptr!=NULL) )
 				{
