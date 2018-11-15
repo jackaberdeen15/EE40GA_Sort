@@ -12,6 +12,7 @@ void test_array(int array_size, basic_item* ref_item)
 {
 	basic_sort_criteria srt_crt(true);
 	general_array test_array;	
+
 	// attach the "integer item" as referecen item
 	test_array.attachRefrenceItem(ref_item);
 	// now allocate the array	
@@ -32,7 +33,7 @@ void test_array(int array_size, basic_item* ref_item)
 }
 
 
-int main3()
+int main()
 {
 	int array_size = 10;
 	int temp;	
@@ -47,31 +48,40 @@ int main3()
 	// used as "example item" by the general_array to populate the entire array with bloodtype_item
 	bloodtype_item ref_btype_item;
 
+	composite_item ref_comp_item;
+
+	ref_comp_item.setDataSortType(FIRSTNAME);
+
+	cout << " testing array with compisite items: " << endl << endl;
+	test_array(array_size, &ref_comp_item);
+	cout << " done. enter any nymber to progress to the next test." << endl;
+	cin >> temp;
+
 	// first test with the inger item
-	cout << " testing array with integer (positve and negative) items: " << endl << endl;
+	/*cout << " testing array with integer (positve and negative) items: " << endl << endl;
 	test_array(array_size, &ref_height_item);
 	cout << " done. enter any nymber to progress to the next test." << endl;
-	cin>>temp;
+	cin>>temp;*/
 	// next test with the negative ingteger item
-	cout << " testing array with negative only integer items: " << endl << endl;
+	/*cout << " testing array with negative only integer items: " << endl << endl;
 	test_array(array_size, &ref_weight_item);
 	cout << " done. enter any nymber to progress to the next test." << endl;
-	cin>>temp;
+	cin>>temp;*/
 	//finally test with string
-	cout << " testing array with firstname items: " << endl << endl;
+	/*cout << " testing array with firstname items: " << endl << endl;
 	test_array(array_size, &ref_fname_item);
 	cout << " done. enter any nymber to finish." << endl;
-	cin >> temp;
+	cin >> temp;*/
 	//
-	cout << " testing array with surname items: " << endl << endl;
+	/*cout << " testing array with surname items: " << endl << endl;
 	test_array(array_size, &ref_sname_item);
 	cout << " done. enter any nymber to finish." << endl;
-	cin >> temp;
+	cin >> temp;*/
 	//
-	cout << " testing array with bloodtype items: " << endl << endl;
+	/*cout << " testing array with bloodtype items: " << endl << endl;
 	test_array(array_size, &ref_btype_item);
 	cout << " done. enter any nymber to finish." << endl;
-	cin >> temp;
+	cin >> temp;*/
     
     return 0;
 
