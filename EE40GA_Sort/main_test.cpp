@@ -46,7 +46,12 @@ int main()
 	surname_item ref_sname_item;
 	// used as "example item" by the general_array to populate the entire array with bloodtype_item
 	bloodtype_item ref_btype_item;
+
+	//composite item reference for general array
+	composite_item ref_comp_item;
     
+	ref_comp_item.setDataSortType(FIRSTNAME);
+
     cout << "Type R to populate database Randomly and M to populate Manually" << endl;
 
     char mode;
@@ -54,31 +59,37 @@ int main()
         if(mode=='r' || mode == 'R'){
                 cout << "Populating database randomly" << endl;
             
-                // first test with the inger item
-                cout << " testing array with integer (positve and negative) items: " << endl << endl;
-                test_array(array_size, &ref_height_item);
-                cout << " done. enter any nymber to progress to the next test." << endl;
-                cin>>temp;
-                // next test with the negative ingteger item
-                cout << " testing array with negative only integer items: " << endl << endl;
-                test_array(array_size, &ref_weight_item);
-                cout << " done. enter any nymber to progress to the next test." << endl;
-                cin>>temp;
-                //finally test with string
-                cout << " testing array with firstname items: " << endl << endl;
-                test_array(array_size, &ref_fname_item);
-                cout << " done. enter any nymber to finish." << endl;
-                cin >> temp;
-                //
-                cout << " testing array with surname items: " << endl << endl;
-                test_array(array_size, &ref_sname_item);
-                cout << " done. enter any nymber to finish." << endl;
-                cin >> temp;
-                //
-                cout << " testing array with bloodtype items: " << endl << endl;
-                test_array(array_size, &ref_btype_item);
-                cout << " done. enter any nymber to finish." << endl;
-                cin >> temp;
+				//
+				cout << " testing array with composite items: " << endl << endl;
+				test_array(array_size, &ref_comp_item);
+				cout << " done. enter any number to end test." << endl;
+				cin >> temp;
+
+                //// first test with the inger item
+                //cout << " testing array with integer (positve and negative) items: " << endl << endl;
+                //test_array(array_size, &ref_height_item);
+                //cout << " done. enter any nymber to progress to the next test." << endl;
+                //cin>>temp;
+                //// next test with the negative ingteger item
+                //cout << " testing array with negative only integer items: " << endl << endl;
+                //test_array(array_size, &ref_weight_item);
+                //cout << " done. enter any nymber to progress to the next test." << endl;
+                //cin>>temp;
+                ////finally test with string
+                //cout << " testing array with firstname items: " << endl << endl;
+                //test_array(array_size, &ref_fname_item);
+                //cout << " done. enter any nymber to finish." << endl;
+                //cin >> temp;
+                ////
+                //cout << " testing array with surname items: " << endl << endl;
+                //test_array(array_size, &ref_sname_item);
+                //cout << " done. enter any nymber to finish." << endl;
+                //cin >> temp;
+                ////
+                //cout << " testing array with bloodtype items: " << endl << endl;
+                //test_array(array_size, &ref_btype_item);
+                //cout << " done. enter any nymber to finish." << endl;
+                //cin >> temp;
             
             return 0;
             

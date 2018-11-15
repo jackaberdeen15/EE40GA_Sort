@@ -676,6 +676,7 @@ public:
 
 	virtual void enterItemFromKeyboard()
 	{
+		cout << "entering items from keyboard"<<endl;
 		h_item->enterItemFromKeyboard();
 		w_item->enterItemFromKeyboard();
 		fn_item->enterItemFromKeyboard();
@@ -686,6 +687,7 @@ public:
 	//function to get random string from the protected
 	virtual void generateRandomItem()//1 is firstname, 2 is surname, 3 is blood type
 	{
+		cout << "Generating Random Number" << endl;
 		h_item->generateRandomItem();
 		w_item->generateRandomItem();
 		fn_item->generateRandomItem();
@@ -742,11 +744,17 @@ public:
 
 	virtual basic_item* allocateItem()
 	{
-		h_item->allocateItem();
+		composite_item* result = new composite_item;
+		if (result == NULL)
+			cout << " Error in string_item::allocateItem(): out of memory" << endl;
+		
+		/*h_item->allocateItem();
 		w_item->allocateItem();
 		fn_item->allocateItem();
 		sn_item->allocateItem();
-		bt_item->allocateItem();
+		bt_item->allocateItem();*/
+
+		return result;
 	}
 
 	//virtual void setstringtype(int i) { type = i; }
