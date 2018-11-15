@@ -653,11 +653,11 @@ public:
 
 class composite_item : public basic_item {
 protected:
-	height_item* h_item;
-	weight_item* w_item;
-	firstname_item* fn_item;
-	surname_item* sn_item;
-	bloodtype_item* bt_item;
+	height_item h_item;
+	weight_item w_item;
+	firstname_item fn_item;
+	surname_item sn_item;
+	bloodtype_item bt_item;
 	data_sort_type data_sorting_type=FIRSTNAME;
 
 public:
@@ -666,33 +666,34 @@ public:
 
 	virtual void printItemOnScreen()
 	{
-		h_item->printItemOnScreen();
-		w_item->printItemOnScreen();
-		fn_item->printItemOnScreen();
-		sn_item->printItemOnScreen();
-		bt_item->printItemOnScreen();
+		cout << "Print item on screen" << endl;
+		h_item.printItemOnScreen();
+		w_item.printItemOnScreen();
+		fn_item.printItemOnScreen();
+		sn_item.printItemOnScreen();
+		bt_item.printItemOnScreen();
 
 	}
 
 	virtual void enterItemFromKeyboard()
 	{
 		cout << "entering items from keyboard"<<endl;
-		h_item->enterItemFromKeyboard();
-		w_item->enterItemFromKeyboard();
-		fn_item->enterItemFromKeyboard();
-		sn_item->enterItemFromKeyboard();
-		bt_item->enterItemFromKeyboard();
+		h_item.enterItemFromKeyboard();
+		w_item.enterItemFromKeyboard();
+		fn_item.enterItemFromKeyboard();
+		sn_item.enterItemFromKeyboard();
+		bt_item.enterItemFromKeyboard();
 	}
 
 	//function to get random string from the protected
 	virtual void generateRandomItem()//1 is firstname, 2 is surname, 3 is blood type
 	{
 		cout << "Generating Random Number" << endl;
-		h_item->generateRandomItem();
-		w_item->generateRandomItem();
-		fn_item->generateRandomItem();
-		sn_item->generateRandomItem();
-		bt_item->generateRandomItem();
+		h_item.generateRandomItem();
+		w_item.generateRandomItem();
+		fn_item.generateRandomItem();
+		sn_item.generateRandomItem();
+		bt_item.generateRandomItem();
 	}
 
 	virtual bool IsLargerThan(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
@@ -703,23 +704,23 @@ public:
 		{
 		case HEIGHT:
 			cout << "Item is height" << endl;
-			result = h_item->IsLargerThan(other_item, sort_criteria);
+			result = h_item.IsLargerThan(other_item, sort_criteria);
 			break;
 		case WEIGHT:
 			cout << "Item is weight" << endl;
-			result = w_item->IsLargerThan(other_item, sort_criteria);
+			result = w_item.IsLargerThan(other_item, sort_criteria);
 			break;
 		case FIRSTNAME:
 			cout << "Item is firstname" << endl;
-			result = fn_item->IsLargerThan(other_item, sort_criteria);
+			result = fn_item.IsLargerThan(other_item, sort_criteria);
 			break;
 		case SURNAME:
 			cout << "Item is surname" << endl;
-			result = sn_item->IsLargerThan(other_item, sort_criteria);
+			result = sn_item.IsLargerThan(other_item, sort_criteria);
 			break;
 		case BLOODTYPE:
 			cout << "Item is bloodtype" << endl;
-			result = h_item->IsLargerThan(other_item, sort_criteria);
+			result = h_item.IsLargerThan(other_item, sort_criteria);
 			break;
 		default:
 			break;
@@ -735,11 +736,22 @@ public:
 
 	virtual void deallocateItem(basic_item* item_ptr)
 	{
-		h_item->deallocateItem(item_ptr);
-		w_item->deallocateItem(item_ptr);
-		fn_item->deallocateItem(item_ptr);
-		sn_item->deallocateItem(item_ptr);
-		bt_item->deallocateItem(item_ptr);
+		// first typecast the other item to confimr it is the same as this;
+		composite_item* typecasted_item_ptr = typecastItem(item_ptr, this);
+
+		// check that it worked
+		if (typecasted_item_ptr == NULL)
+		{
+			// items of the wrong type (or null pointers)
+			cout << "Error in deallocateItem (for string_item): " << endl << "Other item is not of type string_item." << endl;
+			return;
+		}
+		/*h_item.deallocateItem(item_ptr);
+		w_item.deallocateItem(item_ptr);
+		fn_item.deallocateItem(item_ptr);
+		sn_item.deallocateItem(item_ptr);
+		bt_item.deallocateItem(item_ptr);*/
+		delete typecasted_item_ptr;
 	}
 
 	virtual basic_item* allocateItem()

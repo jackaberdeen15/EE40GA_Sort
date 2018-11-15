@@ -12,6 +12,7 @@ void test_array(int array_size, basic_item* ref_item)
 {
 	basic_sort_criteria srt_crt(true);
 	general_array test_array;	
+	ref_item->setDataSortType(FIRSTNAME);
 	// attach the "integer item" as referecen item
 	test_array.attachRefrenceItem(ref_item);
 	// now allocate the array	
@@ -50,7 +51,6 @@ int main()
 	//composite item reference for general array
 	composite_item ref_comp_item;
     
-	ref_comp_item.setDataSortType(FIRSTNAME);
 
     cout << "Type R to populate database Randomly and M to populate Manually" << endl;
 
