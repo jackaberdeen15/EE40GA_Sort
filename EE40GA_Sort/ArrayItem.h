@@ -85,9 +85,9 @@ public:
 	virtual void printItemOnScreen()
 	{
 		if(isEmpty())
-			cout << "Item is empty." << endl;
+			cout << "height_item is empty." << endl;
 		else
-			cout << "Item value is " << getItemVal() << " . " << endl;
+			cout << "height_item value is " << getItemVal() << " . " << endl;
 	}
 
 	virtual void enterItemFromKeyboard()
@@ -129,7 +129,7 @@ public:
 		// check that it worked
 		if(typecasted_other_item==NULL)
 		{
-			cout << "Other item is not of type integer_item." << endl;
+			cout << "Other item is not of type height_item." << endl;
 			return false;
 			// items of the wrong type (or null pointers) will be pushed to the end of the list
 		}
@@ -159,7 +159,7 @@ public:
 		if(typecasted_item_ptr==NULL)
 		{
 			// items of the wrong type (or null pointers)
-			cout << "Error in deallocateItem (for integer_item): "<< endl << "Other item is not of type integer_item." << endl;
+			cout << "Error in deallocateItem (for height_item): "<< endl << "Other item is not of type height_item." << endl;
 			return;
 		}
 		delete typecasted_item_ptr;
@@ -168,7 +168,7 @@ public:
 	{
 		height_item* result = new height_item;
 		if(result==NULL)
-			cout << " Error in integer_item::allocateItem(): out of memory"<< endl;
+			cout << " Error in height_item::allocateItem(): out of memory"<< endl;
 		return result;
 	}
 };
@@ -188,9 +188,9 @@ public:
 	virtual void printItemOnScreen()
 	{
 		if (isEmpty())
-			cout << "Item is empty." << endl;
+			cout << "weight_item is empty." << endl;
 		else
-			cout << "Item value is " << getItemVal() << " . " << endl;
+			cout << "weight_item value is " << getItemVal() << " . " << endl;
 	}
 
 	virtual void enterItemFromKeyboard()
@@ -232,7 +232,7 @@ public:
 		// check that it worked
 		if (typecasted_other_item == NULL)
 		{
-			cout << "Other item is not of type integer_item." << endl;
+			cout << "Other item is not of type weight_item." << endl;
 			return false;
 			// items of the wrong type (or null pointers) will be pushed to the end of the list
 		}
@@ -262,7 +262,7 @@ public:
 		if (typecasted_item_ptr == NULL)
 		{
 			// items of the wrong type (or null pointers)
-			cout << "Error in deallocateItem (for integer_item): " << endl << "Other item is not of type integer_item." << endl;
+			cout << "Error in deallocateItem (for weight_item): " << endl << "Other item is not of type weight_item." << endl;
 			return;
 		}
 		delete typecasted_item_ptr;
@@ -271,7 +271,7 @@ public:
 	{
 		weight_item* result = new weight_item;
 		if (result == NULL)
-			cout << " Error in integer_item::allocateItem(): out of memory" << endl;
+			cout << " Error in weight_item::allocateItem(): out of memory" << endl;
 		return result;
 	}
 };
@@ -294,10 +294,10 @@ public:
 	virtual void printItemOnScreen()
 	{
 		if (isEmpty()) {
-			cout << "String is Empty." << endl;
+			cout << "firstname_item is Empty." << endl;
 		}
 		else
-			cout << "String is " << getItemVal() << "." << endl;
+			cout << "firstname_item is " << getItemVal() << "." << endl;
 	}
 
 	virtual void enterItemFromKeyboard()
@@ -316,25 +316,7 @@ public:
 		int i;
 		i = rand() % 13;
 		item_value = firstname[i];
-		/*switch (type) {
-			case 1: 
-				i = rand() % 13;
-				item_value = firstname[i];
-				break;
-			
-			case 2: 
-				i = rand() % 12;
-				item_value = surname[i];
-				break;
-			
-			case 3: 
-				i = rand() % 8;
-				item_value = bloodtype[i];
-				break;
-			
-			default:
-				break;
-		}*/
+		
 		// item filled
 		empty = false;
 	}
@@ -352,7 +334,7 @@ public:
 		// check that it worked
 		if (typecasted_other_item == NULL)
 		{
-			cout << "Other item is not of type string_item." << endl;
+			cout << "Other item is not of type firstname_item." << endl;
 			return false;
 			// items of the wrong type (or null pointers) will be pushed to the end of the list
 		}
@@ -383,7 +365,7 @@ public:
 		if (typecasted_item_ptr == NULL)
 		{
 			// items of the wrong type (or null pointers)
-			cout << "Error in deallocateItem (for string_item): " << endl << "Other item is not of type string_item." << endl;
+			cout << "Error in deallocateItem (for firstname_item): " << endl << "Other item is not of type firstname_item." << endl;
 			return;
 		}
 		delete typecasted_item_ptr;
@@ -393,7 +375,7 @@ public:
 	{
 		firstname_item* result = new firstname_item;
 		if (result == NULL)
-			cout << " Error in string_item::allocateItem(): out of memory" << endl;
+			cout << " Error in firstname_item::allocateItem(): out of memory" << endl;
 		return result;
 	}
 
@@ -419,10 +401,10 @@ public:
 	virtual void printItemOnScreen()
 	{
 		if (isEmpty()) {
-			cout << "String is Empty." << endl;
+			cout << "surname_item is Empty." << endl;
 		}
 		else
-			cout << "String is " << getItemVal() << "." << endl;
+			cout << "surname_item " << getItemVal() << "." << endl;
 	}
 
 	virtual void enterItemFromKeyboard()
@@ -441,25 +423,7 @@ public:
 		int i;
 		i = rand() % 12;
 		item_value = surname[i];
-		/*switch (type) {
-			case 1:
-				i = rand() % 13;
-				item_value = firstname[i];
-				break;
-
-			case 2:
-				i = rand() % 12;
-				item_value = surname[i];
-				break;
-
-			case 3:
-				i = rand() % 8;
-				item_value = bloodtype[i];
-				break;
-
-			default:
-				break;
-		}*/
+		
 		// item filled
 		empty = false;
 	}
@@ -477,7 +441,7 @@ public:
 		// check that it worked
 		if (typecasted_other_item == NULL)
 		{
-			cout << "Other item is not of type string_item." << endl;
+			cout << "Other item is not of type surname_item." << endl;
 			return false;
 			// items of the wrong type (or null pointers) will be pushed to the end of the list
 		}
@@ -508,7 +472,7 @@ public:
 		if (typecasted_item_ptr == NULL)
 		{
 			// items of the wrong type (or null pointers)
-			cout << "Error in deallocateItem (for string_item): " << endl << "Other item is not of type string_item." << endl;
+			cout << "Error in deallocateItem (for surname_item): " << endl << "Other item is not of type surname_item." << endl;
 			return;
 		}
 		delete typecasted_item_ptr;
@@ -518,7 +482,7 @@ public:
 	{
 		surname_item* result = new surname_item;
 		if (result == NULL)
-			cout << " Error in string_item::allocateItem(): out of memory" << endl;
+			cout << " Error in surname_item::allocateItem(): out of memory" << endl;
 		return result;
 	}
 
@@ -544,10 +508,10 @@ public:
 	virtual void printItemOnScreen()
 	{
 		if (isEmpty()) {
-			cout << "String is Empty." << endl;
+			cout << "bloodtype_item is Empty." << endl;
 		}
 		else
-			cout << "String is " << getItemVal() << "." << endl;
+			cout << "bloodtype_item is " << getItemVal() << "." << endl;
 	}
 
 	virtual void enterItemFromKeyboard()
@@ -566,25 +530,7 @@ public:
 		int i;
 		i = rand() % 8;
 		item_value = bloodtype[i];
-		/*switch (type) {
-			case 1:
-				i = rand() % 13;
-				item_value = firstname[i];
-				break;
-
-			case 2:
-				i = rand() % 12;
-				item_value = surname[i];
-				break;
-
-			case 3:
-				i = rand() % 8;
-				item_value = bloodtype[i];
-				break;
-
-			default:
-				break;
-		}*/
+		
 		// item filled
 		empty = false;
 	}
@@ -602,7 +548,7 @@ public:
 		// check that it worked
 		if (typecasted_other_item == NULL)
 		{
-			cout << "Other item is not of type string_item." << endl;
+			cout << "Other item is not of type bloodtype_item." << endl;
 			return false;
 			// items of the wrong type (or null pointers) will be pushed to the end of the list
 		}
@@ -633,7 +579,7 @@ public:
 		if (typecasted_item_ptr == NULL)
 		{
 			// items of the wrong type (or null pointers)
-			cout << "Error in deallocateItem (for string_item): " << endl << "Other item is not of type string_item." << endl;
+			cout << "Error in deallocateItem (for bloodtype_item): " << endl << "Other item is not of type bloodtype_item." << endl;
 			return;
 		}
 		delete typecasted_item_ptr;
@@ -643,7 +589,7 @@ public:
 	{
 		bloodtype_item* result = new bloodtype_item;
 		if (result == NULL)
-			cout << " Error in string_item::allocateItem(): out of memory" << endl;
+			cout << " Error in bloodtype_item::allocateItem(): out of memory" << endl;
 		return result;
 	}
 

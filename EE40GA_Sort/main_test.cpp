@@ -12,7 +12,7 @@ void test_array(int array_size, basic_item* ref_item)
 {
 	basic_sort_criteria srt_crt(true);
 	general_array test_array;	
-	ref_item->setDataSortType(FIRSTNAME);
+	
 	// attach the "integer item" as referecen item
 	test_array.attachRefrenceItem(ref_item);
 	// now allocate the array	
