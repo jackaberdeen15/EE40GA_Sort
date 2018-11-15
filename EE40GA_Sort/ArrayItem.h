@@ -22,6 +22,8 @@ template <class Base, class Derived> Derived* typecastItem(Base* basic_ptr, Deri
 }
 //////
 
+typedef enum {FIRSTNAME, SURNAME, BLOODTYPE, HEIGHT, WEIGHT} data_sort_type;
+
 
 // this is the base version of an object that holds the information about sorting ctiteria.
 // for simple array items: the options "ascending/descending" affred here suffice.
@@ -31,15 +33,15 @@ class basic_sort_criteria{
 protected:
 	bool ascending;
 	void basic_initialization(){setAscending(true);}
+	//int field_type=0;
 public:
 	basic_sort_criteria(){basic_initialization();}
 	basic_sort_criteria(bool value){setAscending(value);}
 	void setAscending(bool value){ascending=value;}
 	bool getAscending(){return ascending;}	
+	//void set_field_sort_type(int type) { field_type = type; }
 };
-
-
-
+//parent item
 class basic_item{
 protected:
 	bool empty;
@@ -68,7 +70,7 @@ public:
 
 };
 
-// height item
+// height item child
 class height_item: public basic_item{
 protected:
 	int item_value;
@@ -171,8 +173,7 @@ public:
 	}
 };
 
-
-//weight item
+//weight item child
 class weight_item: public basic_item{
 protected:
 	int item_value;
@@ -275,7 +276,7 @@ public:
 	}
 };
 
-//class to use string items
+//class to use firstnames child
 class firstname_item : public basic_item {
 protected:
 	string item_value;
@@ -400,7 +401,7 @@ public:
 
 };
 
-
+//class for surnames child
 class surname_item : public basic_item {
 protected:
 	string item_value;
@@ -525,6 +526,7 @@ public:
 
 };
 
+//class for bloodtypes child
 class bloodtype_item : public basic_item {
 protected:
 	string item_value;
@@ -649,21 +651,18 @@ public:
 
 };
 
-class composite_item : public: basic_item {
+class composite_item : public basic_item {
 protected:
 	height_item h_item;
 	weight_item w_item;
 	firstname_item fn_item;
 	surname_item sn_item;
 	bloodtype_item bt_item;
+	data_sort_type data_sorting_type=FIRSTNAME;
 
 public:
 	composite_item() { ; }
 	~composite_item() { ; }
-
-	basic_item getItemVal() {
-
-	}
 
 	virtual void printItemOnScreen()
 	{
@@ -677,28 +676,77 @@ public:
 
 	virtual void enterItemFromKeyboard()
 	{
-		
+		h_item.enterItemFromKeyboard();
+		w_item.enterItemFromKeyboard();
+		fn_item.enterItemFromKeyboard();
+		sn_item.enterItemFromKeyboard();
+		bt_item.enterItemFromKeyboard();
 	}
 
 	//function to get random string from the protected
 	virtual void generateRandomItem()//1 is firstname, 2 is surname, 3 is blood type
 	{
-		
+		h_item.generateRandomItem();
+		w_item.generateRandomItem();
+		fn_item.generateRandomItem();
+		sn_item.generateRandomItem();
+		bt_item.generateRandomItem();
 	}
 
 	virtual bool IsLargerThan(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
 	{
+		bool result = false;
+
+		switch (data_sorting_type)
+		{
+		case HEIGHT:
+			cout << "Item is height" << endl;
+			result = h_item.IsLargerThan(other_item, sort_criteria);
+			break;
+		case WEIGHT:
+			cout << "Item is weight" << endl;
+			result = w_item.IsLargerThan(other_item, sort_criteria);
+			break;
+		case FIRSTNAME:
+			cout << "Item is firstname" << endl;
+			result = fn_item.IsLargerThan(other_item, sort_criteria);
+			break;
+		case SURNAME:
+			cout << "Item is surname" << endl;
+			result = sn_item.IsLargerThan(other_item, sort_criteria);
+			break;
+		case BLOODTYPE:
+			cout << "Item is bloodtype" << endl;
+			result = h_item.IsLargerThan(other_item, sort_criteria);
+			break;
+		default:
+			break;
+		}
 		
+		return result;
+	}
+
+	virtual void setDataSortType(data_sort_type datatype)
+	{
+		data_sorting_type = datatype;
 	}
 
 	virtual void deallocateItem(basic_item* item_ptr)
 	{
-		
+		h_item.deallocateItem(item_ptr);
+		w_item.deallocateItem(item_ptr);
+		fn_item.deallocateItem(item_ptr);
+		sn_item.deallocateItem(item_ptr);
+		bt_item.deallocateItem(item_ptr);
 	}
 
 	virtual basic_item* allocateItem()
 	{
-		
+		h_item.allocateItem();
+		w_item.allocateItem();
+		fn_item.allocateItem();
+		sn_item.allocateItem();
+		bt_item.allocateItem();
 	}
 
 	//virtual void setstringtype(int i) { type = i; }

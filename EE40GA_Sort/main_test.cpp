@@ -32,7 +32,7 @@ void test_array(int array_size, basic_item* ref_item)
 }
 
 
-int main()
+int main3()
 {
 	int array_size = 10;
 	int temp;	
