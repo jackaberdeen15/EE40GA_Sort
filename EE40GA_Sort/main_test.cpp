@@ -14,12 +14,18 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method)
 	general_array test_array;	
 	
 	// attach the "integer item" as referecen item
+	cout << "Attachting reference..." << endl;
 	test_array.attachRefrenceItem(ref_item);
+	
 	// now allocate the array	
+	cout << "Allocating the array memory..." << endl;
 	test_array.allocateArray(array_size);
+
 	// print content to screen (empty)
+
 	cout << " Array is empty at this time." << endl << endl;
 	test_array.printArrayOnScreen();
+
 	// fill with random items
 	if (data_entry_method == 'r' || data_entry_method == 'R') {
 		cout << endl << " Filling Array with random values." << endl;
@@ -72,11 +78,11 @@ int main()
                 cout << "Error: please enter a valid choice" << endl;
                 return 0;
         }
-		cout << " testing array with composite items: " << endl << endl;
-		test_array(array_size, &ref_comp_item, mode);
-		cout << " done. enter any number to end test." << endl;
-		cin >> temp;
     }
+	cout << " testing array with composite items: " << endl << endl;
+	test_array(array_size, &ref_comp_item, mode);
+	cout << " done. enter any number to end test." << endl;
+	cin >> temp;
     
     return 0;
 }
