@@ -164,6 +164,7 @@ public:
 		}
 		delete typecasted_item_ptr;
 	}
+
 	virtual basic_item* allocateItem()
 	{
 		height_item* result = new height_item;
@@ -599,16 +600,27 @@ public:
 
 class composite_item : public basic_item {
 protected:
+	/*height_item h_item;
+	weight_item w_item;
+	firstname_item fn_item;
+	surname_item sn_item;
+	bloodtype_item bt_item;*/
+	data_sort_type data_sorting_type=HEIGHT;
+
+public:
+	composite_item() { ; }
+	~composite_item() { ; }
+
 	height_item h_item;
 	weight_item w_item;
 	firstname_item fn_item;
 	surname_item sn_item;
 	bloodtype_item bt_item;
-	data_sort_type data_sorting_type=FIRSTNAME;
 
-public:
-	composite_item() { ; }
-	~composite_item() { ; }
+	virtual height_item* return_height_pointer()
+	{
+		return &h_item;
+	}
 
 	virtual void printItemOnScreen()
 	{
@@ -650,7 +662,7 @@ public:
 		{
 		case HEIGHT:
 			cout << "Item is height" << endl;
-			result = h_item.IsLargerThan(other_item, sort_criteria);
+			result = h_item.IsLargerThan( other_item, sort_criteria);
 			break;
 		case WEIGHT:
 			cout << "Item is weight" << endl;
@@ -666,7 +678,7 @@ public:
 			break;
 		case BLOODTYPE:
 			cout << "Item is bloodtype" << endl;
-			result = h_item.IsLargerThan(other_item, sort_criteria);
+			result = bt_item.IsLargerThan(other_item, sort_criteria);
 			break;
 		default:
 			break;
@@ -716,7 +728,7 @@ public:
 	}
 
 	//virtual void setstringtype(int i) { type = i; }
-
+	
 };
 
 #endif

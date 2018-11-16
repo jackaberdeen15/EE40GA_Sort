@@ -8,7 +8,7 @@
 
 
 
-void test_array(int array_size, basic_item* ref_item)
+void test_array(int array_size, basic_item* ref_item, char data_entry_method)
 {
 	basic_sort_criteria srt_crt(true);
 	general_array test_array;	
@@ -21,8 +21,14 @@ void test_array(int array_size, basic_item* ref_item)
 	cout << " Array is empty at this time." << endl << endl;
 	test_array.printArrayOnScreen();
 	// fill with random items
-	cout << endl << " Filling Array with random values." << endl;
-	test_array.fillRandomValueArray();
+	if (data_entry_method == 'r' || data_entry_method == 'R') {
+		cout << endl << " Filling Array with random values." << endl;
+		test_array.fillRandomValueArray();
+	}
+	else if (data_entry_method == 'm' || data_entry_method == 'M') {
+		cout << "Populating database manually" << endl;
+		test_array.enterArrayFromKeyboard();
+	}
 	// print content to screen
 	test_array.printArrayOnScreen();
 	// sort the array 
@@ -57,42 +63,7 @@ int main()
     char mode;
     while (cin.get(mode)) {
         if(mode=='r' || mode == 'R'){
-                cout << "Populating database randomly" << endl;
-            
-				//
-				cout << " testing array with composite items: " << endl << endl;
-				test_array(array_size, &ref_comp_item);
-				cout << " done. enter any number to end test." << endl;
-				cin >> temp;
-
-                //// first test with the inger item
-                //cout << " testing array with integer (positve and negative) items: " << endl << endl;
-                //test_array(array_size, &ref_height_item);
-                //cout << " done. enter any nymber to progress to the next test." << endl;
-                //cin>>temp;
-                //// next test with the negative ingteger item
-                //cout << " testing array with negative only integer items: " << endl << endl;
-                //test_array(array_size, &ref_weight_item);
-                //cout << " done. enter any nymber to progress to the next test." << endl;
-                //cin>>temp;
-                ////finally test with string
-                //cout << " testing array with firstname items: " << endl << endl;
-                //test_array(array_size, &ref_fname_item);
-                //cout << " done. enter any nymber to finish." << endl;
-                //cin >> temp;
-                ////
-                //cout << " testing array with surname items: " << endl << endl;
-                //test_array(array_size, &ref_sname_item);
-                //cout << " done. enter any nymber to finish." << endl;
-                //cin >> temp;
-                ////
-                //cout << " testing array with bloodtype items: " << endl << endl;
-                //test_array(array_size, &ref_btype_item);
-                //cout << " done. enter any nymber to finish." << endl;
-                //cin >> temp;
-            
-            return 0;
-            
+                cout << "Populating database randomly" << endl;            
                 break;
         }else if(mode=='m' || mode == 'M'){
                 cout << "Populating database manually" << endl;
@@ -101,6 +72,10 @@ int main()
                 cout << "Error: please enter a valid choice" << endl;
                 return 0;
         }
+		cout << " testing array with composite items: " << endl << endl;
+		test_array(array_size, &ref_comp_item, mode);
+		cout << " done. enter any number to end test." << endl;
+		cin >> temp;
     }
     
     return 0;
