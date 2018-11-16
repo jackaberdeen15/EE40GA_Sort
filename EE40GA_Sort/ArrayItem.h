@@ -622,6 +622,26 @@ public:
 		return &h_item;
 	}
 
+	virtual weight_item* return_weight_pointer()
+	{
+		return &w_item;
+	}
+
+	virtual firstname_item* return_firstname_pointer()
+	{
+		return &fn_item;
+	}
+
+	virtual surname_item* return_surname_pointer()
+	{
+		return &sn_item;
+	}
+
+	virtual bloodtype_item* return_bloodtype_pointer()
+	{
+		return &bt_item;
+	}
+
 	virtual void printItemOnScreen()
 	{
 		cout << "Print item on screen" << endl;
@@ -658,27 +678,30 @@ public:
 	{
 		bool result = false;
 
+		// first typecast the other item to confimr it is the same as this;
+		composite_item* typecasted_other_item = typecastItem(other_item, this);
+
 		switch (data_sorting_type)
 		{
 		case HEIGHT:
 			cout << "Item is height" << endl;
-			result = h_item.IsLargerThan( other_item, sort_criteria);
+			result = h_item.IsLargerThan(typecasted_other_item->return_height_pointer(), sort_criteria);
 			break;
 		case WEIGHT:
 			cout << "Item is weight" << endl;
-			result = w_item.IsLargerThan(other_item, sort_criteria);
+			result = w_item.IsLargerThan(typecasted_other_item->return_weight_pointer(), sort_criteria);
 			break;
 		case FIRSTNAME:
 			cout << "Item is firstname" << endl;
-			result = fn_item.IsLargerThan(other_item, sort_criteria);
+			result = fn_item.IsLargerThan(typecasted_other_item->return_firstname_pointer(), sort_criteria);
 			break;
 		case SURNAME:
 			cout << "Item is surname" << endl;
-			result = sn_item.IsLargerThan(other_item, sort_criteria);
+			result = sn_item.IsLargerThan(typecasted_other_item->return_surname_pointer(), sort_criteria);
 			break;
 		case BLOODTYPE:
 			cout << "Item is bloodtype" << endl;
-			result = bt_item.IsLargerThan(other_item, sort_criteria);
+			result = bt_item.IsLargerThan(typecasted_other_item->return_bloodtype_pointer(), sort_criteria);
 			break;
 		default:
 			break;
@@ -717,12 +740,6 @@ public:
 		composite_item* result = new composite_item;
 		if (result == NULL)
 			cout << " Error in string_item::allocateItem(): out of memory" << endl;
-		
-		/*h_item->allocateItem();
-		w_item->allocateItem();
-		fn_item->allocateItem();
-		sn_item->allocateItem();
-		bt_item->allocateItem();*/
 
 		return result;
 	}
