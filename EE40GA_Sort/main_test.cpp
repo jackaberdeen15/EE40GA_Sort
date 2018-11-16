@@ -49,16 +49,6 @@ int main()
 {
 	int array_size = 10;
 	int temp;
-	// used as "example item" by the general_array to populate the entire array with integer_item 
-	height_item ref_height_item;
-	// used as "example item" by the general_array to populate the entire array with neg_int_item 
-	weight_item ref_weight_item;
-	// used as "example item" by the general_array to populate the entire array with firstname_item
-	firstname_item ref_fname_item;
-	// used as "example item" by the general_array to populate the entire array with surname_item
-	surname_item ref_sname_item;
-	// used as "example item" by the general_array to populate the entire array with bloodtype_item
-	bloodtype_item ref_btype_item;
 
 	//composite item reference for general array
 	composite_item ref_comp_item;
