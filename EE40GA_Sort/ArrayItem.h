@@ -85,14 +85,14 @@ public:
 	virtual void printItemOnScreen()
 	{
 		if(isEmpty())
-			cout << "height_item is empty." << endl;
+			cout << "\"height_item\" is empty." << endl;
 		else
-			cout << "height_item value is " << getItemVal() << " . " << endl;
+			cout << "Height(Cm): " << getItemVal() << endl;
 	}
 
 	virtual void enterItemFromKeyboard()
 	{
-		cout << "Insert element then hit enter." << endl;
+		cout << "Insert height then hit enter." << endl;
 		cin >> item_value;
 		cout << endl;
 		
@@ -103,15 +103,14 @@ public:
 	virtual void generateRandomItem()
 	{
 		int item;
-		int max_rand_val = 193;
+		item = rand();
+		item = (item % 50);
+		item = item + 140;
 
-		item=rand();
-		item = item % (max_rand_val+1);
+		item_value = item;
 
-		item_value=item;
 		// item filled
-		empty=false;
-		
+		empty = false;
 	}
 	
 	//virtual void loadItemFromFile(FILE* fin);
@@ -189,14 +188,14 @@ public:
 	virtual void printItemOnScreen()
 	{
 		if (isEmpty())
-			cout << "weight_item is empty." << endl;
+			cout << "\"weight_item\" is empty." << endl;
 		else
-			cout << "weight_item value is " << getItemVal() << " . " << endl;
+			cout << "Weight(Kg): " << getItemVal() << endl;
 	}
 
 	virtual void enterItemFromKeyboard()
 	{
-		cout << "Insert element then hit enter." << endl;
+		cout << "Insert weight then hit enter." << endl;
 		cin >> item_value;
 		cout << endl;
 
@@ -207,12 +206,12 @@ public:
 	virtual void generateRandomItem()
 	{
 		int item;
-		int max_rand_val = 120;
-
 		item = rand();
-		item = item % (max_rand_val + 1);
+		item = (item % 91);
+		item = item + 50;
 
 		item_value = item;
+
 		// item filled
 		empty = false;
 
@@ -295,16 +294,16 @@ public:
 	virtual void printItemOnScreen()
 	{
 		if (isEmpty()) {
-			cout << "firstname_item is Empty." << endl;
+			cout << "\"firstname_item\" is Empty." << endl;
 		}
 		else
-			cout << "firstname_item is " << getItemVal() << "." << endl;
+			cout << "Firstname: " << getItemVal() << endl;
 	}
 
 	virtual void enterItemFromKeyboard()
 	{
-		cout << "Insert element then hit enter." << endl;
-		getline(cin, item_value);
+		cout << "Insert first name then hit enter." << endl;
+		cin >> item_value;
 		cout << endl;
 
 		// item filled
@@ -402,16 +401,16 @@ public:
 	virtual void printItemOnScreen()
 	{
 		if (isEmpty()) {
-			cout << "surname_item is Empty." << endl;
+			cout << "\"surname_item\" is Empty." << endl;
 		}
 		else
-			cout << "surname_item " << getItemVal() << "." << endl;
+			cout << "Surname: " << getItemVal() << endl;
 	}
 
 	virtual void enterItemFromKeyboard()
 	{
-		cout << "Insert element then hit enter." << endl;
-		getline(cin, item_value);
+		cout << "Insert surname then hit enter." << endl;
+		cin >> item_value;
 		cout << endl;
 
 		// item filled
@@ -509,16 +508,16 @@ public:
 	virtual void printItemOnScreen()
 	{
 		if (isEmpty()) {
-			cout << "bloodtype_item is Empty." << endl;
+			cout << "\"bloodtype_item\" is Empty." << endl;
 		}
 		else
-			cout << "bloodtype_item is " << getItemVal() << "." << endl;
+			cout << "Bloodtype: " << getItemVal() << endl;
 	}
 
 	virtual void enterItemFromKeyboard()
 	{
-		cout << "Insert element then hit enter." << endl;
-		getline(cin, item_value);
+		cout << "Insert bloodtype then hit enter." << endl;
+		cin >> item_value;
 		cout << endl;
 
 		// item filled
@@ -644,7 +643,7 @@ public:
 
 	virtual void printItemOnScreen()
 	{
-		cout << "Print item on screen" << endl;
+		//cout << "Print item on screen" << endl;
 		h_item.printItemOnScreen();
 		w_item.printItemOnScreen();
 		fn_item.printItemOnScreen();
@@ -655,7 +654,7 @@ public:
 
 	virtual void enterItemFromKeyboard()
 	{
-		cout << "entering items from keyboard"<<endl;
+		//cout << "entering items from keyboard"<<endl;
 		h_item.enterItemFromKeyboard();
 		w_item.enterItemFromKeyboard();
 		fn_item.enterItemFromKeyboard();
@@ -666,7 +665,7 @@ public:
 	//function to get random string from the protected
 	virtual void generateRandomItem()//1 is firstname, 2 is surname, 3 is blood type
 	{
-		cout << "Generating Random Number" << endl;
+		//cout << "Generating Random Number" << endl;
 		h_item.generateRandomItem();
 		w_item.generateRandomItem();
 		fn_item.generateRandomItem();
@@ -684,23 +683,23 @@ public:
 		switch (data_sorting_type)
 		{
 		case HEIGHT:
-			cout << "Item is height" << endl;
+			//cout << "Item is height" << endl;
 			result = h_item.IsLargerThan(typecasted_other_item->return_height_pointer(), sort_criteria);
 			break;
 		case WEIGHT:
-			cout << "Item is weight" << endl;
+			//cout << "Item is weight" << endl;
 			result = w_item.IsLargerThan(typecasted_other_item->return_weight_pointer(), sort_criteria);
 			break;
 		case FIRSTNAME:
-			cout << "Item is firstname" << endl;
+			//cout << "Item is firstname" << endl;
 			result = fn_item.IsLargerThan(typecasted_other_item->return_firstname_pointer(), sort_criteria);
 			break;
 		case SURNAME:
-			cout << "Item is surname" << endl;
+			//cout << "Item is surname" << endl;
 			result = sn_item.IsLargerThan(typecasted_other_item->return_surname_pointer(), sort_criteria);
 			break;
 		case BLOODTYPE:
-			cout << "Item is bloodtype" << endl;
+			//cout << "Item is bloodtype" << endl;
 			result = bt_item.IsLargerThan(typecasted_other_item->return_bloodtype_pointer(), sort_criteria);
 			break;
 		default:

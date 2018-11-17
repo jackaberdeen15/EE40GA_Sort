@@ -279,7 +279,7 @@ public:
 			for(int position=0; position<getMaxSize(); position++)
 			{
 				
-				cout << "Element at position "<< position << " :" << endl;
+				cout << "Element Position: "<< position << " ->" << endl;
 				// print the item, if any
 				if( printItemOnScreen(position) )
 					cout << endl;
@@ -305,7 +305,7 @@ public:
 					if(!curr_item->isEmpty())
 						cout << "Enter value for element at position "<< position << endl;
 					else
-						cout << "Overwrtite value for element at position "<< position << endl;
+						cout << "Overwriting value for element at position "<< position << "..." << endl;
 					curr_item->enterItemFromKeyboard();
 					tot_items++;
 				}
