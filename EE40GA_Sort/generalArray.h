@@ -1,11 +1,7 @@
 #ifndef __GENERALARRAY_H_
 #define __GENERALARRAY_H_
 
-
 #include "ArrayItem.h"
-
-
-
 
 // version with inheritance
 
