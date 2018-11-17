@@ -98,9 +98,15 @@ int main()
     cout << "Enter field to sort by: {0:FIRSTNAME, 1:SURNAME, 2:BLOODTYPE, 3:HEIGHT, 4:WEIGHT}" << endl << endl;
     cin >> field;
 	cout << endl;
-	cout << "How would you like to sort" << endl << "1 = Ascending" << endl << "2 = Descending" << endl << endl;
-	cin >> direction;
-	if (direction == 1||direction==2){
+	if(field==0|| field == 1|| field == 2){
+			cout << "How would you like to sort" << endl << "1 = Ascending = A ---> Z" << endl << "2 = Descending = Z ---> A" << endl << endl;
+			cin >> direction;
+	}
+	else if (field == 3 || field == 4) {
+		cout << "How would you like to sort" << endl << "1 = Ascending = Lowest ---> Highest" << endl << "2 = Descending = Lowest ---> Highest" << endl << endl;
+		cin >> direction;
+	}
+	if (direction == 1 || direction == 2) {
 		if (direction == 1) {
 			directionbool = true;
 		}
@@ -112,7 +118,6 @@ int main()
 		cout << "Error: Please enter a valid choice." << endl << endl;
 		return 0;
 	}
-
 	cout << endl;
 	cout << "Testing array with composite items: " << endl << endl;
 	test_array(array_size, &ref_comp_item, mode, field, directionbool);
