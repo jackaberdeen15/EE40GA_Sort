@@ -37,7 +37,7 @@ protected:
     data_sort_type type =HEIGHT;
 public:
 	basic_sort_criteria(){basic_initialization();}
-	basic_sort_criteria(bool value){setAscending(value);}
+	basic_sort_criteria(bool value){setAscending(value);} //SET DIRECTION HERE
 	void setAscending(bool value){ascending=value;}
 	bool getAscending(){return ascending;}
     

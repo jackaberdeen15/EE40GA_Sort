@@ -3,7 +3,7 @@
 #include "generalArray.h"
 
 //typedef enum {FIRSTNAME, SURNAME, BLOODTYPE, HEIGHT, WEIGHT} data_sort_type;
-void test_array(int array_size, basic_item* ref_item, char data_entry_method, int field)
+void test_array(int array_size, basic_item* ref_item, char data_entry_method, int field, bool direction)
 {
 	basic_sort_criteria srt_crt(true);
 	general_array test_array;
@@ -11,18 +11,23 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
     switch (field){
         case HEIGHT:
             srt_crt.set_data_sort_type(HEIGHT);
+			srt_crt.setAscending(direction);
             break;
         case WEIGHT:
             srt_crt.set_data_sort_type(WEIGHT);
+			srt_crt.setAscending(direction);
             break;
         case BLOODTYPE:
             srt_crt.set_data_sort_type(BLOODTYPE);
+			srt_crt.setAscending(direction);
             break;
         case SURNAME:
             srt_crt.set_data_sort_type(SURNAME);
+			srt_crt.setAscending(direction);
             break;
         case FIRSTNAME:
             srt_crt.set_data_sort_type(FIRSTNAME);
+			srt_crt.setAscending(direction);
             break;
         default:
             break;
@@ -66,6 +71,8 @@ int main()
 	int temp;
 	char mode;
     int field;
+	int direction;
+	bool directionbool;
     //char order;
     
 	composite_item ref_comp_item; 	//composite item reference for general array
@@ -88,11 +95,27 @@ int main()
         cout << "Error: Please enter a valid choice." << endl;
 		return 0;
     }
-    cout << "enter field to sort by {0:FIRSTNAME, 1:SURNAME, 2:BLOODTYPE, 3:HEIGHT, 4:WEIGHT}" << endl;
+    cout << "Enter field to sort by: {0:FIRSTNAME, 1:SURNAME, 2:BLOODTYPE, 3:HEIGHT, 4:WEIGHT}" << endl << endl;
     cin >> field;
-    
+	cout << endl;
+	cout << "How would you like to sort" << endl << "1 = Ascending" << endl << "2 = Descending" << endl << endl;
+	cin >> direction;
+	if (direction == 1||direction==2){
+		if (direction == 1) {
+			directionbool = true;
+		}
+		if (direction == 2) {
+			directionbool = false;
+		}
+	}
+	else {
+		cout << "Error: Please enter a valid choice." << endl << endl;
+		return 0;
+	}
+
+	cout << endl;
 	cout << "Testing array with composite items: " << endl << endl;
-	test_array(array_size, &ref_comp_item, mode, field);
+	test_array(array_size, &ref_comp_item, mode, field, directionbool);
 	cout << "Test Complete." << endl << "Enter any number to end the test." << endl;
 	cin >> temp;
     
