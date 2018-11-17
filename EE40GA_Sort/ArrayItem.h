@@ -34,11 +34,15 @@ protected:
 	bool ascending;
 	void basic_initialization(){setAscending(true);}
 	//int field_type=0;
+    data_sort_type type =HEIGHT;
 public:
 	basic_sort_criteria(){basic_initialization();}
 	basic_sort_criteria(bool value){setAscending(value);}
 	void setAscending(bool value){ascending=value;}
-	bool getAscending(){return ascending;}	
+	bool getAscending(){return ascending;}
+    
+    void set_data_sort_type(data_sort_type value){type=value;};
+    data_sort_type get_data_sort_type(){return type;};
 	//void set_field_sort_type(int type) { field_type = type; }
 };
 //parent item
@@ -604,7 +608,7 @@ protected:
 	firstname_item fn_item;
 	surname_item sn_item;
 	bloodtype_item bt_item;*/
-	data_sort_type data_sorting_type=HEIGHT;
+	//data_sort_type data_sorting_type=HEIGHT;
 
 public:
 	composite_item() { ; }
@@ -679,8 +683,9 @@ public:
 
 		// first typecast the other item to confimr it is the same as this;
 		composite_item* typecasted_other_item = typecastItem(other_item, this);
-
-		switch (data_sorting_type)
+        //data_sorting_type =
+        
+		switch (sort_criteria->get_data_sort_type())
 		{
 		case HEIGHT:
 			//cout << "Item is height" << endl;
@@ -709,10 +714,10 @@ public:
 		return result;
 	}
 
-	virtual void setDataSortType(data_sort_type datatype)
+	/*virtual void setDataSortType(data_sort_type datatype)
 	{
 		data_sorting_type = datatype;
-	}
+	}*/
 
 	virtual void deallocateItem(basic_item* item_ptr)
 	{
