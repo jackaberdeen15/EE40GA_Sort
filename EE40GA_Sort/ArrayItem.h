@@ -23,7 +23,7 @@ template <class Base, class Derived> Derived* typecastItem(Base* basic_ptr, Deri
 //////
 
 typedef enum {FIRSTNAME, SURNAME, BLOODTYPE, HEIGHT, WEIGHT, NATIONALITY, STUDENTID, EMAIL, DEGREE, DOB, CURRENTCGS, PREVIOUSCGS} data_sort_type;
-
+//string path("/Users/willatherton/Desktop/output.csv");
 
 // this is the base version of an object that holds the information about sorting ctiteria.
 // for simple array items: the options "ascending/descending" affred here suffice.
@@ -92,10 +92,12 @@ public:
 	
 	virtual void printItemOnScreen()
 	{
+        
 		if(isEmpty())
 			cout << "\"height_item\" is empty." << endl;
 		else
 			cout << "Height(Cm): " << getItemVal() << endl;
+        
 	}
 
 	virtual void enterItemFromKeyboard()
@@ -2186,7 +2188,15 @@ private:
 
 public:
 	student_record() { ; }
-	~student_record() { ; } 
+	~student_record() { ; }
+    
+    virtual void writeItemToFile(){
+        string path("/Users/willatherton/Desktop/output.csv");
+        std::ofstream outfile;
+        outfile.open(path, std::ios_base::app);
+        outfile << fn_item.getItemVal()<<","<<sn_item.getItemVal()<<","<<bt_item.getItemVal()<<","<< h_item.getItemVal() <<","<< w_item.getItemVal()<<","<< n_item.getItemVal()<<","<<sid_item.getItemVal()<<","<< e_item.getItemVal()<<","<< d_item.getItemVal()<<","<< dob_item.getItemVal()<<ccgs_item.getItemVal()<<","<< pcgs_item.getItemVal()<< endl;
+        //outfile << "test.txt";
+    }
 
 	virtual void printItemOnScreen()
 	{
@@ -2203,6 +2213,7 @@ public:
 		dob_item.printItemOnScreen();
 		ccgs_item.printItemOnScreen();
 		pcgs_item.printItemOnScreen();
+        writeItemToFile();
 	}
 
 	virtual void enterItemFromKeyboard()
