@@ -2727,6 +2727,10 @@ public:
 			//cout << "Item is previous cgs grade" << endl;
 			pcgs_item.enterItemFromKeyboard();
 			break;
+		case YEAR:
+			//cout << "Item is previous cgs grade" << endl;
+			y_item.enterItemFromKeyboard(); 
+			break;
 		default:
 			break;
 		}
@@ -2735,3 +2739,6 @@ public:
 
 };
 #endif
+
+
+//this is too many lines to try and bugfix through, please euthanise me.
