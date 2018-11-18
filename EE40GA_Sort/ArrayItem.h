@@ -2459,5 +2459,63 @@ public:
 		return result;
 	}
 
+	virtual void AssignSpeificItem(basic_sort_criteria* sort_criteria = NULL)
+	{
+		switch (sort_criteria->get_data_sort_type())
+		{
+		case HEIGHT:
+			//cout << "Item is height" << endl;
+			h_item.enterItemFromKeyboard();
+			break;
+		case WEIGHT:
+			//cout << "Item is weight" << endl;
+			w_item.enterItemFromKeyboard();
+			break;
+		case FIRSTNAME:
+			//cout << "Item is firstname" << endl;
+			fn_item.enterItemFromKeyboard();
+			break;
+		case SURNAME:
+			//cout << "Item is surname" << endl;
+			sn_item.enterItemFromKeyboard();
+			break;
+		case BLOODTYPE:
+			//cout << "Item is bloodtype" << endl;
+			bt_item.enterItemFromKeyboard();
+			break;
+		case NATIONALITY:
+			//cout << "Item is nationality" << endl;
+			n_item.enterItemFromKeyboard();
+			break;
+		case STUDENTID:
+			//cout << "Item is student id" << endl;
+			sid_item.enterItemFromKeyboard();
+			break;
+		case EMAIL:
+			//cout << "Item is email address" << endl;
+			e_item.enterItemFromKeyboard();
+			break;
+		case DEGREE:
+			//cout << "Item is degree programme" << endl;
+			d_item.enterItemFromKeyboard();
+			break;
+		case DOB:
+			//cout << "Item is date of birth" << endl;
+			dob_item.enterItemFromKeyboard();
+			break;
+		case CURRENTCGS:
+			//cout << "Item is current cgs grade" << endl;
+			ccgs_item.enterItemFromKeyboard();
+			break;
+		case PREVIOUSCGS:
+			//cout << "Item is previous cgs grade" << endl;
+			pcgs_item.enterItemFromKeyboard();
+			break;
+		default:
+			break;
+		}
+
+	}
+
 };
 #endif

@@ -333,11 +333,12 @@ public:
 
 	void findItemsWithinRange(basic_item* min_item, basic_item* max_item, basic_sort_criteria* sort_criteria_ptr = NULL)
 	{
-		if (max_item <= min_item)
+
+		/*if (max_item <= min_item)
 		{ 
 			cout << "Invalid Range Selected" << endl;
 			return; 
-		}
+		}*/
 		for (int loop_index = 0; loop_index < getMaxSize() - 1; loop_index++)
 		{
 			for (int curr_index = 0; curr_index < getMaxSize() - 1; curr_index++)
@@ -350,12 +351,12 @@ public:
 				{
 					if (curr_item->IsLargerThan(max_item, sort_criteria_ptr))
 					{
-						deallocateSpecificItem(curr_item);//removes item from general array
+						//deallocateSpecificItem(curr_item);//removes item from general array
 						element_out_of_range = true;
 					}
-					else if (curr_item->IsSmallerThan(max_item, sort_criteria_ptr))
+					else if (curr_item->IsSmallerThan(min_item, sort_criteria_ptr))
 					{
-						deallocateSpecificItem(curr_item);//removes item from general array
+						//deallocateSpecificItem(curr_item);//removes item from general array
 						element_out_of_range = true;
 					}
 				}
