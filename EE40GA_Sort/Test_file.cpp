@@ -3,7 +3,7 @@
 
 int main2()
 {
-	degree_item dob;
+	student_record dob;
 	
 
 	dob.generateRandomItem();

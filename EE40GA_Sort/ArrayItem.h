@@ -1428,14 +1428,9 @@ public:
 		if (typecasted_item_ptr == NULL)
 		{
 			// items of the wrong type (or null pointers)
-			cout << "Error in deallocateItem (for string_item): " << endl << "Other item is not of type string_item." << endl;
+			cout << "Error in deallocateItem (for composite_item): " << endl << "Other item is not of type composite_item." << endl;
 			return;
 		}
-		/*h_item.deallocateItem(item_ptr);
-		w_item.deallocateItem(item_ptr);
-		fn_item.deallocateItem(item_ptr);
-		sn_item.deallocateItem(item_ptr);
-		bt_item.deallocateItem(item_ptr);*/
 		delete typecasted_item_ptr;
 	}
 
@@ -1491,6 +1486,7 @@ private:
 	virtual currentcgs_item* return_currentcgs_pointer() { return &ccgs_item; }
 
 	virtual pastcgs_item* return_previouscgs_pointer() { return &pcgs_item; }
+
 public:
 	student_record() { ; }
 	~student_record() { ; } 
@@ -1626,20 +1622,15 @@ public:
 		if (typecasted_item_ptr == NULL)
 		{
 			// items of the wrong type (or null pointers)
-			cout << "Error in deallocateItem (for string_item): " << endl << "Other item is not of type string_item." << endl;
+			cout << "Error in deallocateItem (for student_record_item): " << endl << "Other item is not of type student_record_item." << endl;
 			return;
 		}
-		/*h_item.deallocateItem(item_ptr);
-		w_item.deallocateItem(item_ptr);
-		fn_item.deallocateItem(item_ptr);
-		sn_item.deallocateItem(item_ptr);
-		bt_item.deallocateItem(item_ptr);*/
 		delete typecasted_item_ptr;
 	}
 
 	virtual basic_item* allocateItem()
 	{
-		composite_item* result = new composite_item;
+		student_record* result = new student_record;
 		if (result == NULL)
 			cout << " Error in string_item::allocateItem(): out of memory" << endl;
 

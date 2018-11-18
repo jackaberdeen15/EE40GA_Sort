@@ -28,6 +28,34 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
             srt_crt.set_data_sort_type(FIRSTNAME);
 			srt_crt.setAscending(direction);
             break;
+		case NATIONALITY:
+			srt_crt.set_data_sort_type(NATIONALITY);
+			srt_crt.setAscending(direction);
+			break;
+		case STUDENTID:
+			srt_crt.set_data_sort_type(STUDENTID);
+			srt_crt.setAscending(direction);
+			break;
+		case EMAIL:
+			srt_crt.set_data_sort_type(EMAIL);
+			srt_crt.setAscending(direction);
+			break;
+		case DEGREE:
+			srt_crt.set_data_sort_type(DEGREE);
+			srt_crt.setAscending(direction);
+			break;
+		case DOB:
+			srt_crt.set_data_sort_type(DOB);
+			srt_crt.setAscending(direction);
+			break;
+		case CURRENTCGS:
+			srt_crt.set_data_sort_type(CURRENTCGS);
+			srt_crt.setAscending(direction);
+			break;
+		case PREVIOUSCGS:
+			srt_crt.set_data_sort_type(PREVIOUSCGS);
+			srt_crt.setAscending(direction);
+			break;
         default:
             break;
             
@@ -74,7 +102,7 @@ int main()
 	bool directionbool;
     //char order;
     
-	student_record ref_comp_item; 	//composite item reference for general array
+	student_record ref_item; 	//composite item reference for general array
 	cout << "How many records would you like to create?" << endl;
 	cin >> array_size;
 	cout << endl;
@@ -94,14 +122,14 @@ int main()
         cout << "Error: Please enter a valid choice." << endl;
 		return 0;
     }
-    cout << "Enter field to sort by: {0:FIRSTNAME, 1:SURNAME, 2:BLOODTYPE, 3:HEIGHT, 4:WEIGHT}" << endl << endl;
+    cout << "Enter field to sort by: {0:FIRSTNAME, 1:SURNAME, 2:BLOODTYPE, 3:HEIGHT, 4:WEIGHT, 5:NATIONALITY, 6:STUDENT ID, 7:EMAIL, 8:DEGREE, 9:DOB, 10:CURRENT CGS, 11:PREVIOUS CGS}" << endl << endl;
     cin >> field;
 	cout << endl;
-	if(field==0|| field == 1|| field == 2){
+	if(field==0 || field == 1 || field == 2 ||field==6 || field==10 || field==11 ){
 			cout << "How would you like to sort" << endl << "1 = Ascending = A ---> Z" << endl << "2 = Descending = Z ---> A" << endl << endl;
 			cin >> direction;
 	}
-	else if (field == 3 || field == 4) {
+	else if (field == 3 || field == 4 || field==5 || field==7 || field==8 || field==9 ) {
 		cout << "How would you like to sort" << endl << "1 = Ascending = Lowest ---> Highest" << endl << "2 = Descending = Highest ---> Lowest" << endl << endl;
 		cin >> direction;
 	}
@@ -119,7 +147,7 @@ int main()
 	}
 	cout << endl;
 	cout << "Testing array with composite items: " << endl << endl;
-	test_array(array_size, &ref_comp_item, mode, field, directionbool);
+	test_array(array_size, &ref_item, mode, field, directionbool);
 	cout << "Test Complete." << endl << "Enter any number to end the test." << endl;
 	cin >> temp;
     
