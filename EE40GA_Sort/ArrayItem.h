@@ -1376,13 +1376,6 @@ public:
 		sn_item.generateRandomItem();
 		bt_item.generateRandomItem();
 		bt_item.generateRandomItem();
-		nat_item.generateRandomItem();
-		id_item.generateRandomItem();
-		eml_item.generateRandomItem();
-		dgr_item.generateRandomItem();
-		dob_item.generateRandomItem();
-		cur_item.generateRandomItem();
-		pst_item.generateRandomItem();
 	}
 
 	virtual bool IsLargerThan(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
