@@ -2504,7 +2504,7 @@ public:
 			break;
 		case YEAR:
 			//cout << "Item is previous cgs grade" << endl;
-			result = y_item.IsLargerThan(typecasted_other_item->return_previouscgs_pointer(), sort_criteria);
+			result = y_item.IsLargerThan(typecasted_other_item->return_year_pointer(), sort_criteria);
 			break;
 		default:
 			break;
@@ -2573,7 +2573,7 @@ public:
                 break;
 			case YEAR:
 				//cout << "Item is previous cgs grade" << endl;
-				result = y_item.IsSmallerThan(typecasted_other_item->return_previouscgs_pointer(), sort_criteria);
+				result = y_item.IsSmallerThan(typecasted_other_item->return_year_pointer(), sort_criteria);
 				break;
             default:
                 break;
@@ -2642,7 +2642,7 @@ public:
 			break;
 		case YEAR:
 			//cout << "Item is previous cgs grade" << endl;
-			result = y_item.IsEqualTo(typecasted_other_item->return_previouscgs_pointer(), sort_criteria);
+			result = y_item.IsEqualTo(typecasted_other_item->return_year_pointer(), sort_criteria);
 			break;
 		default:
 			break;
