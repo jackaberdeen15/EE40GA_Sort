@@ -601,7 +601,7 @@ public:
 
 };
 
-//class for nationality child
+//class for nationality child //i dont think we represent enough nationalities here
 class nationality_item : public basic_item {
 protected:
 	string item_value;
@@ -708,13 +708,13 @@ public:
 //class for studentid child
 class studentid_item : public basic_item {
 protected:
-	string item_value;
+	int item_value;
 
 public:
 	studentid_item() { ; }
 	~studentid_item() { ; }
 
-	string getItemVal() { return item_value; }
+	int getItemVal() { return item_value; }
 
 	virtual void printItemOnScreen()
 	{
@@ -739,7 +739,7 @@ public:
 	virtual void generateRandomItem()
 	{
 		int i;
-		i = rand() % 100000000;   //This is a trash way to generate a student ID, look into replacing with 8 randomly generated values chained into a string.
+		i = 51550000 + rand() % 9999;   //This is a trash way to generate a student ID, look into replacing with 8 randomly generated values chained into a string.
 		item_value = i;
 
 		// item filled
@@ -765,7 +765,7 @@ public:
 		}
 
 		// now verify if the other item is larger than the curren
-		if ((getItemVal().compare(typecasted_other_item->getItemVal()) > 0))
+		if (getItemVal()>typecasted_other_item->getItemVal())
 			result = true;
 
 
@@ -812,7 +812,7 @@ public:
 class email_item : public basic_item {
 protected:
 	string item_value;
-	string emailpre[13] = { "Chad", "Kronisford", "Jack", "Will", "Tom", "Gerald", "Bertram", "Chowdrey", "Alistair", "Benisford", "Gideon", "Quarian", "Magnus" };
+	string emailpre[13] = { "Chad1997", "Kiehop", "PwNzEr", "Watty", "Custard90", "Fernando", "LotRFan83", "Winelover67", "Henry", "Swansong89", "Kush420", "IsThisLoss", "JollyRoger" };
 	string emailsuf[9] = {"@hotmail.co.uk","@hotmail.com","@yahoo.co.uk","@yahoo.com","@abdn.ac.uk", "@aberdeen.ac.uk" ,"@gmail.co.uk","@gmail.com","@icloud.com"};
 public:
 	email_item() { ; }
@@ -952,7 +952,7 @@ public:
 		int j;
 		i = rand() % 2;
 		j = rand() % 6;
-		item_value = degreepre[i] + degreesuf[j]; // Does this actually work? I feel like it shouldn't...
+		item_value = degreepre[i] + " " + degreesuf[j]; // Does this actually work? I feel like it shouldn't...
 
 		// item filled
 		empty = false;
@@ -1053,8 +1053,10 @@ public:
 	//function to get random string from the protected
 	virtual void generateRandomItem()
 	{
-		int i;
-		item_value = "19.04.1994";
+		int day = (rand() % 30);
+		int month = rand() % 12;
+		int year = 1950 + rand() % 68;
+		item_value = to_string(day) + "." + to_string(month) + "." + to_string(year);
 		// item filled
 		empty = false;
 	}
@@ -1124,13 +1126,13 @@ public:
 //class for current cgs child
 class currentcgs_item : public basic_item {
 protected:
-	string item_value;
+	int item_value;
 
 public:
 	currentcgs_item() { ; }
 	~currentcgs_item() { ; }
 
-	string getItemVal() { return item_value; }
+	int getItemVal() { return item_value; }
 
 	virtual void printItemOnScreen()
 	{
@@ -1178,7 +1180,7 @@ public:
 		}
 
 		// now verify if the other item is larger than the curren
-		if ((getItemVal().compare(typecasted_other_item->getItemVal()) > 0))
+		if (getItemVal()>typecasted_other_item->getItemVal())
 			result = true;
 
 
@@ -1224,13 +1226,13 @@ public:
 //class for past cgs child
 class pastcgs_item : public basic_item {
 protected:
-	string item_value;
+	int item_value;
 
 public:
 	pastcgs_item() { ; }
 	~pastcgs_item() { ; }
 
-	string getItemVal() { return item_value; }
+	int getItemVal() { return item_value; }
 
 	virtual void printItemOnScreen()
 	{
@@ -1278,7 +1280,7 @@ public:
 		}
 
 		// now verify if the other item is larger than the curren
-		if ((getItemVal().compare(typecasted_other_item->getItemVal()) > 0))
+		if (getItemVal()>typecasted_other_item->getItemVal())
 			result = true;
 
 

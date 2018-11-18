@@ -102,7 +102,7 @@ int main()
 			cin >> direction;
 	}
 	else if (field == 3 || field == 4) {
-		cout << "How would you like to sort" << endl << "1 = Ascending = Lowest ---> Highest" << endl << "2 = Descending = Lowest ---> Highest" << endl << endl;
+		cout << "How would you like to sort" << endl << "1 = Ascending = Lowest ---> Highest" << endl << "2 = Descending = Highest ---> Lowest" << endl << endl;
 		cin >> direction;
 	}
 	if (direction == 1 || direction == 2) {
