@@ -1735,7 +1735,6 @@ public:
 
 };
 
-
 class student_record : public basic_item {
 protected:
 	height_item h_item;
@@ -1962,11 +1961,6 @@ public:
 		return result;
 	}
 
-	/*virtual void setDataSortType(data_sort_type datatype)
-	{
-		data_sorting_type = datatype;
-	}*/
-
 	virtual void deallocateItem(basic_item* item_ptr)
 	{
 		// first typecast the other item to confimr it is the same as this;
@@ -1990,8 +1984,6 @@ public:
 
 		return result;
 	}
-
-	//virtual void setstringtype(int i) { type = i; }
 
 };
 #endif

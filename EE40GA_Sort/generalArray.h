@@ -330,6 +330,27 @@ public:
 			}
 		}		
 	}
+
+	void findItemsWithinRange(basic_item* min_item, basic_item* max_item, basic_sort_criteria* sort_criteria_ptr = NULL)
+	{
+		for (int loop_index = 0; loop_index < getMaxSize() - 1; loop_index++)
+		{
+			for (int curr_index = 0; curr_index < getMaxSize() - 1; curr_index++)
+			{
+				bool comparison_result = true;
+				basic_item* curr_item = getElementPtr(curr_index);
+				basic_item* next_item = getElementPtr(curr_index + 1);
+
+				// in case there are "empty (non allocated) items"
+				if (curr_item != NULL)
+					if (curr_item->IsLargerThan(max_item, sort_criteria_ptr)) { deallocateSpecificItem(curr_item); }
+					if (curr_item->IsLargerThan(max_item, sort_criteria_ptr)) { deallocateSpecificItem(curr_item); }
+
+				if (comparison_result)
+					swapElements(curr_index, curr_index + 1);
+			}
+		}
+	}
 	//
 	void bubblesort(basic_sort_criteria* sort_criteria_ptr=NULL)
 	{
