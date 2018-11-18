@@ -408,6 +408,7 @@ public:
 		
 		for(int loop_index=0; loop_index<getMaxSize()-1; loop_index++)
 		{
+			bool swapped = false;
 			for(int curr_index=0; curr_index<getMaxSize()-1; curr_index++)
 			{
 				bool comparison_result=true;
@@ -418,9 +419,14 @@ public:
 				if(curr_item!=NULL)
 					comparison_result=curr_item->IsLargerThan(next_item, sort_criteria_ptr);
 				
-				if(comparison_result)
-					swapElements(curr_index, curr_index+1);
+				if (comparison_result)
+				{
+					swapElements(curr_index, curr_index + 1);
+					swapped = true;
+				}
+					
 			}
+			if (!swapped) break;
 		}
 	}
 	void mergesort(basic_sort_criteria* sort_criteria=NULL)
