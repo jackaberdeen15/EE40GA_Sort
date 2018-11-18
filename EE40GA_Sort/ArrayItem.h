@@ -67,6 +67,8 @@ public:
 	// Needed for sorting; the second paratmer holds the information about soritng ctireria;
 	// If you do not supply a second parameter, a default option (simple ascending sorting) is assumed 
 	virtual bool IsLargerThan(basic_item* other_item, basic_sort_criteria* sort_criteria=NULL)=0;
+    //is smaller than
+    virtual bool IsSmallerThan(basic_item* other_item, basic_sort_criteria* sort_criteria=NULL)=0;
 
 	virtual bool IsEqualTo(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL) = 0;
 
@@ -154,6 +156,40 @@ public:
 
 		return result;
 	}
+    
+    virtual bool IsSmallerThan(basic_item* other_item, basic_sort_criteria* sort_criteria=NULL)
+    {
+        bool result=false;
+        // if the other item is "empty" (non allocated) don't do any comparison
+        if(other_item==NULL)
+            return false;
+        
+        // first typecast the other item to confimr it is the same as this;
+        height_item* typecasted_other_item = typecastItem(other_item, this);
+        
+        // check that it worked
+        if(typecasted_other_item==NULL)
+        {
+            cout << "Other item is not of type height_item." << endl;
+            return false;
+            // items of the wrong type (or null pointers) will be pushed to the end of the list
+        }
+        
+        // now verify if the other item is larger than the curren
+        if( getItemVal() < (typecasted_other_item->getItemVal()) )
+            result=true;
+        
+        
+        // chek if there are sorting options to apply
+        if(sort_criteria!=NULL)
+        {
+            // if sorting is in descending order the result is reversed
+            if( !( sort_criteria->getAscending() ) )
+                result=!result;
+        }
+        
+        return result;
+    }
 
 	virtual bool IsEqualTo(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
 	{
@@ -292,6 +328,40 @@ public:
 
 		return result;
 	}
+    
+    virtual bool IsSmallerThan(basic_item* other_item, basic_sort_criteria* sort_criteria=NULL)
+    {
+        bool result=false;
+        // if the other item is "empty" (non allocated) don't do any comparison
+        if(other_item==NULL)
+            return false;
+        
+        // first typecast the other item to confimr it is the same as this;
+        weight_item* typecasted_other_item = typecastItem(other_item, this);
+        
+        // check that it worked
+        if(typecasted_other_item==NULL)
+        {
+            cout << "Other item is not of type height_item." << endl;
+            return false;
+            // items of the wrong type (or null pointers) will be pushed to the end of the list
+        }
+        
+        // now verify if the other item is larger than the curren
+        if( getItemVal() < (typecasted_other_item->getItemVal()) )
+            result=true;
+        
+        
+        // chek if there are sorting options to apply
+        if(sort_criteria!=NULL)
+        {
+            // if sorting is in descending order the result is reversed
+            if( !( sort_criteria->getAscending() ) )
+                result=!result;
+        }
+        
+        return result;
+    }
 
 	virtual bool IsEqualTo(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
 	{
@@ -429,6 +499,40 @@ public:
 
 		return result;
 	}
+    
+    virtual bool IsSmallerThan(basic_item* other_item, basic_sort_criteria* sort_criteria=NULL)
+    {
+        bool result=false;
+        // if the other item is "empty" (non allocated) don't do any comparison
+        if(other_item==NULL)
+            return false;
+        
+        // first typecast the other item to confimr it is the same as this;
+        firstname_item* typecasted_other_item = typecastItem(other_item, this);
+        
+        // check that it worked
+        if(typecasted_other_item==NULL)
+        {
+            cout << "Other item is not of type height_item." << endl;
+            return false;
+            // items of the wrong type (or null pointers) will be pushed to the end of the list
+        }
+        
+        // now verify if the other item is larger than the curren
+        if( getItemVal() < (typecasted_other_item->getItemVal()) )
+            result=true;
+        
+        
+        // chek if there are sorting options to apply
+        if(sort_criteria!=NULL)
+        {
+            // if sorting is in descending order the result is reversed
+            if( !( sort_criteria->getAscending() ) )
+                result=!result;
+        }
+        
+        return result;
+    }
 
 	virtual bool IsEqualTo(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
 	{
@@ -570,6 +674,40 @@ public:
 
 		return result;
 	}
+    
+    virtual bool IsSmallerThan(basic_item* other_item, basic_sort_criteria* sort_criteria=NULL)
+    {
+        bool result=false;
+        // if the other item is "empty" (non allocated) don't do any comparison
+        if(other_item==NULL)
+            return false;
+        
+        // first typecast the other item to confimr it is the same as this;
+        surname_item* typecasted_other_item = typecastItem(other_item, this);
+        
+        // check that it worked
+        if(typecasted_other_item==NULL)
+        {
+            cout << "Other item is not of type height_item." << endl;
+            return false;
+            // items of the wrong type (or null pointers) will be pushed to the end of the list
+        }
+        
+        // now verify if the other item is larger than the curren
+        if( getItemVal() < (typecasted_other_item->getItemVal()) )
+            result=true;
+        
+        
+        // chek if there are sorting options to apply
+        if(sort_criteria!=NULL)
+        {
+            // if sorting is in descending order the result is reversed
+            if( !( sort_criteria->getAscending() ) )
+                result=!result;
+        }
+        
+        return result;
+    }
 
 	virtual bool IsEqualTo(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
 	{
@@ -711,6 +849,40 @@ public:
 
 		return result;
 	}
+    
+    virtual bool IsSmallerThan(basic_item* other_item, basic_sort_criteria* sort_criteria=NULL)
+    {
+        bool result=false;
+        // if the other item is "empty" (non allocated) don't do any comparison
+        if(other_item==NULL)
+            return false;
+        
+        // first typecast the other item to confimr it is the same as this;
+        bloodtype_item* typecasted_other_item = typecastItem(other_item, this);
+        
+        // check that it worked
+        if(typecasted_other_item==NULL)
+        {
+            cout << "Other item is not of type height_item." << endl;
+            return false;
+            // items of the wrong type (or null pointers) will be pushed to the end of the list
+        }
+        
+        // now verify if the other item is larger than the curren
+        if( getItemVal() < (typecasted_other_item->getItemVal()) )
+            result=true;
+        
+        
+        // chek if there are sorting options to apply
+        if(sort_criteria!=NULL)
+        {
+            // if sorting is in descending order the result is reversed
+            if( !( sort_criteria->getAscending() ) )
+                result=!result;
+        }
+        
+        return result;
+    }
 
 	virtual bool IsEqualTo(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
 	{
@@ -849,6 +1021,40 @@ public:
 
 		return result;
 	}
+    
+    virtual bool IsSmallerThan(basic_item* other_item, basic_sort_criteria* sort_criteria=NULL)
+    {
+        bool result=false;
+        // if the other item is "empty" (non allocated) don't do any comparison
+        if(other_item==NULL)
+            return false;
+        
+        // first typecast the other item to confimr it is the same as this;
+        nationality_item* typecasted_other_item = typecastItem(other_item, this);
+        
+        // check that it worked
+        if(typecasted_other_item==NULL)
+        {
+            cout << "Other item is not of type height_item." << endl;
+            return false;
+            // items of the wrong type (or null pointers) will be pushed to the end of the list
+        }
+        
+        // now verify if the other item is larger than the curren
+        if( getItemVal() < (typecasted_other_item->getItemVal()) )
+            result=true;
+        
+        
+        // chek if there are sorting options to apply
+        if(sort_criteria!=NULL)
+        {
+            // if sorting is in descending order the result is reversed
+            if( !( sort_criteria->getAscending() ) )
+                result=!result;
+        }
+        
+        return result;
+    }
 
 	virtual bool IsEqualTo(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
 	{
@@ -986,6 +1192,40 @@ public:
 
 		return result;
 	}
+    
+    virtual bool IsSmallerThan(basic_item* other_item, basic_sort_criteria* sort_criteria=NULL)
+    {
+        bool result=false;
+        // if the other item is "empty" (non allocated) don't do any comparison
+        if(other_item==NULL)
+            return false;
+        
+        // first typecast the other item to confimr it is the same as this;
+        studentid_item* typecasted_other_item = typecastItem(other_item, this);
+        
+        // check that it worked
+        if(typecasted_other_item==NULL)
+        {
+            cout << "Other item is not of type height_item." << endl;
+            return false;
+            // items of the wrong type (or null pointers) will be pushed to the end of the list
+        }
+        
+        // now verify if the other item is larger than the curren
+        if( getItemVal() < (typecasted_other_item->getItemVal()) )
+            result=true;
+        
+        
+        // chek if there are sorting options to apply
+        if(sort_criteria!=NULL)
+        {
+            // if sorting is in descending order the result is reversed
+            if( !( sort_criteria->getAscending() ) )
+                result=!result;
+        }
+        
+        return result;
+    }
 
 	virtual bool IsEqualTo(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
 	{
@@ -1126,6 +1366,40 @@ public:
 
 		return result;
 	}
+    
+    virtual bool IsSmallerThan(basic_item* other_item, basic_sort_criteria* sort_criteria=NULL)
+    {
+        bool result=false;
+        // if the other item is "empty" (non allocated) don't do any comparison
+        if(other_item==NULL)
+            return false;
+        
+        // first typecast the other item to confimr it is the same as this;
+        email_item* typecasted_other_item = typecastItem(other_item, this);
+        
+        // check that it worked
+        if(typecasted_other_item==NULL)
+        {
+            cout << "Other item is not of type height_item." << endl;
+            return false;
+            // items of the wrong type (or null pointers) will be pushed to the end of the list
+        }
+        
+        // now verify if the other item is larger than the curren
+        if( getItemVal() < (typecasted_other_item->getItemVal()) )
+            result=true;
+        
+        
+        // chek if there are sorting options to apply
+        if(sort_criteria!=NULL)
+        {
+            // if sorting is in descending order the result is reversed
+            if( !( sort_criteria->getAscending() ) )
+                result=!result;
+        }
+        
+        return result;
+    }
 
 	virtual bool IsEqualTo(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
 	{
@@ -1266,6 +1540,40 @@ public:
 
 		return result;
 	}
+    
+    virtual bool IsSmallerThan(basic_item* other_item, basic_sort_criteria* sort_criteria=NULL)
+    {
+        bool result=false;
+        // if the other item is "empty" (non allocated) don't do any comparison
+        if(other_item==NULL)
+            return false;
+        
+        // first typecast the other item to confimr it is the same as this;
+        degree_item* typecasted_other_item = typecastItem(other_item, this);
+        
+        // check that it worked
+        if(typecasted_other_item==NULL)
+        {
+            cout << "Other item is not of type height_item." << endl;
+            return false;
+            // items of the wrong type (or null pointers) will be pushed to the end of the list
+        }
+        
+        // now verify if the other item is larger than the curren
+        if( getItemVal() < (typecasted_other_item->getItemVal()) )
+            result=true;
+        
+        
+        // chek if there are sorting options to apply
+        if(sort_criteria!=NULL)
+        {
+            // if sorting is in descending order the result is reversed
+            if( !( sort_criteria->getAscending() ) )
+                result=!result;
+        }
+        
+        return result;
+    }
 
 	virtual bool IsEqualTo(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
 	{
@@ -1403,6 +1711,39 @@ public:
 
 		return result;
 	}
+    virtual bool IsSmallerThan(basic_item* other_item, basic_sort_criteria* sort_criteria=NULL)
+    {
+        bool result=false;
+        // if the other item is "empty" (non allocated) don't do any comparison
+        if(other_item==NULL)
+            return false;
+        
+        // first typecast the other item to confimr it is the same as this;
+        dateofbirth_item* typecasted_other_item = typecastItem(other_item, this);
+        
+        // check that it worked
+        if(typecasted_other_item==NULL)
+        {
+            cout << "Other item is not of type height_item." << endl;
+            return false;
+            // items of the wrong type (or null pointers) will be pushed to the end of the list
+        }
+        
+        // now verify if the other item is larger than the curren
+        if( getItemVal() < (typecasted_other_item->getItemVal()) )
+            result=true;
+        
+        
+        // chek if there are sorting options to apply
+        if(sort_criteria!=NULL)
+        {
+            // if sorting is in descending order the result is reversed
+            if( !( sort_criteria->getAscending() ) )
+                result=!result;
+        }
+        
+        return result;
+    }
 
 	virtual bool IsEqualTo(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
 	{
@@ -1537,6 +1878,40 @@ public:
 
 		return result;
 	}
+    
+    virtual bool IsSmallerThan(basic_item* other_item, basic_sort_criteria* sort_criteria=NULL)
+    {
+        bool result=false;
+        // if the other item is "empty" (non allocated) don't do any comparison
+        if(other_item==NULL)
+            return false;
+        
+        // first typecast the other item to confimr it is the same as this;
+        currentcgs_item* typecasted_other_item = typecastItem(other_item, this);
+        
+        // check that it worked
+        if(typecasted_other_item==NULL)
+        {
+            cout << "Other item is not of type height_item." << endl;
+            return false;
+            // items of the wrong type (or null pointers) will be pushed to the end of the list
+        }
+        
+        // now verify if the other item is larger than the curren
+        if( getItemVal() < (typecasted_other_item->getItemVal()) )
+            result=true;
+        
+        
+        // chek if there are sorting options to apply
+        if(sort_criteria!=NULL)
+        {
+            // if sorting is in descending order the result is reversed
+            if( !( sort_criteria->getAscending() ) )
+                result=!result;
+        }
+        
+        return result;
+    }
 
 	virtual bool IsEqualTo(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
 	{
@@ -1672,6 +2047,40 @@ public:
 
 		return result;
 	}
+    
+    virtual bool IsSmallerThan(basic_item* other_item, basic_sort_criteria* sort_criteria=NULL)
+    {
+        bool result=false;
+        // if the other item is "empty" (non allocated) don't do any comparison
+        if(other_item==NULL)
+            return false;
+        
+        // first typecast the other item to confimr it is the same as this;
+        pastcgs_item* typecasted_other_item = typecastItem(other_item, this);
+        
+        // check that it worked
+        if(typecasted_other_item==NULL)
+        {
+            cout << "Other item is not of type height_item." << endl;
+            return false;
+            // items of the wrong type (or null pointers) will be pushed to the end of the list
+        }
+        
+        // now verify if the other item is larger than the curren
+        if( getItemVal() < (typecasted_other_item->getItemVal()) )
+            result=true;
+        
+        
+        // chek if there are sorting options to apply
+        if(sort_criteria!=NULL)
+        {
+            // if sorting is in descending order the result is reversed
+            if( !( sort_criteria->getAscending() ) )
+                result=!result;
+        }
+        
+        return result;
+    }
 
 	virtual bool IsEqualTo(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
 	{
@@ -1895,6 +2304,71 @@ public:
 
 		return result;
 	}
+    
+    virtual bool IsSmallerThan(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
+    {
+        bool result = false;
+        
+        // first typecast the other item to confimr it is the same as this;
+        student_record* typecasted_other_item = typecastItem(other_item, this);
+        //data_sorting_type =
+        
+        switch (sort_criteria->get_data_sort_type())
+        {
+            case HEIGHT:
+                //cout << "Item is height" << endl;
+                result = h_item.IsSmallerThan(typecasted_other_item->return_height_pointer(), sort_criteria);
+                break;
+            case WEIGHT:
+                //cout << "Item is weight" << endl;
+                result = w_item.IsSmallerThan(typecasted_other_item->return_weight_pointer(), sort_criteria);
+                break;
+            case FIRSTNAME:
+                //cout << "Item is firstname" << endl;
+                result = fn_item.IsSmallerThan(typecasted_other_item->return_firstname_pointer(), sort_criteria);
+                break;
+            case SURNAME:
+                //cout << "Item is surname" << endl;
+                result = sn_item.IsSmallerThan(typecasted_other_item->return_surname_pointer(), sort_criteria);
+                break;
+            case BLOODTYPE:
+                //cout << "Item is bloodtype" << endl;
+                result = bt_item.IsSmallerThan(typecasted_other_item->return_bloodtype_pointer(), sort_criteria);
+                break;
+            case NATIONALITY:
+                //cout << "Item is nationality" << endl;
+                result = n_item.IsSmallerThan(typecasted_other_item->return_nationality_pointer(), sort_criteria);
+                break;
+            case STUDENTID:
+                //cout << "Item is student id" << endl;
+                result = sid_item.IsSmallerThan(typecasted_other_item->return_studentid_pointer(), sort_criteria);
+                break;
+            case EMAIL:
+                //cout << "Item is email address" << endl;
+                result = e_item.IsSmallerThan(typecasted_other_item->return_email_pointer(), sort_criteria);
+                break;
+            case DEGREE:
+                //cout << "Item is degree programme" << endl;
+                result = d_item.IsSmallerThan(typecasted_other_item->return_degree_pointer(), sort_criteria);
+                break;
+            case DOB:
+                //cout << "Item is date of birth" << endl;
+                result = dob_item.IsSmallerThan(typecasted_other_item->return_dob_pointer(), sort_criteria);
+                break;
+            case CURRENTCGS:
+                //cout << "Item is current cgs grade" << endl;
+                result = ccgs_item.IsSmallerThan(typecasted_other_item->return_currentcgs_pointer(), sort_criteria);
+                break;
+            case PREVIOUSCGS:
+                //cout << "Item is previous cgs grade" << endl;
+                result = pcgs_item.IsSmallerThan(typecasted_other_item->return_previouscgs_pointer(), sort_criteria);
+                break;
+            default:
+                break;
+        }
+        
+        return result;
+    }
 
 	virtual bool IsEqualTo(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
 	{
