@@ -1,7 +1,7 @@
 
 #include "ArrayItem.h"
 #include "generalArray.h"
-
+//this is release 3
 void test_array(int array_size, basic_item* ref_item, char data_entry_method, int field, bool direction)
 {
 	basic_sort_criteria srt_crt(true);
