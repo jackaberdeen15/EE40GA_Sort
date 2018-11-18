@@ -7,7 +7,6 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 	basic_sort_criteria srt_crt(true);
 	general_array test_array;
     
-    int field_search;
     
     switch (field){
         case HEIGHT:
@@ -91,70 +90,170 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 	cout << endl << "Sorting Array..." << endl << endl;
 	test_array.bubblesort(&srt_crt);
 	test_array.printArrayOnScreen();
-    cout << "search array by field {0:FIRSTNAME, 1:SURNAME, 2:BLOODTYPE, 3:HEIGHT, 4:WEIGHT, 5:NATIONALITY, 6:STUDENT ID, 7:EMAIL, 8:DEGREE, 9:DOB, 10:CURRENT CGS, 11:PREVIOUS CGS}" <<endl;
-    cin >> field_search;
+    cout << "search array by min and max ?" <<endl;
     
     //typedef enum {FIRSTNAME, SURNAME, BLOODTYPE, HEIGHT, WEIGHT, NATIONALITY, STUDENTID, EMAIL, DEGREE, DOB, CURRENTCGS, PREVIOUSCGS} data_sort_type;
 
-    switch (field_search){
+    switch (field){
 
         case HEIGHT:
-            height_item min;
-            height_item max;
+        {
+            student_record min;
+            student_record max;
             
             cout << "min_HEIGHT=";
-            min.enterItemFromKeyboard();
+            min.AssignSpeificItem(&srt_crt);
             cout << "max_HEIGHT=";
-            max.enterItemFromKeyboard();
+            max.AssignSpeificItem(&srt_crt);
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             test_array.printArrayOnScreen();
-            break;/*
+        }
+            break;
         case WEIGHT:
-            srt_crt.set_data_sort_type(WEIGHT);
-            srt_crt.setAscending(direction);
+        {
+            student_record min;
+            student_record max;
+            
+            cout << "min_WEIGHT=";
+            min.AssignSpeificItem(&srt_crt);
+            cout << "max_WEIGHT=";
+            max.AssignSpeificItem(&srt_crt);
+            test_array.findItemsWithinRange(&min,&max,&srt_crt);
+            test_array.printArrayOnScreen();
+        }
             break;
         case BLOODTYPE:
-            srt_crt.set_data_sort_type(BLOODTYPE);
-            srt_crt.setAscending(direction);
+        {
+            student_record min;
+            student_record max;
+            
+            cout << "min_BLOODTYPE=";
+            min.AssignSpeificItem(&srt_crt);
+            cout << "max_BLOODTYPE=";
+            max.AssignSpeificItem(&srt_crt);
+            test_array.findItemsWithinRange(&min,&max,&srt_crt);
+            test_array.printArrayOnScreen();
+        }
             break;
         case SURNAME:
-            srt_crt.set_data_sort_type(SURNAME);
-            srt_crt.setAscending(direction);
+        {
+            student_record min;
+            student_record max;
+            
+            cout << "min_SURNAME=";
+            min.AssignSpeificItem(&srt_crt);
+            cout << "max_SURNAME=";
+            max.AssignSpeificItem(&srt_crt);
+            test_array.findItemsWithinRange(&min,&max,&srt_crt);
+            test_array.printArrayOnScreen();
+        }
             break;
         case FIRSTNAME:
-            srt_crt.set_data_sort_type(FIRSTNAME);
-            srt_crt.setAscending(direction);
+        {
+            student_record min;
+            student_record max;
+            
+            cout << "min_FIRSTNAME=";
+            min.AssignSpeificItem(&srt_crt);
+            cout << "max_FIRSTNAME=";
+            max.AssignSpeificItem(&srt_crt);
+            test_array.findItemsWithinRange(&min,&max,&srt_crt);
+            test_array.printArrayOnScreen();
+        }
             break;
         case NATIONALITY:
-            srt_crt.set_data_sort_type(NATIONALITY);
-            srt_crt.setAscending(direction);
+        {
+            student_record min;
+            student_record max;
+            
+            cout << "min_NATIONALITY=";
+            min.AssignSpeificItem(&srt_crt);
+            cout << "max_NATIONALITY=";
+            max.AssignSpeificItem(&srt_crt);
+            test_array.findItemsWithinRange(&min,&max,&srt_crt);
+            test_array.printArrayOnScreen();
+        }
             break;
         case STUDENTID:
-            srt_crt.set_data_sort_type(STUDENTID);
-            srt_crt.setAscending(direction);
+        {
+            student_record min;
+            student_record max;
+            
+            cout << "min_STUDENTID=";
+            min.AssignSpeificItem(&srt_crt);
+            cout << "max_STUDENTID=";
+            max.AssignSpeificItem(&srt_crt);
+            test_array.findItemsWithinRange(&min,&max,&srt_crt);
+            test_array.printArrayOnScreen();
+        }
             break;
         case EMAIL:
-            srt_crt.set_data_sort_type(EMAIL);
-            srt_crt.setAscending(direction);
+        {
+            student_record min;
+            student_record max;
+            
+            cout << "email_STUDENTID=";
+            min.AssignSpeificItem(&srt_crt);
+            cout << "email_STUDENTID=";
+            max.AssignSpeificItem(&srt_crt);
+            test_array.findItemsWithinRange(&min,&max,&srt_crt);
+            test_array.printArrayOnScreen();
+        }
             break;
         case DEGREE:
-            srt_crt.set_data_sort_type(DEGREE);
-            srt_crt.setAscending(direction);
+        {
+            student_record min;
+            student_record max;
+            
+            cout << "min_DEGREE=";
+            min.AssignSpeificItem(&srt_crt);
+            cout << "max_DEGREE=";
+            max.AssignSpeificItem(&srt_crt);
+            test_array.findItemsWithinRange(&min,&max,&srt_crt);
+            test_array.printArrayOnScreen();
+        }
             break;
         case DOB:
-            srt_crt.set_data_sort_type(DOB);
-            srt_crt.setAscending(direction);
+        {
+            student_record min;
+            student_record max;
+            
+            cout << "min_DOB=";
+            min.AssignSpeificItem();
+            cout << "max_DOB=";
+            max.AssignSpeificItem();
+            test_array.findItemsWithinRange(&min,&max,&srt_crt);
+            test_array.printArrayOnScreen();
+        }
             break;
         case CURRENTCGS:
-            srt_crt.set_data_sort_type(CURRENTCGS);
-            srt_crt.setAscending(direction);
+        {
+            student_record min;
+            student_record max;
+            
+            cout << "min_CURRENTCGS=";
+            min.AssignSpeificItem(&srt_crt);
+            cout << "max_CURRENTCGS=";
+            max.AssignSpeificItem(&srt_crt);
+            test_array.findItemsWithinRange(&min,&max,&srt_crt);
+            test_array.printArrayOnScreen();
+        }
             break;
         case PREVIOUSCGS:
-            srt_crt.set_data_sort_type(PREVIOUSCGS);
-            srt_crt.setAscending(direction);
+        {
+            student_record min;
+            student_record max;
+            
+            cout << "min_PREVIOUSCGS=";
+            min.AssignSpeificItem(&srt_crt);
+            cout << "max_PREVIOUSCGS=";
+            max.AssignSpeificItem(&srt_crt);
+            test_array.findItemsWithinRange(&min,&max,&srt_crt);
+            test_array.printArrayOnScreen();
+        }
             break;
         default:
-            break;*/
+            break;
             
     }
 	}
