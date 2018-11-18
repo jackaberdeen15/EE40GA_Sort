@@ -2384,7 +2384,7 @@ public:
         string path("/Users/tgb19/documents/output.csv");
         std::ofstream outfile;
         outfile.open(path, std::ios_base::app);
-		outfile << fn_item.getItemVal() << "," << sn_item.getItemVal() << "," << bt_item.getItemVal() << "," << h_item.getItemVal() << "," << w_item.getItemVal() << "," << n_item.getItemVal() << "," << sid_item.getItemVal() << "," << e_item.getItemVal() << "," << d_item.getItemVal() << "," << dob_item.getItemVal() << "," << ccgs_item.getItemVal() << "," << pcgs_item.getItemVal() << "," << y_item.getItemVal << "," << endl;
+		outfile << fn_item.getItemVal() << "," << sn_item.getItemVal() << "," << bt_item.getItemVal() << "," << h_item.getItemVal() << "," << w_item.getItemVal() << "," << n_item.getItemVal() << "," << sid_item.getItemVal() << "," << e_item.getItemVal() << "," << d_item.getItemVal() << "," << dob_item.getItemVal() << "," << ccgs_item.getItemVal() << "," << pcgs_item.getItemVal() << "," << y_item.getItemVal() << "," << endl;
         //outfile << "test.txt";
     }
 
