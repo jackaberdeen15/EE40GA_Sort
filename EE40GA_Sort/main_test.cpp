@@ -7,6 +7,8 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 	basic_sort_criteria srt_crt(true);
 	general_array test_array;
     
+    int field_search;
+    
     switch (field){
         case HEIGHT:
             srt_crt.set_data_sort_type(HEIGHT);
@@ -89,7 +91,72 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 	cout << endl << "Sorting Array..." << endl << endl;
 	test_array.bubblesort(&srt_crt);
 	test_array.printArrayOnScreen();
-	cout << endl;
+    cout << "search array by field {0:FIRSTNAME, 1:SURNAME, 2:BLOODTYPE, 3:HEIGHT, 4:WEIGHT, 5:NATIONALITY, 6:STUDENT ID, 7:EMAIL, 8:DEGREE, 9:DOB, 10:CURRENT CGS, 11:PREVIOUS CGS}" <<endl;
+    cin >> field_search;
+    
+    //typedef enum {FIRSTNAME, SURNAME, BLOODTYPE, HEIGHT, WEIGHT, NATIONALITY, STUDENTID, EMAIL, DEGREE, DOB, CURRENTCGS, PREVIOUSCGS} data_sort_type;
+
+    switch (field_search){
+
+        case HEIGHT:
+            height_item min;
+            height_item max;
+            
+            cout << "min_HEIGHT=";
+            min.enterItemFromKeyboard();
+            cout << "max_HEIGHT=";
+            max.enterItemFromKeyboard();
+            test_array.findItemsWithinRange(&min,&max,&srt_crt);
+            test_array.printArrayOnScreen();
+            break;/*
+        case WEIGHT:
+            srt_crt.set_data_sort_type(WEIGHT);
+            srt_crt.setAscending(direction);
+            break;
+        case BLOODTYPE:
+            srt_crt.set_data_sort_type(BLOODTYPE);
+            srt_crt.setAscending(direction);
+            break;
+        case SURNAME:
+            srt_crt.set_data_sort_type(SURNAME);
+            srt_crt.setAscending(direction);
+            break;
+        case FIRSTNAME:
+            srt_crt.set_data_sort_type(FIRSTNAME);
+            srt_crt.setAscending(direction);
+            break;
+        case NATIONALITY:
+            srt_crt.set_data_sort_type(NATIONALITY);
+            srt_crt.setAscending(direction);
+            break;
+        case STUDENTID:
+            srt_crt.set_data_sort_type(STUDENTID);
+            srt_crt.setAscending(direction);
+            break;
+        case EMAIL:
+            srt_crt.set_data_sort_type(EMAIL);
+            srt_crt.setAscending(direction);
+            break;
+        case DEGREE:
+            srt_crt.set_data_sort_type(DEGREE);
+            srt_crt.setAscending(direction);
+            break;
+        case DOB:
+            srt_crt.set_data_sort_type(DOB);
+            srt_crt.setAscending(direction);
+            break;
+        case CURRENTCGS:
+            srt_crt.set_data_sort_type(CURRENTCGS);
+            srt_crt.setAscending(direction);
+            break;
+        case PREVIOUSCGS:
+            srt_crt.set_data_sort_type(PREVIOUSCGS);
+            srt_crt.setAscending(direction);
+            break;
+        default:
+            break;*/
+            
+    }
 	}
 
 int main()
