@@ -337,17 +337,24 @@ public:
 		{
 			for (int curr_index = 0; curr_index < getMaxSize() - 1; curr_index++)
 			{
-				bool comparison_result = true;
+				bool element_out_of_range = false;
 				basic_item* curr_item = getElementPtr(curr_index);
-				basic_item* next_item = getElementPtr(curr_index + 1);
 
 				// in case there are "empty (non allocated) items"
 				if (curr_item != NULL)
-					if (curr_item->IsLargerThan(max_item, sort_criteria_ptr)) { deallocateSpecificItem(curr_item); }
-					if (curr_item->IsLargerThan(max_item, sort_criteria_ptr)) { deallocateSpecificItem(curr_item); }
+					if (curr_item->IsLargerThan(max_item, sort_criteria_ptr)) 
+					{ 
+						deallocateSpecificItem(curr_item);//removes item from general array
+						element_out_of_range = true;
+					}
+					if (curr_item->IsSmallerThan(max_item, sort_criteria_ptr)) 
+					{ 
+						deallocateSpecificItem(curr_item);//removes item from general array
+						element_out_of_range = true;
+					}
 
-				if (comparison_result)
-					swapElements(curr_index, curr_index + 1);
+					if (element_out_of_range)
+						getNremoveCurrElementPtr();
 			}
 		}
 	}
