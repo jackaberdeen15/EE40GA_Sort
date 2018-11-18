@@ -22,7 +22,7 @@ template <class Base, class Derived> Derived* typecastItem(Base* basic_ptr, Deri
 }
 //////
 
-typedef enum {FIRSTNAME, SURNAME, BLOODTYPE, HEIGHT, WEIGHT} data_sort_type;
+typedef enum {FIRSTNAME, SURNAME, BLOODTYPE, HEIGHT, WEIGHT, NATIONALITY, STUDENTID, EMAIL, DEGREE, DOB, CURRENTCGS, PREVIOUSCGS} data_sort_type;
 
 
 // this is the base version of an object that holds the information about sorting ctiteria.
@@ -601,6 +601,726 @@ public:
 
 };
 
+//class for nationality child
+class nationality_item : public basic_item {
+protected:
+	string item_value;
+	string nationality[111] = { "Afghan","Albanian","Algerian","Argentinian","Australian","Austrian","Bangladeshi","Belgian","Bolivian","Batswana","Brazilian","Bulgarian","Cambodian","Cameroonian","Canadian","Chilean","Chinese","Colombian","Costa Rican","Croatian","Cuban","Czech","Danish","Dominican","Ecuadorian","Egyptian","Salvadorian","English","Estonian","Ethiopian","Fijian","Finnish","French","German","Ghanaian","Greek","Guatemalan","Haitian","Honduran","Hungarian","Icelandic","Indian","Indonesian","Iranian","Iraqi","Irish","Israeli","Italian","Jamaican","Japanese","Jordanian","Kenyan","Kuwaiti","Lao","Latvian","Lebanese","Libyan","Lithuanian","Malaysian","Malian","Maltese","Mexican","Mongolian","Moroccan","Mozambican","Namibian","Nepalese","Dutch","New Zealand","Nicaraguan","Nigerian","Norwegian","Pakistani","Panamanian","Paraguayan","Peruvian","Philippine","Polish","Portuguese","Romanian","Russian","Saudi","Scottish","Senegalese","Serbian","Singaporean","Slovak","South African","Korean","Spanish","Sri Lankan","Sudanese","Swedish","Swiss","Syrian","Taiwanese","Tajikistani","Thai","Tongan","Tunisian","Turkish","Ukrainian","Emirati","British","American","Uruguayan","Venezuelan","Vietnamese","Welsh","Zambian","Zimbabwe" };
+
+public:
+	nationality_item() { ; }
+	~nationality_item() { ; }
+
+	string getItemVal() { return item_value; }
+
+	virtual void printItemOnScreen()
+	{
+		if (isEmpty()) {
+			cout << "\"nationality_item\" is Empty." << endl;
+		}
+		else
+			cout << "Nationality: " << getItemVal() << endl;
+	}
+
+	virtual void enterItemFromKeyboard()
+	{
+		cout << "Insert nationality then hit enter." << endl;
+		cin >> item_value;
+		cout << endl;
+
+		// item filled
+		empty = false;
+	}
+
+	//function to get random string from the protected
+	virtual void generateRandomItem()
+	{
+		int i;
+		i = rand() % 111;
+		item_value = nationality[i];
+
+		// item filled
+		empty = false;
+	}
+
+	virtual bool IsLargerThan(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		bool result = false;
+		// if the other item is "empty" (non allocated) don't do any comparison
+		if (other_item == NULL)
+			return false;
+
+		// first typecast the other item to confimr it is the same as this;
+		nationality_item* typecasted_other_item = typecastItem(other_item, this);
+
+		// check that it worked
+		if (typecasted_other_item == NULL)
+		{
+			cout << "Other item is not of type nationality_item." << endl;
+			return false;
+			// items of the wrong type (or null pointers) will be pushed to the end of the list
+		}
+
+		// now verify if the other item is larger than the curren
+		if ((getItemVal().compare(typecasted_other_item->getItemVal()) > 0))
+			result = true;
+
+
+
+		// chek if there are sorting options to apply 
+		if (sort_criteria != NULL)
+		{
+			// if sorting is in descending order the result is reversed 
+			if (!(sort_criteria->getAscending()))
+				result = !result;
+		}
+
+		return result;
+	}
+
+	virtual void deallocateItem(basic_item* item_ptr)
+	{
+		// first typecast the other item to confimr it is the same as this;
+		nationality_item* typecasted_item_ptr = typecastItem(item_ptr, this);
+
+		// check that it worked
+		if (typecasted_item_ptr == NULL)
+		{
+			// items of the wrong type (or null pointers)
+			cout << "Error in deallocateItem (for nationality_item): " << endl << "Other item is not of type nationality_item." << endl;
+			return;
+		}
+		delete typecasted_item_ptr;
+	}
+
+	virtual basic_item* allocateItem()
+	{
+		nationality_item* result = new nationality_item;
+		if (result == NULL)
+			cout << " Error in nationality_item::allocateItem(): out of memory" << endl;
+		return result;
+	}
+
+	//virtual void setstringtype(int i) { type = i; }
+
+};
+
+//class for studentid child
+class studentid_item : public basic_item {
+protected:
+	string item_value;
+
+public:
+	studentid_item() { ; }
+	~studentid_item() { ; }
+
+	string getItemVal() { return item_value; }
+
+	virtual void printItemOnScreen()
+	{
+		if (isEmpty()) {
+			cout << "\"studentid_item\" is Empty." << endl;
+		}
+		else
+			cout << "Student ID: " << getItemVal() << endl;
+	}
+
+	virtual void enterItemFromKeyboard()
+	{
+		cout << "Insert student ID then hit enter." << endl;
+		cin >> item_value;
+		cout << endl;
+
+		// item filled
+		empty = false;
+	}
+
+	//function to get random string from the protected
+	virtual void generateRandomItem()
+	{
+		int i;
+		i = rand() % 100000000;   //This is a trash way to generate a student ID, look into replacing with 8 randomly generated values chained into a string.
+		item_value = i;
+
+		// item filled
+		empty = false;
+	}
+
+	virtual bool IsLargerThan(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		bool result = false;
+		// if the other item is "empty" (non allocated) don't do any comparison
+		if (other_item == NULL)
+			return false;
+
+		// first typecast the other item to confimr it is the same as this;
+		studentid_item* typecasted_other_item = typecastItem(other_item, this);
+
+		// check that it worked
+		if (typecasted_other_item == NULL)
+		{
+			cout << "Other item is not of type studentid_item." << endl;
+			return false;
+			// items of the wrong type (or null pointers) will be pushed to the end of the list
+		}
+
+		// now verify if the other item is larger than the curren
+		if ((getItemVal().compare(typecasted_other_item->getItemVal()) > 0))
+			result = true;
+
+
+
+		// chek if there are sorting options to apply 
+		if (sort_criteria != NULL)
+		{
+			// if sorting is in descending order the result is reversed 
+			if (!(sort_criteria->getAscending()))
+				result = !result;
+		}
+
+		return result;
+	}
+
+	virtual void deallocateItem(basic_item* item_ptr)
+	{
+		// first typecast the other item to confimr it is the same as this;
+		studentid_item* typecasted_item_ptr = typecastItem(item_ptr, this);
+
+		// check that it worked
+		if (typecasted_item_ptr == NULL)
+		{
+			// items of the wrong type (or null pointers)
+			cout << "Error in deallocateItem (for studentid_item): " << endl << "Other item is not of type studentid_item." << endl;
+			return;
+		}
+		delete typecasted_item_ptr;
+	}
+
+	virtual basic_item* allocateItem()
+	{
+		studentid_item* result = new studentid_item;
+		if (result == NULL)
+			cout << " Error in studentid_item::allocateItem(): out of memory" << endl;
+		return result;
+	}
+
+	//virtual void setstringtype(int i) { type = i; }
+
+};
+
+//class for e-mail address child
+class email_item : public basic_item {
+protected:
+	string item_value;
+	string emailpre[13] = { "Chad", "Kronisford", "Jack", "Will", "Tom", "Gerald", "Bertram", "Chowdrey", "Alistair", "Benisford", "Gideon", "Quarian", "Magnus" };
+	string emailsuf[9] = {"@hotmail.co.uk","@hotmail.com","@yahoo.co.uk","@yahoo.com","@abdn.ac.uk", "@aberdeen.ac.uk" ,"@gmail.co.uk","@gmail.com","@icloud.com"};
+public:
+	email_item() { ; }
+	~email_item() { ; }
+
+	string getItemVal() { return item_value; }
+
+	virtual void printItemOnScreen()
+	{
+		if (isEmpty()) {
+			cout << "\"email_item\" is Empty." << endl;
+		}
+		else
+			cout << "E-mail Address: " << getItemVal() << endl;
+	}
+
+	virtual void enterItemFromKeyboard()
+	{
+		cout << "Insert e-mail address then hit enter." << endl;
+		cin >> item_value;
+		cout << endl;
+
+		// item filled
+		empty = false;
+	}
+
+	//function to get random string from the protected
+	virtual void generateRandomItem()
+	{
+		int i;
+		int j;
+		i = rand() % 13;
+		j = rand() % 9;
+		item_value = emailpre[i] + emailsuf[j]; // Does this actually work? I feel like it shouldn't...
+
+		// item filled
+		empty = false;
+	}
+
+	virtual bool IsLargerThan(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		bool result = false;
+		// if the other item is "empty" (non allocated) don't do any comparison
+		if (other_item == NULL)
+			return false;
+
+		// first typecast the other item to confimr it is the same as this;
+		email_item* typecasted_other_item = typecastItem(other_item, this);
+
+		// check that it worked
+		if (typecasted_other_item == NULL)
+		{
+			cout << "Other item is not of type email_item." << endl;
+			return false;
+			// items of the wrong type (or null pointers) will be pushed to the end of the list
+		}
+
+		// now verify if the other item is larger than the curren
+		if ((getItemVal().compare(typecasted_other_item->getItemVal()) > 0))
+			result = true;
+
+
+
+		// chek if there are sorting options to apply 
+		if (sort_criteria != NULL)
+		{
+			// if sorting is in descending order the result is reversed 
+			if (!(sort_criteria->getAscending()))
+				result = !result;
+		}
+
+		return result;
+	}
+
+	virtual void deallocateItem(basic_item* item_ptr)
+	{
+		// first typecast the other item to confimr it is the same as this;
+		email_item* typecasted_item_ptr = typecastItem(item_ptr, this);
+
+		// check that it worked
+		if (typecasted_item_ptr == NULL)
+		{
+			// items of the wrong type (or null pointers)
+			cout << "Error in deallocateItem (for email_item): " << endl << "Other item is not of type email_item." << endl;
+			return;
+		}
+		delete typecasted_item_ptr;
+	}
+
+	virtual basic_item* allocateItem()
+	{
+		email_item* result = new email_item;
+		if (result == NULL)
+			cout << " Error in email_item::allocateItem(): out of memory" << endl;
+		return result;
+	}
+
+	//virtual void setstringtype(int i) { type = i; }
+
+};
+
+//class for degree child
+class degree_item : public basic_item {
+protected:
+	string item_value;
+	string degreepre[2] = {"MEng","BEng" };
+	string degreesuf[6] = {"Mechanical Engineering", "Chemical Engineering","Electrical & Electronic Engineering", "Petroleum Engineering","Electrical & Mechanical Engineering","Civil Engineering"};
+public:
+	degree_item() { ; }
+	~degree_item() { ; }
+
+	string getItemVal() { return item_value; }
+
+	virtual void printItemOnScreen()
+	{
+		if (isEmpty()) {
+			cout << "\"degree_item\" is Empty." << endl;
+		}
+		else
+			cout << "Degree Programme: " << getItemVal() << endl;
+	}
+
+	virtual void enterItemFromKeyboard()
+	{
+		cout << "Insert degree programme then hit enter." << endl;
+		cin >> item_value;
+		cout << endl;
+
+		// item filled
+		empty = false;
+	}
+
+	//function to get random string from the protected
+	virtual void generateRandomItem()
+	{
+		int i;
+		int j;
+		i = rand() % 2;
+		j = rand() % 6;
+		item_value = degreepre[i] + degreesuf[j]; // Does this actually work? I feel like it shouldn't...
+
+		// item filled
+		empty = false;
+	}
+
+	virtual bool IsLargerThan(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		bool result = false;
+		// if the other item is "empty" (non allocated) don't do any comparison
+		if (other_item == NULL)
+			return false;
+
+		// first typecast the other item to confimr it is the same as this;
+		degree_item* typecasted_other_item = typecastItem(other_item, this);
+
+		// check that it worked
+		if (typecasted_other_item == NULL)
+		{
+			cout << "Other item is not of type degree_item." << endl;
+			return false;
+			// items of the wrong type (or null pointers) will be pushed to the end of the list
+		}
+
+		// now verify if the other item is larger than the curren
+		if ((getItemVal().compare(typecasted_other_item->getItemVal()) > 0))
+			result = true;
+
+
+
+		// chek if there are sorting options to apply 
+		if (sort_criteria != NULL)
+		{
+			// if sorting is in descending order the result is reversed 
+			if (!(sort_criteria->getAscending()))
+				result = !result;
+		}
+
+		return result;
+	}
+
+	virtual void deallocateItem(basic_item* item_ptr)
+	{
+		// first typecast the other item to confimr it is the same as this;
+		degree_item* typecasted_item_ptr = typecastItem(item_ptr, this);
+
+		// check that it worked
+		if (typecasted_item_ptr == NULL)
+		{
+			// items of the wrong type (or null pointers)
+			cout << "Error in deallocateItem (for degree_item): " << endl << "Other item is not of type degree_item." << endl;
+			return;
+		}
+		delete typecasted_item_ptr;
+	}
+
+	virtual basic_item* allocateItem()
+	{
+		degree_item* result = new degree_item;
+		if (result == NULL)
+			cout << " Error in degree_item::allocateItem(): out of memory" << endl;
+		return result;
+	}
+
+	//virtual void setstringtype(int i) { type = i; }
+
+};
+
+//class for dateofbirth child
+class dateofbirth_item : public basic_item {
+protected:
+	string item_value;
+	
+public:
+	dateofbirth_item() { ; }
+	~dateofbirth_item() { ; }
+
+	string getItemVal() { return item_value; }
+
+	virtual void printItemOnScreen()
+	{
+		if (isEmpty()) {
+			cout << "\"dateofbirth_item\" is Empty." << endl;
+		}
+		else
+			cout << "Date of Birth: " << getItemVal() << endl;
+	}
+
+	virtual void enterItemFromKeyboard()
+	{
+		cout << "Insert date of birth then hit enter." << endl;
+		cin >> item_value;
+		cout << endl;
+
+		// item filled
+		empty = false;
+	}
+
+	//function to get random string from the protected
+	virtual void generateRandomItem()
+	{
+		int i;
+		item_value = "19.04.1994";
+		// item filled
+		empty = false;
+	}
+
+	virtual bool IsLargerThan(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		bool result = false;
+		// if the other item is "empty" (non allocated) don't do any comparison
+		if (other_item == NULL)
+			return false;
+
+		// first typecast the other item to confimr it is the same as this;
+		dateofbirth_item* typecasted_other_item = typecastItem(other_item, this);
+
+		// check that it worked
+		if (typecasted_other_item == NULL)
+		{
+			cout << "Other item is not of type dateofbirth_item." << endl;
+			return false;
+			// items of the wrong type (or null pointers) will be pushed to the end of the list
+		}
+
+		// now verify if the other item is larger than the curren
+		if ((getItemVal().compare(typecasted_other_item->getItemVal()) > 0))
+			result = true;
+
+
+
+		// chek if there are sorting options to apply 
+		if (sort_criteria != NULL)
+		{
+			// if sorting is in descending order the result is reversed 
+			if (!(sort_criteria->getAscending()))
+				result = !result;
+		}
+
+		return result;
+	}
+
+	virtual void deallocateItem(basic_item* item_ptr)
+	{
+		// first typecast the other item to confimr it is the same as this;
+		dateofbirth_item* typecasted_item_ptr = typecastItem(item_ptr, this);
+
+		// check that it worked
+		if (typecasted_item_ptr == NULL)
+		{
+			// items of the wrong type (or null pointers)
+			cout << "Error in deallocateItem (for dateofbirth_item): " << endl << "Other item is not of type dateofbirth_item." << endl;
+			return;
+		}
+		delete typecasted_item_ptr;
+	}
+
+	virtual basic_item* allocateItem()
+	{
+		dateofbirth_item* result = new dateofbirth_item;
+		if (result == NULL)
+			cout << " Error in dateofbirth_item::allocateItem(): out of memory" << endl;
+		return result;
+	}
+
+	//virtual void setstringtype(int i) { type = i; }
+
+};
+
+//class for current cgs child
+class currentcgs_item : public basic_item {
+protected:
+	string item_value;
+
+public:
+	currentcgs_item() { ; }
+	~currentcgs_item() { ; }
+
+	string getItemVal() { return item_value; }
+
+	virtual void printItemOnScreen()
+	{
+		if (isEmpty()) {
+			cout << "\"currentcgs_item\" is Empty." << endl;
+		}
+		else
+			cout << "Current CGS Grade: " << getItemVal() << endl;
+	}
+
+	virtual void enterItemFromKeyboard()
+	{
+		cout << "Insert current CGS grade then hit enter." << endl;
+		cin >> item_value;
+		cout << endl;
+
+		// item filled
+		empty = false;
+	}
+
+	//function to get random string from the protected
+	virtual void generateRandomItem()
+	{
+		item_value = rand() % 22;
+		// item filled
+		empty = false;
+	}
+
+	virtual bool IsLargerThan(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		bool result = false;
+		// if the other item is "empty" (non allocated) don't do any comparison
+		if (other_item == NULL)
+			return false;
+
+		// first typecast the other item to confimr it is the same as this;
+		currentcgs_item* typecasted_other_item = typecastItem(other_item, this);
+
+		// check that it worked
+		if (typecasted_other_item == NULL)
+		{
+			cout << "Other item is not of type currentcgs_item." << endl;
+			return false;
+			// items of the wrong type (or null pointers) will be pushed to the end of the list
+		}
+
+		// now verify if the other item is larger than the curren
+		if ((getItemVal().compare(typecasted_other_item->getItemVal()) > 0))
+			result = true;
+
+
+
+		// chek if there are sorting options to apply 
+		if (sort_criteria != NULL)
+		{
+			// if sorting is in descending order the result is reversed 
+			if (!(sort_criteria->getAscending()))
+				result = !result;
+		}
+
+		return result;
+	}
+
+	virtual void deallocateItem(basic_item* item_ptr)
+	{
+		// first typecast the other item to confimr it is the same as this;
+		currentcgs_item* typecasted_item_ptr = typecastItem(item_ptr, this);
+
+		// check that it worked
+		if (typecasted_item_ptr == NULL)
+		{
+			// items of the wrong type (or null pointers)
+			cout << "Error in deallocateItem (for currentcgs_item): " << endl << "Other item is not of type currentcgs_item." << endl;
+			return;
+		}
+		delete typecasted_item_ptr;
+	}
+
+	virtual basic_item* allocateItem()
+	{
+		currentcgs_item* result = new currentcgs_item;
+		if (result == NULL)
+			cout << " Error in currentcgs_item::allocateItem(): out of memory" << endl;
+		return result;
+	}
+
+	//virtual void setstringtype(int i) { type = i; }
+
+};
+
+//class for past cgs child
+class pastcgs_item : public basic_item {
+protected:
+	string item_value;
+
+public:
+	pastcgs_item() { ; }
+	~pastcgs_item() { ; }
+
+	string getItemVal() { return item_value; }
+
+	virtual void printItemOnScreen()
+	{
+		if (isEmpty()) {
+			cout << "\"pastcgs_item\" is Empty." << endl;
+		}
+		else
+			cout << "Previous CGS Grade: " << getItemVal() << endl;
+	}
+
+	virtual void enterItemFromKeyboard()
+	{
+		cout << "Insert previous CGS grade then hit enter." << endl;
+		cin >> item_value;
+		cout << endl;
+
+		// item filled
+		empty = false;
+	}
+
+	//function to get random string from the protected
+	virtual void generateRandomItem()
+	{
+		item_value = rand() % 22;
+		// item filled
+		empty = false;
+	}
+
+	virtual bool IsLargerThan(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		bool result = false;
+		// if the other item is "empty" (non allocated) don't do any comparison
+		if (other_item == NULL)
+			return false;
+
+		// first typecast the other item to confimr it is the same as this;
+		pastcgs_item* typecasted_other_item = typecastItem(other_item, this);
+
+		// check that it worked
+		if (typecasted_other_item == NULL)
+		{
+			cout << "Other item is not of type pastcgs_item." << endl;
+			return false;
+			// items of the wrong type (or null pointers) will be pushed to the end of the list
+		}
+
+		// now verify if the other item is larger than the curren
+		if ((getItemVal().compare(typecasted_other_item->getItemVal()) > 0))
+			result = true;
+
+
+
+		// chek if there are sorting options to apply 
+		if (sort_criteria != NULL)
+		{
+			// if sorting is in descending order the result is reversed 
+			if (!(sort_criteria->getAscending()))
+				result = !result;
+		}
+
+		return result;
+	}
+
+	virtual void deallocateItem(basic_item* item_ptr)
+	{
+		// first typecast the other item to confimr it is the same as this;
+		pastcgs_item* typecasted_item_ptr = typecastItem(item_ptr, this);
+
+		// check that it worked
+		if (typecasted_item_ptr == NULL)
+		{
+			// items of the wrong type (or null pointers)
+			cout << "Error in deallocateItem (for pastcgs_item): " << endl << "Other item is not of type pastcgs_item." << endl;
+			return;
+		}
+		delete typecasted_item_ptr;
+	}
+
+	virtual basic_item* allocateItem()
+	{
+		pastcgs_item* result = new pastcgs_item;
+		if (result == NULL)
+			cout << " Error in pastcgs_item::allocateItem(): out of memory" << endl;
+		return result;
+	}
+
+	//virtual void setstringtype(int i) { type = i; }
+
+};
+
 class composite_item : public basic_item {
 protected:
 	/*height_item h_item;
@@ -752,4 +1472,238 @@ public:
 	
 };
 
+class student_record : public basic_item {
+protected:
+
+public:
+	student_record() { ; }
+	~student_record() { ; }
+
+	height_item h_item;
+	weight_item w_item;
+	firstname_item fn_item;
+	surname_item sn_item;
+	bloodtype_item bt_item;
+	nationality_item n_item; 
+	studentid_item sid_item; 
+	email_item e_item; 
+	degree_item d_item; 
+	dateofbirth_item dob_item; 
+	currentcgs_item ccgs_item;
+	pastcgs_item pcgs_item; 
+
+	virtual height_item* return_height_pointer()
+	{
+		return &h_item;
+	}
+
+	virtual weight_item* return_weight_pointer()
+	{
+		return &w_item;
+	}
+
+	virtual firstname_item* return_firstname_pointer()
+	{
+		return &fn_item;
+	}
+
+	virtual surname_item* return_surname_pointer()
+	{
+		return &sn_item;
+	}
+
+	virtual bloodtype_item* return_bloodtype_pointer()
+	{
+		return &bt_item;
+	}
+
+	virtual nationality_item* return_nationality_pointer()
+	{
+		return &n_item;
+	}
+
+	virtual studentid_item* return_studentid_pointer()
+	{
+		return &sid_item;
+	}
+
+	virtual email_item* return_email_pointer()
+	{
+		return &e_item;
+	}
+
+	virtual degree_item* return_degree_pointer()
+	{
+		return &d_item;
+	}
+
+	virtual dateofbirth_item* return_dob_pointer()
+	{
+		return &dob_item;
+	}
+
+	virtual currentcgs_item* return_currentcgs_pointer()
+	{
+		return &ccgs_item;
+	}
+
+	virtual pastcgs_item* return_previouscgs_pointer()
+	{
+		return &pcgs_item;
+	}
+
+	virtual void printItemOnScreen()
+	{
+		//cout << "Print item on screen" << endl;
+		h_item.printItemOnScreen();
+		w_item.printItemOnScreen();
+		fn_item.printItemOnScreen();
+		sn_item.printItemOnScreen();
+		bt_item.printItemOnScreen();
+		n_item.printItemOnScreen();
+		sid_item.printItemOnScreen();
+		e_item.printItemOnScreen();
+		d_item.printItemOnScreen();
+		dob_item.printItemOnScreen();
+		ccgs_item.printItemOnScreen();
+		pcgs_item.printItemOnScreen();
+	}
+
+	virtual void enterItemFromKeyboard()
+	{
+		//cout << "entering items from keyboard"<<endl;
+		h_item.enterItemFromKeyboard();
+		w_item.enterItemFromKeyboard();
+		fn_item.enterItemFromKeyboard();
+		sn_item.enterItemFromKeyboard();
+		bt_item.enterItemFromKeyboard();
+		n_item.enterItemFromKeyboard();
+		sid_item.enterItemFromKeyboard();
+		e_item.enterItemFromKeyboard();
+		d_item.enterItemFromKeyboard();
+		dob_item.enterItemFromKeyboard();
+		ccgs_item.enterItemFromKeyboard();
+		pcgs_item.enterItemFromKeyboard();
+	}
+
+	//function to get random string from the protected
+	virtual void generateRandomItem()
+	{
+		//cout << "Generating Random Number" << endl;
+		h_item.generateRandomItem();
+		w_item.generateRandomItem();
+		fn_item.generateRandomItem();
+		sn_item.generateRandomItem();
+		bt_item.generateRandomItem();
+		n_item.generateRandomItem();
+		sid_item.generateRandomItem();
+		e_item.generateRandomItem();
+		d_item.generateRandomItem();
+		dob_item.generateRandomItem();
+		ccgs_item.generateRandomItem();
+		pcgs_item.generateRandomItem();
+	}
+
+	virtual bool IsLargerThan(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		bool result = false;
+
+		// first typecast the other item to confimr it is the same as this;
+		student_record* typecasted_other_item = typecastItem(other_item, this);
+		//data_sorting_type =
+
+		switch (sort_criteria->get_data_sort_type())
+		{
+		case HEIGHT:
+			//cout << "Item is height" << endl;
+			result = h_item.IsLargerThan(typecasted_other_item->return_height_pointer(), sort_criteria);
+			break;
+		case WEIGHT:
+			//cout << "Item is weight" << endl;
+			result = w_item.IsLargerThan(typecasted_other_item->return_weight_pointer(), sort_criteria);
+			break;
+		case FIRSTNAME:
+			//cout << "Item is firstname" << endl;
+			result = fn_item.IsLargerThan(typecasted_other_item->return_firstname_pointer(), sort_criteria);
+			break;
+		case SURNAME:
+			//cout << "Item is surname" << endl;
+			result = sn_item.IsLargerThan(typecasted_other_item->return_surname_pointer(), sort_criteria);
+			break;
+		case BLOODTYPE:
+			//cout << "Item is bloodtype" << endl;
+			result = bt_item.IsLargerThan(typecasted_other_item->return_bloodtype_pointer(), sort_criteria);
+			break;
+		case NATIONALITY:
+			//cout << "Item is nationality" << endl;
+			result = n_item.IsLargerThan(typecasted_other_item->return_nationality_pointer(), sort_criteria);
+			break;
+		case STUDENTID:
+			//cout << "Item is student id" << endl;
+			result = sid_item.IsLargerThan(typecasted_other_item->return_studentid_pointer(), sort_criteria);
+			break;
+		case EMAIL:
+			//cout << "Item is email address" << endl;
+			result = e_item.IsLargerThan(typecasted_other_item->return_email_pointer(), sort_criteria);
+			break;
+		case DEGREE:
+			//cout << "Item is degree programme" << endl;
+			result = d_item.IsLargerThan(typecasted_other_item->return_degree_pointer(), sort_criteria);
+			break;
+		case DOB:
+			//cout << "Item is date of birth" << endl;
+			result = dob_item.IsLargerThan(typecasted_other_item->return_dob_pointer(), sort_criteria);
+			break;
+		case CURRENTCGS:
+			//cout << "Item is current cgs grade" << endl;
+			result = ccgs_item.IsLargerThan(typecasted_other_item->return_currentcgs_pointer(), sort_criteria);
+			break;
+		case PREVIOUSCGS:
+			//cout << "Item is previous cgs grade" << endl;
+			result = pcgs_item.IsLargerThan(typecasted_other_item->return_previouscgs_pointer(), sort_criteria);
+			break;
+		default:
+			break;
+		}
+
+		return result;
+	}
+
+	/*virtual void setDataSortType(data_sort_type datatype)
+	{
+		data_sorting_type = datatype;
+	}*/
+
+	virtual void deallocateItem(basic_item* item_ptr)
+	{
+		// first typecast the other item to confimr it is the same as this;
+		student_record* typecasted_item_ptr = typecastItem(item_ptr, this);
+
+		// check that it worked
+		if (typecasted_item_ptr == NULL)
+		{
+			// items of the wrong type (or null pointers)
+			cout << "Error in deallocateItem (for string_item): " << endl << "Other item is not of type string_item." << endl;
+			return;
+		}
+		/*h_item.deallocateItem(item_ptr);
+		w_item.deallocateItem(item_ptr);
+		fn_item.deallocateItem(item_ptr);
+		sn_item.deallocateItem(item_ptr);
+		bt_item.deallocateItem(item_ptr);*/
+		delete typecasted_item_ptr;
+	}
+
+	virtual basic_item* allocateItem()
+	{
+		composite_item* result = new composite_item;
+		if (result == NULL)
+			cout << " Error in string_item::allocateItem(): out of memory" << endl;
+
+		return result;
+	}
+
+	//virtual void setstringtype(int i) { type = i; }
+
+};
 #endif

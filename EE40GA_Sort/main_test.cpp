@@ -74,7 +74,7 @@ int main()
 	bool directionbool;
     //char order;
     
-	composite_item ref_comp_item; 	//composite item reference for general array
+	student_record ref_comp_item; 	//composite item reference for general array
 	cout << "How many records would you like to create?" << endl;
 	cin >> array_size;
 	cout << endl;
