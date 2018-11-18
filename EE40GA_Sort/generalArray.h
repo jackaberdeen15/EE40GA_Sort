@@ -333,6 +333,11 @@ public:
 
 	void findItemsWithinRange(basic_item* min_item, basic_item* max_item, basic_sort_criteria* sort_criteria_ptr = NULL)
 	{
+		if (max_item <= min_item)
+		{ 
+			cout << "Invalid Range Selected" << endl;
+			return; 
+		}
 		for (int loop_index = 0; loop_index < getMaxSize() - 1; loop_index++)
 		{
 			for (int curr_index = 0; curr_index < getMaxSize() - 1; curr_index++)
