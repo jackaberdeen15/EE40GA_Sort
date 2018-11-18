@@ -103,9 +103,10 @@ public:
 	virtual void enterItemFromKeyboard()
 	{
 		cout << "Insert height then hit enter." << endl;
+		//getline(cin, item_value);
 		cin >> item_value;
+		cin.ignore();
 		cout << endl;
-		
 		// item filled
 		empty=false;
 	}
@@ -274,9 +275,10 @@ public:
 	virtual void enterItemFromKeyboard()
 	{
 		cout << "Insert weight then hit enter." << endl;
+		//getline(cin, item_value);
 		cin >> item_value;
+		cin.ignore();
 		cout << endl;
-
 		// item filled
 		empty = false;
 	}
@@ -449,7 +451,9 @@ public:
 	virtual void enterItemFromKeyboard()
 	{
 		cout << "Insert first name then hit enter." << endl;
-		cin >> item_value;
+		getline(cin, item_value);
+		//cin >> item_value;
+		//cin.ignore();
 		cout << endl;
 
 		// item filled
@@ -624,7 +628,9 @@ public:
 	virtual void enterItemFromKeyboard()
 	{
 		cout << "Insert surname then hit enter." << endl;
-		cin >> item_value;
+		getline(cin, item_value);
+		//cin >> item_value;
+		//cin.ignore();
 		cout << endl;
 
 		// item filled
@@ -799,7 +805,9 @@ public:
 	virtual void enterItemFromKeyboard()
 	{
 		cout << "Insert bloodtype then hit enter." << endl;
-		cin >> item_value;
+		getline(cin, item_value);
+		//cin >> item_value;
+		//cin.ignore();
 		cout << endl;
 
 		// item filled
@@ -971,7 +979,9 @@ public:
 	virtual void enterItemFromKeyboard()
 	{
 		cout << "Insert nationality then hit enter." << endl;
-		cin >> item_value;
+		getline(cin, item_value);
+		//cin >> item_value;
+		//cin.ignore();
 		cout << endl;
 
 		// item filled
@@ -1142,9 +1152,10 @@ public:
 	virtual void enterItemFromKeyboard()
 	{
 		cout << "Insert student ID then hit enter." << endl;
+		//getline(cin, item_value);
 		cin >> item_value;
+		cin.ignore();
 		cout << endl;
-
 		// item filled
 		empty = false;
 	}
@@ -1314,7 +1325,9 @@ public:
 	virtual void enterItemFromKeyboard()
 	{
 		cout << "Insert e-mail address then hit enter." << endl;
-		cin >> item_value;
+		getline(cin, item_value);
+		//cin >> item_value;
+		//cin.ignore();
 		cout << endl;
 
 		// item filled
@@ -1488,7 +1501,9 @@ public:
 	virtual void enterItemFromKeyboard()
 	{
 		cout << "Insert degree programme then hit enter." << endl;
-		cin >> item_value;
+		getline(cin, item_value);
+		//cin >> item_value;
+		//cin.ignore();
 		cout << endl;
 
 		// item filled
@@ -1556,7 +1571,7 @@ public:
         // check that it worked
         if(typecasted_other_item==NULL)
         {
-            cout << "Other item is not of type height_item." << endl;
+            cout << "Other item is not of type degree_item." << endl;
             return false;
             // items of the wrong type (or null pointers) will be pushed to the end of the list
         }
@@ -1590,7 +1605,7 @@ public:
 		// check that it worked
 		if (typecasted_other_item == NULL)
 		{
-			cout << "Other item is not of type height_item." << endl;
+			cout << "Other item is not of type degree_item." << endl;
 			return false;
 			// items of the wrong type (or null pointers) will be pushed to the end of the list
 		}
@@ -1661,7 +1676,9 @@ public:
 	virtual void enterItemFromKeyboard()
 	{
 		cout << "Insert date of birth then hit enter." << endl;
-		cin >> item_value;
+		getline(cin, item_value);
+		//cin >> item_value;
+		//cin.ignore();
 		cout << endl;
 
 		// item filled
@@ -1831,7 +1848,9 @@ public:
 	virtual void enterItemFromKeyboard()
 	{
 		cout << "Insert current CGS grade then hit enter." << endl;
+		//getline(cin, item_value);
 		cin >> item_value;
+		cin.ignore();
 		cout << endl;
 
 		// item filled
@@ -2000,9 +2019,10 @@ public:
 	virtual void enterItemFromKeyboard()
 	{
 		cout << "Insert previous CGS grade then hit enter." << endl;
+		//getline(cin, item_value);
 		cin >> item_value;
+		cin.ignore();
 		cout << endl;
-
 		// item filled
 		empty = false;
 	}
@@ -2191,10 +2211,10 @@ public:
 	~student_record() { ; }
     
     virtual void writeItemToFile(){
-        string path("/Users/willatherton/Desktop/output.csv");
+        string path("/Users/tgb19/documents/output.csv");
         std::ofstream outfile;
         outfile.open(path, std::ios_base::app);
-        outfile << fn_item.getItemVal()<<","<<sn_item.getItemVal()<<","<<bt_item.getItemVal()<<","<< h_item.getItemVal() <<","<< w_item.getItemVal()<<","<< n_item.getItemVal()<<","<<sid_item.getItemVal()<<","<< e_item.getItemVal()<<","<< d_item.getItemVal()<<","<< dob_item.getItemVal()<<ccgs_item.getItemVal()<<","<< pcgs_item.getItemVal()<< endl;
+        outfile << fn_item.getItemVal()<<","<<sn_item.getItemVal()<<","<<bt_item.getItemVal()<<","<< h_item.getItemVal() <<","<< w_item.getItemVal()<<","<< n_item.getItemVal()<<","<<sid_item.getItemVal()<<","<< e_item.getItemVal()<<","<< d_item.getItemVal()<<","<< dob_item.getItemVal()<<","<< ccgs_item.getItemVal()<<","<< pcgs_item.getItemVal() << ","<< endl;
         //outfile << "test.txt";
     }
 
