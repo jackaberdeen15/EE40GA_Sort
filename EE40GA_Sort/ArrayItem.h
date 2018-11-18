@@ -1325,47 +1325,26 @@ public:
 
 class composite_item : public basic_item {
 protected:
-	/*height_item h_item;
-	weight_item w_item;
-	firstname_item fn_item;
-	surname_item sn_item;
-	bloodtype_item bt_item;*/
-	//data_sort_type data_sorting_type=HEIGHT;
-
-public:
-	composite_item() { ; }
-	~composite_item() { ; }
-
 	height_item h_item;
 	weight_item w_item;
 	firstname_item fn_item;
 	surname_item sn_item;
 	bloodtype_item bt_item;
 
-	virtual height_item* return_height_pointer()
-	{
-		return &h_item;
-	}
+private:
+	virtual height_item* return_height_pointer() { return &h_item; }
 
-	virtual weight_item* return_weight_pointer()
-	{
-		return &w_item;
-	}
+	virtual weight_item* return_weight_pointer() { return &w_item; }
 
-	virtual firstname_item* return_firstname_pointer()
-	{
-		return &fn_item;
-	}
+	virtual firstname_item* return_firstname_pointer() { return &fn_item; }
 
-	virtual surname_item* return_surname_pointer()
-	{
-		return &sn_item;
-	}
+	virtual surname_item* return_surname_pointer() { return &sn_item; }
 
-	virtual bloodtype_item* return_bloodtype_pointer()
-	{
-		return &bt_item;
-	}
+	virtual bloodtype_item* return_bloodtype_pointer() { return &bt_item; }
+
+public:
+	composite_item() { ; }
+	~composite_item() { ; }
 
 	virtual void printItemOnScreen()
 	{
@@ -1375,7 +1354,6 @@ public:
 		fn_item.printItemOnScreen();
 		sn_item.printItemOnScreen();
 		bt_item.printItemOnScreen();
-
 	}
 
 	virtual void enterItemFromKeyboard()
@@ -1397,6 +1375,14 @@ public:
 		fn_item.generateRandomItem();
 		sn_item.generateRandomItem();
 		bt_item.generateRandomItem();
+		bt_item.generateRandomItem();
+		nat_item.generateRandomItem();
+		id_item.generateRandomItem();
+		eml_item.generateRandomItem();
+		dgr_item.generateRandomItem();
+		dob_item.generateRandomItem();
+		cur_item.generateRandomItem();
+		pst_item.generateRandomItem();
 	}
 
 	virtual bool IsLargerThan(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
@@ -1432,7 +1418,6 @@ public:
 		default:
 			break;
 		}
-		
 		return result;
 	}
 
@@ -1476,83 +1461,46 @@ public:
 
 class student_record : public basic_item {
 protected:
-
-public:
-	student_record() { ; }
-	~student_record() { ; }
-
 	height_item h_item;
 	weight_item w_item;
 	firstname_item fn_item;
 	surname_item sn_item;
 	bloodtype_item bt_item;
-	nationality_item n_item; 
-	studentid_item sid_item; 
-	email_item e_item; 
-	degree_item d_item; 
-	dateofbirth_item dob_item; 
+	nationality_item n_item;
+	studentid_item sid_item;
+	email_item e_item;
+	degree_item d_item;
+	dateofbirth_item dob_item;
 	currentcgs_item ccgs_item;
-	pastcgs_item pcgs_item; 
+	pastcgs_item pcgs_item;
 
-	virtual height_item* return_height_pointer()
-	{
-		return &h_item;
-	}
+private:
+	virtual height_item* return_height_pointer() { return &h_item; }
 
-	virtual weight_item* return_weight_pointer()
-	{
-		return &w_item;
-	}
+	virtual weight_item* return_weight_pointer() { return &w_item; }
 
-	virtual firstname_item* return_firstname_pointer()
-	{
-		return &fn_item;
-	}
+	virtual firstname_item* return_firstname_pointer() { return &fn_item; }
 
-	virtual surname_item* return_surname_pointer()
-	{
-		return &sn_item;
-	}
+	virtual surname_item* return_surname_pointer() { return &sn_item; }
 
-	virtual bloodtype_item* return_bloodtype_pointer()
-	{
-		return &bt_item;
-	}
+	virtual bloodtype_item* return_bloodtype_pointer() { return &bt_item; }
 
-	virtual nationality_item* return_nationality_pointer()
-	{
-		return &n_item;
-	}
+	virtual nationality_item* return_nationality_pointer() { return &n_item; }
 
-	virtual studentid_item* return_studentid_pointer()
-	{
-		return &sid_item;
-	}
+	virtual studentid_item* return_studentid_pointer() { return &sid_item; }
 
-	virtual email_item* return_email_pointer()
-	{
-		return &e_item;
-	}
+	virtual email_item* return_email_pointer() { return &e_item; }
 
-	virtual degree_item* return_degree_pointer()
-	{
-		return &d_item;
-	}
+	virtual degree_item* return_degree_pointer() { return &d_item; }
 
-	virtual dateofbirth_item* return_dob_pointer()
-	{
-		return &dob_item;
-	}
+	virtual dateofbirth_item* return_dob_pointer() { return &dob_item; }
 
-	virtual currentcgs_item* return_currentcgs_pointer()
-	{
-		return &ccgs_item;
-	}
+	virtual currentcgs_item* return_currentcgs_pointer() { return &ccgs_item; }
 
-	virtual pastcgs_item* return_previouscgs_pointer()
-	{
-		return &pcgs_item;
-	}
+	virtual pastcgs_item* return_previouscgs_pointer() { return &pcgs_item; }
+public:
+	student_record() { ; }
+	~student_record() { ; } 
 
 	virtual void printItemOnScreen()
 	{
