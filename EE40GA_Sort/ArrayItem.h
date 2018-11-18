@@ -22,7 +22,7 @@ template <class Base, class Derived> Derived* typecastItem(Base* basic_ptr, Deri
 }
 //////
 
-typedef enum {FIRSTNAME, SURNAME, BLOODTYPE, HEIGHT, WEIGHT, NATIONALITY, STUDENTID, EMAIL, DEGREE, DOB, CURRENTCGS, PREVIOUSCGS} data_sort_type;
+typedef enum {FIRSTNAME, SURNAME, BLOODTYPE, HEIGHT, WEIGHT, NATIONALITY, STUDENTID, EMAIL, DEGREE, DOB, CURRENTCGS, PREVIOUSCGS, YEAR} data_sort_type;
 //string path("/Users/willatherton/Desktop/output.csv");
 
 // this is the base version of an object that holds the information about sorting ctiteria.
@@ -2166,6 +2166,173 @@ public:
 
 };
 
+class year_item : public basic_item {
+protected:
+	int item_value;
+
+public:
+	// default constructor and destructor: do nothing
+	year_item() { ; }
+	~year_item() { ; }
+
+	int getItemVal() { return item_value; }
+
+	virtual void printItemOnScreen()
+	{
+
+		if (isEmpty())
+			cout << "\"year_item\" is empty." << endl;
+		else
+			cout << "Year: " << getItemVal() << endl;
+
+	}
+
+	virtual void enterItemFromKeyboard()
+	{
+		cout << "Insert year then hit enter." << endl;
+		//getline(cin, item_value);
+		cin >> item_value;
+		cin.ignore();
+		cout << endl;
+		// item filled
+		empty = false;
+	}
+
+	virtual void generateRandomItem()
+	{
+		item_value = rand() % 5;
+		// item filled
+		empty = false;
+	}
+
+	//virtual void loadItemFromFile(FILE* fin);
+
+	virtual bool IsLargerThan(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		bool result = false;
+		// if the other item is "empty" (non allocated) don't do any comparison
+		if (other_item == NULL)
+			return false;
+
+		// first typecast the other item to confimr it is the same as this;
+		year_item* typecasted_other_item = typecastItem(other_item, this);
+
+		// check that it worked
+		if (typecasted_other_item == NULL)
+		{
+			cout << "Other item is not of type year_item." << endl;
+			return false;
+			// items of the wrong type (or null pointers) will be pushed to the end of the list
+		}
+
+		// now verify if the other item is larger than the curren
+		if (getItemVal() > (typecasted_other_item->getItemVal()))
+			result = true;
+
+
+		// chek if there are sorting options to apply 
+		if (sort_criteria != NULL)
+		{
+			// if sorting is in descending order the result is reversed 
+			if (!(sort_criteria->getAscending()))
+				result = !result;
+		}
+
+		return result;
+	}
+
+	virtual bool IsSmallerThan(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		bool result = false;
+		// if the other item is "empty" (non allocated) don't do any comparison
+		if (other_item == NULL)
+			return false;
+
+		// first typecast the other item to confimr it is the same as this;
+		year_item* typecasted_other_item = typecastItem(other_item, this);
+
+		// check that it worked
+		if (typecasted_other_item == NULL)
+		{
+			cout << "Other item is not of type year_item." << endl;
+			return false;
+			// items of the wrong type (or null pointers) will be pushed to the end of the list
+		}
+
+		// now verify if the other item is larger than the curren
+		if (getItemVal() < (typecasted_other_item->getItemVal()))
+			result = true;
+
+
+		// chek if there are sorting options to apply
+		if (sort_criteria != NULL)
+		{
+			// if sorting is in descending order the result is reversed
+			if (!(sort_criteria->getAscending()))
+				result = !result;
+		}
+
+		return result;
+	}
+
+	virtual bool IsEqualTo(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		bool result = false;
+		// if the other item is "empty" (non allocated) don't do any comparison
+		if (other_item == NULL)
+			return false;
+
+		// first typecast the other item to confimr it is the same as this;
+		year_item* typecasted_other_item = typecastItem(other_item, this);
+
+		// check that it worked
+		if (typecasted_other_item == NULL)
+		{
+			cout << "Other item is not of type year_item." << endl;
+			return false;
+			// items of the wrong type (or null pointers) will be pushed to the end of the list
+		}
+
+		// now verify if the other item is larger than the curren
+		if (getItemVal() == (typecasted_other_item->getItemVal()))
+			result = true;
+
+
+		// chek if there are sorting options to apply 
+		if (sort_criteria != NULL)
+		{
+			// if sorting is in descending order the result is reversed 
+			if (!(sort_criteria->getAscending()))
+				result = !result;
+		}
+
+		return result;
+	}
+
+	virtual void deallocateItem(basic_item* item_ptr)
+	{
+		// first typecast the other item to confimr it is the same as this;
+		year_item* typecasted_item_ptr = typecastItem(item_ptr, this);
+
+		// check that it worked
+		if (typecasted_item_ptr == NULL)
+		{
+			// items of the wrong type (or null pointers)
+			cout << "Error in deallocateItem (for year_item): " << endl << "Other item is not of type year_item." << endl;
+			return;
+		}
+		delete typecasted_item_ptr;
+	}
+
+	virtual basic_item* allocateItem()
+	{
+		year_item* result = new year_item;
+		if (result == NULL)
+			cout << " Error in year_item::allocateItem(): out of memory" << endl;
+		return result;
+	}
+};
+
 class student_record : public basic_item {
 protected:
 	height_item h_item;
@@ -2180,6 +2347,7 @@ protected:
 	dateofbirth_item dob_item;
 	currentcgs_item ccgs_item;
 	pastcgs_item pcgs_item;
+	year_item y_item;
 
 private:
 	virtual height_item* return_height_pointer() { return &h_item; }
@@ -2206,6 +2374,8 @@ private:
 
 	virtual pastcgs_item* return_previouscgs_pointer() { return &pcgs_item; }
 
+	virtual year_item* return_year_pointer() { return &y_item; }
+
 public:
 	student_record() { ; }
 	~student_record() { ; }
@@ -2214,7 +2384,7 @@ public:
         string path("/Users/tgb19/documents/output.csv");
         std::ofstream outfile;
         outfile.open(path, std::ios_base::app);
-        outfile << fn_item.getItemVal()<<","<<sn_item.getItemVal()<<","<<bt_item.getItemVal()<<","<< h_item.getItemVal() <<","<< w_item.getItemVal()<<","<< n_item.getItemVal()<<","<<sid_item.getItemVal()<<","<< e_item.getItemVal()<<","<< d_item.getItemVal()<<","<< dob_item.getItemVal()<<","<< ccgs_item.getItemVal()<<","<< pcgs_item.getItemVal() << ","<< endl;
+		outfile << fn_item.getItemVal() << "," << sn_item.getItemVal() << "," << bt_item.getItemVal() << "," << h_item.getItemVal() << "," << w_item.getItemVal() << "," << n_item.getItemVal() << "," << sid_item.getItemVal() << "," << e_item.getItemVal() << "," << d_item.getItemVal() << "," << dob_item.getItemVal() << "," << ccgs_item.getItemVal() << "," << pcgs_item.getItemVal() << "," << y_item.getItemVal << "," << endl;
         //outfile << "test.txt";
     }
 
@@ -2233,6 +2403,7 @@ public:
 		dob_item.printItemOnScreen();
 		ccgs_item.printItemOnScreen();
 		pcgs_item.printItemOnScreen();
+		y_item.printItemOnScreen();
         writeItemToFile();
 	}
 
@@ -2251,6 +2422,7 @@ public:
 		dob_item.enterItemFromKeyboard();
 		ccgs_item.enterItemFromKeyboard();
 		pcgs_item.enterItemFromKeyboard();
+		y_item.enterItemFromKeyboard();
 	}
 
 	//function to get random string from the protected
@@ -2269,6 +2441,7 @@ public:
 		dob_item.generateRandomItem();
 		ccgs_item.generateRandomItem();
 		pcgs_item.generateRandomItem();
+		y_item.generateRandomItem();
 	}
 
 	virtual bool IsLargerThan(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
@@ -2328,6 +2501,10 @@ public:
 		case PREVIOUSCGS:
 			//cout << "Item is previous cgs grade" << endl;
 			result = pcgs_item.IsLargerThan(typecasted_other_item->return_previouscgs_pointer(), sort_criteria);
+			break;
+		case YEAR:
+			//cout << "Item is previous cgs grade" << endl;
+			result = y_item.IsLargerThan(typecasted_other_item->return_previouscgs_pointer(), sort_criteria);
 			break;
 		default:
 			break;
@@ -2394,6 +2571,10 @@ public:
                 //cout << "Item is previous cgs grade" << endl;
                 result = pcgs_item.IsSmallerThan(typecasted_other_item->return_previouscgs_pointer(), sort_criteria);
                 break;
+			case YEAR:
+				//cout << "Item is previous cgs grade" << endl;
+				result = y_item.IsSmallerThan(typecasted_other_item->return_previouscgs_pointer(), sort_criteria);
+				break;
             default:
                 break;
         }
@@ -2458,6 +2639,10 @@ public:
 		case PREVIOUSCGS:
 			//cout << "Item is previous cgs grade" << endl;
 			result = pcgs_item.IsEqualTo(typecasted_other_item->return_previouscgs_pointer(), sort_criteria);
+			break;
+		case YEAR:
+			//cout << "Item is previous cgs grade" << endl;
+			result = y_item.IsEqualTo(typecasted_other_item->return_previouscgs_pointer(), sort_criteria);
 			break;
 		default:
 			break;

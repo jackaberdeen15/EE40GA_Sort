@@ -57,6 +57,10 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			srt_crt.set_data_sort_type(PREVIOUSCGS);
 			srt_crt.setAscending(direction);
 			break;
+		case YEAR:
+			srt_crt.set_data_sort_type(YEAR);
+			srt_crt.setAscending(direction);
+			break;
         default:
             break;
             
@@ -252,6 +256,19 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
             test_array.printArrayOnScreen();
         }
             break;
+		case YEAR:
+		{
+			student_record min;
+			student_record max;
+
+			cout << "min_YEAR=";
+			min.AssignSpeificItem(&srt_crt);
+			cout << "max_YEAR=";
+			max.AssignSpeificItem(&srt_crt);
+			test_array.findItemsWithinRange(&min, &max, &srt_crt);
+			test_array.printArrayOnScreen();
+		}
+		break;
         default:
             break;
             
@@ -288,14 +305,14 @@ int main()
         cout << "Error: Please enter a valid choice." << endl;
 		return 0;
     }
-    cout << "Enter field to sort by: {0:FIRSTNAME, 1:SURNAME, 2:BLOODTYPE, 3:HEIGHT, 4:WEIGHT, 5:NATIONALITY, 6:STUDENT ID, 7:EMAIL, 8:DEGREE, 9:DOB, 10:CURRENT CGS, 11:PREVIOUS CGS}" << endl << endl;
+    cout << "Enter field to sort by: {0:FIRSTNAME, 1:SURNAME, 2:BLOODTYPE, 3:HEIGHT, 4:WEIGHT, 5:NATIONALITY, 6:STUDENT ID, 7:EMAIL, 8:DEGREE, 9:DOB, 10:CURRENT CGS, 11:PREVIOUS CGS, 12:YEAR}" << endl << endl;
     cin >> field;
 	cout << endl;
 	if(field==0 || field == 1 || field == 2 ||field==6 || field==10 || field==11 ){
 			cout << "How would you like to sort" << endl << "1 = Ascending = A ---> Z" << endl << "2 = Descending = Z ---> A" << endl << endl;
 			cin >> direction;
 	}
-	else if (field == 3 || field == 4 || field==5 || field==7 || field==8 || field==9 ) {
+	else if (field == 3 || field == 4 || field==5 || field==7 || field==8 || field==9 || field==12) {
 		cout << "How would you like to sort" << endl << "1 = Ascending = Lowest ---> Highest" << endl << "2 = Descending = Highest ---> Lowest" << endl << endl;
 		cin >> direction;
 	}
