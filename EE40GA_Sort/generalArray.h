@@ -333,7 +333,7 @@ public:
 
 	void findItemsWithinRange(basic_item* min_item, basic_item* max_item, basic_sort_criteria* sort_criteria_ptr = NULL)
 	{
-		for (int curr_index = 0; curr_index < getMaxSize() - 1; curr_index++)
+		for (int curr_index = 0; curr_index < getMaxSize()-1; curr_index++)
 		{
 			bool element_out_of_range = false;
 			basic_item* curr_item = getElementPtr(curr_index);
@@ -359,7 +359,7 @@ public:
 
 	void findItemsThatMatch(basic_item* search_item, basic_sort_criteria* sort_criteria_ptr)
 	{
-		for (int curr_index = 0; curr_index < getMaxSize() - 1; curr_index++)
+		for (int curr_index = 0; curr_index < getMaxSize()-1; curr_index++)
 		{
 			bool elements_not_match = false;
 			basic_item* curr_item = getElementPtr(curr_index);
