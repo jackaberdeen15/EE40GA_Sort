@@ -333,60 +333,48 @@ public:
 
 	void findItemsWithinRange(basic_item* min_item, basic_item* max_item, basic_sort_criteria* sort_criteria_ptr = NULL)
 	{
-
-		/*if (max_item <= min_item)
-		{ 
-			cout << "Invalid Range Selected" << endl;
-			return; 
-		}*/
-		for (int loop_index = 0; loop_index < getMaxSize() - 1; loop_index++)
+		for (int curr_index = 0; curr_index < getMaxSize() - 1; curr_index++)
 		{
-			for (int curr_index = 0; curr_index < getMaxSize() - 1; curr_index++)
-			{
-				bool element_out_of_range = false;
-				basic_item* curr_item = getElementPtr(curr_index);
+			bool element_out_of_range = false;
+			basic_item* curr_item = getElementPtr(curr_index);
 
-				// in case there are "empty (non allocated) items"
-				if (curr_item != NULL)
+			// in case there are "empty (non allocated) items"
+			if (curr_item != NULL)
+			{
+				if (curr_item->IsLargerThan(max_item, sort_criteria_ptr))
 				{
-					if (curr_item->IsLargerThan(max_item, sort_criteria_ptr))
-					{
-						//deallocateSpecificItem(curr_item);//removes item from general array
-						element_out_of_range = true;
-					}
-					else if (curr_item->IsSmallerThan(min_item, sort_criteria_ptr))
-					{
-						//deallocateSpecificItem(curr_item);//removes item from general array
-						element_out_of_range = true;
-					}
+					//deallocateSpecificItem(curr_item);//removes item from general array
+					element_out_of_range = true;
 				}
-				if (element_out_of_range)
-					getNremoveCurrElementPtr();//removes item from general array and alters array size to match
+				else if (curr_item->IsSmallerThan(min_item, sort_criteria_ptr))
+				{
+					//deallocateSpecificItem(curr_item);//removes item from general array
+					element_out_of_range = true;
+				}
 			}
+			if (element_out_of_range)
+				getNremoveCurrElementPtr();//removes item from general array and alters array size to match
 		}
 	}
 
 	void findItemsThatMatch(basic_item* search_item, basic_sort_criteria* sort_criteria_ptr)
 	{
-		for (int loop_index = 0; loop_index < getMaxSize() - 1; loop_index++)
+		for (int curr_index = 0; curr_index < getMaxSize() - 1; curr_index++)
 		{
-			for (int curr_index = 0; curr_index < getMaxSize() - 1; curr_index++)
-			{
-				bool elements_not_match = false;
-				basic_item* curr_item = getElementPtr(curr_index);
+			bool elements_not_match = false;
+			basic_item* curr_item = getElementPtr(curr_index);
 
-				// in case there are "empty (non allocated) items"
-				if (curr_item != NULL) {
+			// in case there are "empty (non allocated) items"
+			if (curr_item != NULL) {
 
-					if (!(curr_item->IsEqualTo(search_item, sort_criteria_ptr)))
-					{
-						deallocateSpecificItem(curr_item);//removes item from general array
-						elements_not_match = true;
-					}
+				if (!(curr_item->IsEqualTo(search_item, sort_criteria_ptr)))
+				{
+					deallocateSpecificItem(curr_item);//removes item from general array
+					elements_not_match = true;
 				}
-				if (elements_not_match)
-					getNremoveCurrElementPtr();//removes item from general array and alters array size to match
 			}
+			if (elements_not_match)
+				getNremoveCurrElementPtr();//removes item from general array and alters array size to match
 		}
 	}
 	//
