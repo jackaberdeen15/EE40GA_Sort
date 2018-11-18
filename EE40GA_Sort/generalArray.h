@@ -347,19 +347,46 @@ public:
 
 				// in case there are "empty (non allocated) items"
 				if (curr_item != NULL)
-					if (curr_item->IsLargerThan(max_item, sort_criteria_ptr)) 
-					{ 
+				{
+					if (curr_item->IsLargerThan(max_item, sort_criteria_ptr))
+					{
 						deallocateSpecificItem(curr_item);//removes item from general array
 						element_out_of_range = true;
 					}
-					if (curr_item->IsSmallerThan(max_item, sort_criteria_ptr)) 
-					{ 
+					if (curr_item->IsSmallerThan(max_item, sort_criteria_ptr))
+					{
 						deallocateSpecificItem(curr_item);//removes item from general array
 						element_out_of_range = true;
 					}
 
 					if (element_out_of_range)
 						getNremoveCurrElementPtr();
+				}
+			}
+		}
+	}
+
+	void findItemsThatMatch(basic_item* search_item, basic_sort_criteria* sort_criteria_ptr)
+	{
+		for (int loop_index = 0; loop_index < getMaxSize() - 1; loop_index++)
+		{
+			for (int curr_index = 0; curr_index < getMaxSize() - 1; curr_index++)
+			{
+				bool element_out_of_range = false;
+				basic_item* curr_item = getElementPtr(curr_index);
+
+				// in case there are "empty (non allocated) items"
+				if (curr_item != NULL) {
+
+					if (curr_item->IsEqualTo(search_item, sort_criteria_ptr))
+					{
+						deallocateSpecificItem(curr_item);//removes item from general array
+						element_out_of_range = true;
+					}
+
+					if (element_out_of_range)
+						getNremoveCurrElementPtr();
+				}
 			}
 		}
 	}
