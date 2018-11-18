@@ -353,15 +353,14 @@ public:
 						deallocateSpecificItem(curr_item);//removes item from general array
 						element_out_of_range = true;
 					}
-					if (curr_item->IsSmallerThan(max_item, sort_criteria_ptr))
+					else if (curr_item->IsSmallerThan(max_item, sort_criteria_ptr))
 					{
 						deallocateSpecificItem(curr_item);//removes item from general array
 						element_out_of_range = true;
 					}
-
-					if (element_out_of_range)
-						getNremoveCurrElementPtr();
 				}
+				if (element_out_of_range)
+					getNremoveCurrElementPtr();//removes item from general array and alters array size to match
 			}
 		}
 	}
@@ -372,21 +371,20 @@ public:
 		{
 			for (int curr_index = 0; curr_index < getMaxSize() - 1; curr_index++)
 			{
-				bool element_out_of_range = false;
+				bool elements_not_match = false;
 				basic_item* curr_item = getElementPtr(curr_index);
 
 				// in case there are "empty (non allocated) items"
 				if (curr_item != NULL) {
 
-					if (curr_item->IsEqualTo(search_item, sort_criteria_ptr))
+					if (!(curr_item->IsEqualTo(search_item, sort_criteria_ptr)))
 					{
 						deallocateSpecificItem(curr_item);//removes item from general array
-						element_out_of_range = true;
+						elements_not_match = true;
 					}
-
-					if (element_out_of_range)
-						getNremoveCurrElementPtr();
 				}
+				if (elements_not_match)
+					getNremoveCurrElementPtr();//removes item from general array and alters array size to match
 			}
 		}
 	}
