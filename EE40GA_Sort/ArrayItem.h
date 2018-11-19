@@ -1923,7 +1923,7 @@ public:
 		int day = (rand() % 30);
 		int month = rand() % 12;
 		int year = 1950 + rand() % 68;
-		item_value = to_string(day) + "." + to_string(month) + "." + to_string(year);
+		item_value = to_string(day) + "-" + to_string(month) + "-" + to_string(year);
 		// item filled
 		empty = false;
 	}
