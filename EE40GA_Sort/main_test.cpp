@@ -126,6 +126,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			cout << "Printing records within range:\n";
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             //test_array.printArrayOnScreen();
+			cout << "\n";
         }
             break;
         case BLOODTYPE:
@@ -140,6 +141,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			cout << "Printing records within range:\n";
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             //test_array.printArrayOnScreen();
+			cout << "\n";
         }
             break;
         case SURNAME:
@@ -154,6 +156,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			cout << "Printing records within range:\n";
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             //test_array.printArrayOnScreen();
+			cout << "\n";
         }
             break;
         case FIRSTNAME:
@@ -168,6 +171,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			cout << "Printing records within range:\n";
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             //test_array.printArrayOnScreen();
+			cout << "\n";
         }
             break;
         case NATIONALITY:
@@ -182,6 +186,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			cout << "Printing records within range:\n";
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             //test_array.printArrayOnScreen();
+			cout << "\n";
         }
             break;
         case STUDENTID:
@@ -196,6 +201,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			cout << "Printing records within range:\n";
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             //test_array.printArrayOnScreen();
+			cout << "\n";
         }
             break;
         case EMAIL:
@@ -210,6 +216,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			cout << "Printing records within range:\n";
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             //test_array.printArrayOnScreen();
+			cout << "\n";
         }
             break;
         case DEGREE:
@@ -224,6 +231,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			cout << "Printing records within range:\n";
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             //test_array.printArrayOnScreen();
+			cout << "\n";
         }
             break;
         case DOB:
@@ -238,6 +246,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			cout << "Printing records within range:\n";
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             //test_array.printArrayOnScreen();
+			cout << "\n";
         }
             break;
         case CURRENTCGS:
@@ -252,6 +261,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			cout << "Printing records within range:\n";
 			test_array.findItemsWithinRange(&min, &max, &srt_crt);
 			//test_array.printArrayOnScreen();
+			cout << "\n";
 				
 				
         }
@@ -268,6 +278,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			cout << "Printing records within range:\n";
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             //test_array.printArrayOnScreen();
+			cout << "\n";
         }
             break;
 		case YEAR:
@@ -282,6 +293,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			cout << "Printing records within range:\n";
 			test_array.findItemsWithinRange(&min, &max, &srt_crt);
 			//test_array.printArrayOnScreen();
+			cout << "\n";
 		}
 		break;
         default:
@@ -354,4 +366,4 @@ int main()
 	cin >> temp;
     
     return 0;
-}
+}6
