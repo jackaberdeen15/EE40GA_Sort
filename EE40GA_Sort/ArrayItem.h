@@ -22,7 +22,7 @@ template <class Base, class Derived> Derived* typecastItem(Base* basic_ptr, Deri
 }
 //////
 
-typedef enum {FIRSTNAME, SURNAME, BLOODTYPE, HEIGHT, WEIGHT, NATIONALITY, STUDENTID, EMAIL, DEGREE, DOB, CURRENTCGS, PREVIOUSCGS, YEAR} data_sort_type;
+typedef enum {FIRSTNAME, SURNAME, BLOODTYPE, HEIGHT, WEIGHT, NATIONALITY, STUDENTID, EMAIL, DEGREE, DOB, CURRENTCGS, PREVIOUSCGS, LEVEL} data_sort_type;
 //string path("/Users/willatherton/Desktop/output.csv");
 
 // this is the base version of an object that holds the information about sorting ctiteria.
@@ -1537,8 +1537,10 @@ public:
 class email_item : public basic_item {
 protected:
 	string item_value;
-	string emailpre[13] = { "Chad1997", "Kiehop", "PwNzEr", "Watty", "Custard90", "Fernando", "LotRFan83", "Winelover67", "Henry", "Swansong89", "Kush420", "IsThisLoss", "JollyRoger" };
-	string emailsuf[9] = {"@hotmail.co.uk","@hotmail.com","@yahoo.co.uk","@yahoo.com","@abdn.ac.uk", "@aberdeen.ac.uk" ,"@gmail.co.uk","@gmail.com","@icloud.com"};
+	string emailfn[13] = { "Chad", "Kronisford", "Jack", "Will", "Tom", "Gerald", "Bertram", "Chowdrey", "Alistair", "Benisford", "Gideon", "Quarian", "Magnus" };
+	string emailln[12] = { "Atherton", "Godfrey", "MacLean", "Fyfe", "Connington", "Reese-Mogg", "Jeoffrey-Brown", "Buckinham", "Pensombry", "Addington", "Chadlington", "Chad" };
+	//string emailpre[13] = { "Chad1997", "Kiehop", "PwNzEr", "Watty", "Custard90", "Fernando", "LotRFan83", "Winelover67", "Henry", "Swansong89", "Kush420", "IsThisLoss", "JollyRoger" };
+	//string emailsuf[9] = {"@hotmail.co.uk","@hotmail.com","@yahoo.co.uk","@yahoo.com","@abdn.ac.uk", "@aberdeen.ac.uk" ,"@gmail.co.uk","@gmail.com","@icloud.com"};
 public:
 	email_item() { ; }
 	~email_item() { ; }
@@ -1571,9 +1573,19 @@ public:
 	{
 		int i;
 		int j;
+		int k;
+		string zk;
 		i = rand() % 13;
-		j = rand() % 9;
-		item_value = emailpre[i] + emailsuf[j]; // Does this actually work? I feel like it shouldn't...
+		j = rand() % 12;
+		k = rand() % 10 +8;		
+		if (k < 10) {
+			zk = "0";
+		}
+		else {
+			zk = "";
+		}
+		std::string l = std::to_string(k);
+		item_value = emailfn[i] + "." + emailln[j] + "." + zk + l +"@aberdeen.ac.uk"; // Does this actually work? I feel like it shouldn't...
 
 		// item filled
 		empty = false;
@@ -1661,7 +1673,7 @@ public:
 		// check that it worked
 		if (typecasted_other_item == NULL)
 		{
-			cout << "Other item is not of type height_item." << endl;
+			cout << "Other item is not of correct type." << endl;
 			return false;
 			// items of the wrong type (or null pointers) will be pushed to the end of the list
 		}
@@ -2413,14 +2425,14 @@ public:
 
 };
 
-class year_item : public basic_item {
+class level_item : public basic_item {
 protected:
 	int item_value;
 
 public:
 	// default constructor and destructor: do nothing
-	year_item() { ; }
-	~year_item() { ; }
+	level_item() { ; }
+	~level_item() { ; }
 
 	int getItemVal() { return item_value; }
 
@@ -2428,15 +2440,15 @@ public:
 	{
 
 		if (isEmpty())
-			cout << "\"year_item\" is empty." << endl;
+			cout << "\"level_item\" is empty." << endl;
 		else
-			cout << "Year: " << getItemVal() << endl;
+			cout << "Level: " << getItemVal() << endl;
 
 	}
 
 	virtual void enterItemFromKeyboard()
 	{
-		cout << "Insert year then hit enter." << endl;
+		cout << "Insert level then hit enter." << endl;
 		//getline(cin, item_value);
 		cin >> item_value;
 		cin.ignore();
@@ -2447,7 +2459,7 @@ public:
 
 	virtual void generateRandomItem()
 	{
-		item_value = rand() % 5;
+		item_value = rand() % 5 + 1;
 		// item filled
 		empty = false;
 	}
@@ -2462,12 +2474,12 @@ public:
 			return false;
 
 		// first typecast the other item to confimr it is the same as this;
-		year_item* typecasted_other_item = typecastItem(other_item, this);
+		level_item* typecasted_other_item = typecastItem(other_item, this);
 
 		// check that it worked
 		if (typecasted_other_item == NULL)
 		{
-			cout << "Other item is not of type year_item." << endl;
+			cout << "Other item is not of type level_item." << endl;
 			return false;
 			// items of the wrong type (or null pointers) will be pushed to the end of the list
 		}
@@ -2499,12 +2511,12 @@ public:
 			return false;
 
 		// first typecast the other item to confimr it is the same as this;
-		year_item* typecasted_other_item = typecastItem(other_item, this);
+		level_item* typecasted_other_item = typecastItem(other_item, this);
 
 		// check that it worked
 		if (typecasted_other_item == NULL)
 		{
-			cout << "Other item is not of type year_item." << endl;
+			cout << "Other item is not of type level_item." << endl;
 			return false;
 			// items of the wrong type (or null pointers) will be pushed to the end of the list
 		}
@@ -2535,12 +2547,12 @@ public:
 			return false;
 
 		// first typecast the other item to confimr it is the same as this;
-		year_item* typecasted_other_item = typecastItem(other_item, this);
+		level_item* typecasted_other_item = typecastItem(other_item, this);
 
 		// check that it worked
 		if (typecasted_other_item == NULL)
 		{
-			cout << "Other item is not of type year_item." << endl;
+			cout << "Other item is not of type level_item." << endl;
 			return false;
 			// items of the wrong type (or null pointers) will be pushed to the end of the list
 		}
@@ -2564,13 +2576,13 @@ public:
 	virtual void deallocateItem(basic_item* item_ptr)
 	{
 		// first typecast the other item to confimr it is the same as this;
-		year_item* typecasted_item_ptr = typecastItem(item_ptr, this);
+		level_item* typecasted_item_ptr = typecastItem(item_ptr, this);
 
 		// check that it worked
 		if (typecasted_item_ptr == NULL)
 		{
 			// items of the wrong type (or null pointers)
-			cout << "Error in deallocateItem (for year_item): " << endl << "Other item is not of type year_item." << endl;
+			cout << "Error in deallocateItem (for level_item): " << endl << "Other item is not of type level_item." << endl;
 			return;
 		}
 		delete typecasted_item_ptr;
@@ -2578,9 +2590,9 @@ public:
 
 	virtual basic_item* allocateItem()
 	{
-		year_item* result = new year_item;
+		level_item* result = new level_item;
 		if (result == NULL)
-			cout << " Error in year_item::allocateItem(): out of memory" << endl;
+			cout << " Error in level_item::allocateItem(): out of memory" << endl;
 		return result;
 	}
 };
@@ -2599,7 +2611,7 @@ protected:
 	dateofbirth_item dob_item;
 	currentcgs_item ccgs_item;
 	pastcgs_item pcgs_item;
-	year_item y_item;
+	level_item l_item;
 
 private:
 	virtual height_item* return_height_pointer() { return &h_item; }
@@ -2626,7 +2638,7 @@ private:
 
 	virtual pastcgs_item* return_previouscgs_pointer() { return &pcgs_item; }
 
-	virtual year_item* return_year_pointer() { return &y_item; }
+	virtual level_item* return_level_pointer() { return &l_item; }
 
 public:
 	student_record() { ; }
@@ -2636,7 +2648,7 @@ public:
         string path("/Users/tgb19/documents/output.csv");
         std::ofstream outfile;
         outfile.open(path, std::ios_base::app);
-		outfile << fn_item.getItemVal() << "," << sn_item.getItemVal() << "," << bt_item.getItemVal() << "," << h_item.getItemVal() << "," << w_item.getItemVal() << "," << n_item.getItemVal() << "," << sid_item.getItemVal() << "," << e_item.getItemVal() << "," << d_item.getItemVal() << "," << dob_item.getItemVal() << "," << ccgs_item.getItemVal() << "," << pcgs_item.getItemVal() << "," << y_item.getItemVal() << "," << endl;
+		outfile << fn_item.getItemVal() << "," << sn_item.getItemVal() << "," << bt_item.getItemVal() << "," << h_item.getItemVal() << "," << w_item.getItemVal() << "," << n_item.getItemVal() << "," << sid_item.getItemVal() << "," << e_item.getItemVal() << "," << d_item.getItemVal() << "," << dob_item.getItemVal() << "," << ccgs_item.getItemVal() << "," << pcgs_item.getItemVal() << "," << l_item.getItemVal() << "," << endl;
         //outfile << "test.txt";
     }
 
@@ -2655,7 +2667,7 @@ public:
 		dob_item.printItemOnScreen();
 		ccgs_item.printItemOnScreen();
 		pcgs_item.printItemOnScreen();
-		y_item.printItemOnScreen();
+		l_item.printItemOnScreen();
         writeItemToFile();
 	}
 
@@ -2674,7 +2686,7 @@ public:
 		dob_item.enterItemFromKeyboard();
 		ccgs_item.enterItemFromKeyboard();
 		pcgs_item.enterItemFromKeyboard();
-		y_item.enterItemFromKeyboard();
+		l_item.enterItemFromKeyboard();
 	}
 
 	//function to get random string from the protected
@@ -2693,7 +2705,7 @@ public:
 		dob_item.generateRandomItem();
 		ccgs_item.generateRandomItem();
 		pcgs_item.generateRandomItem();
-		y_item.generateRandomItem();
+		l_item.generateRandomItem();
 	}
 
 	virtual bool IsLargerThan(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL)
@@ -2754,9 +2766,9 @@ public:
 			//cout << "Item is previous cgs grade" << endl;
 			result = pcgs_item.IsLargerThan(typecasted_other_item->return_previouscgs_pointer(), sort_criteria);
 			break;
-		case YEAR:
+		case LEVEL:
 			//cout << "Item is previous cgs grade" << endl;
-			result = y_item.IsLargerThan(typecasted_other_item->return_year_pointer(), sort_criteria);
+			result = l_item.IsLargerThan(typecasted_other_item->return_level_pointer(), sort_criteria);
 			break;
 		default:
 			break;
@@ -2823,9 +2835,9 @@ public:
                 //cout << "Item is previous cgs grade" << endl;
                 result = pcgs_item.IsSmallerThan(typecasted_other_item->return_previouscgs_pointer(), sort_criteria);
                 break;
-			case YEAR:
+			case LEVEL:
 				//cout << "Item is previous cgs grade" << endl;
-				result = y_item.IsSmallerThan(typecasted_other_item->return_year_pointer(), sort_criteria);
+				result = l_item.IsSmallerThan(typecasted_other_item->return_level_pointer(), sort_criteria);
 				break;
             default:
                 break;
@@ -2892,9 +2904,9 @@ public:
 			//cout << "Item is previous cgs grade" << endl;
 			result = pcgs_item.IsEqualTo(typecasted_other_item->return_previouscgs_pointer(), sort_criteria);
 			break;
-		case YEAR:
+		case LEVEL:
 			//cout << "Item is previous cgs grade" << endl;
-			result = y_item.IsEqualTo(typecasted_other_item->return_year_pointer(), sort_criteria);
+			result = l_item.IsEqualTo(typecasted_other_item->return_level_pointer(), sort_criteria);
 			break;
 		default:
 			break;
@@ -2979,9 +2991,9 @@ public:
 			//cout << "Item is previous cgs grade" << endl;
 			pcgs_item.enterItemFromKeyboard();
 			break;
-		case YEAR:
+		case LEVEL:
 			//cout << "Item is previous cgs grade" << endl;
-			y_item.enterItemFromKeyboard(); 
+			l_item.enterItemFromKeyboard(); 
 			break;
 		default:
 			break;

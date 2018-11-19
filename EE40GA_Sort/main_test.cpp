@@ -57,8 +57,8 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			srt_crt.set_data_sort_type(PREVIOUSCGS);
 			srt_crt.setAscending(direction);
 			break;
-		case YEAR:
-			srt_crt.set_data_sort_type(YEAR);
+		case LEVEL:
+			srt_crt.set_data_sort_type(LEVEL);
 			srt_crt.setAscending(direction);
 			break;
         default:
@@ -281,7 +281,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			cout << "\n";
         }
             break;
-		case YEAR:
+		case LEVEL:
 		{
 			student_record min;
 			student_record max;
@@ -332,7 +332,7 @@ int main()
         cout << "Error: Please enter a valid choice." << endl;
 		return 0;
     }
-    cout << "Enter field to search by: {0:FIRSTNAME, 1:SURNAME, 2:BLOODTYPE, 3:HEIGHT, 4:WEIGHT, 5:NATIONALITY, 6:STUDENT ID, 7:EMAIL, 8:DEGREE, 9:DOB, 10:CURRENT CGS, 11:PREVIOUS CGS, 12:YEAR}" << endl << endl;
+    cout << "Enter field to search by: {0:FIRSTNAME, 1:SURNAME, 2:BLOODTYPE, 3:HEIGHT, 4:WEIGHT, 5:NATIONALITY, 6:STUDENT ID, 7:EMAIL, 8:DEGREE, 9:DOB, 10:CURRENT CGS, 11:PREVIOUS CGS, 12:LEVEL}" << endl << endl;
     cin >> field;
 	cout << endl;
 	if(field==0 || field == 1 || field == 2 ||field==5 || field==7 || field==8 ){
@@ -366,4 +366,4 @@ int main()
 	cin >> temp;
     
     return 0;
-}6
+}
