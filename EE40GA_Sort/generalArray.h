@@ -337,7 +337,6 @@ public:
 
 		for (int curr_index = 0; curr_index < getMaxSize(); curr_index++)
 		{
-			cout << "Current item: " << curr_index << endl;
 			bool element_out_of_range = false;
 			basic_item* curr_item = getElementPtr(curr_index);
 			// in case there are "empty (non allocated) items"
@@ -352,12 +351,17 @@ public:
 				{
 					//deallocateSpecificItem(curr_item);//removes item from general array
 					element_out_of_range = true;
+					
 				}
 			}
 			if (element_out_of_range == true) {
-				cout << "Removing item " << curr_index << endl;
+				//cout << "Removing item " << curr_index << endl;
 				//getNremoveCurrElementPtr();//removes item from general array and alters array size to match
-				deallocateSpecificItem(curr_item);//removes item from general array
+				//deallocateSpecificItem(curr_item);//removes item from general array
+			}
+			if (element_out_of_range == false) {
+				cout << "\nElement Position:" << curr_index << "->" << endl;
+				printItemOnScreen(curr_index);
 			}
 		}
 	}
