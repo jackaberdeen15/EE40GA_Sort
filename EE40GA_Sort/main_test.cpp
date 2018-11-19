@@ -308,12 +308,16 @@ int main()
     cout << "Enter field to search by: {0:FIRSTNAME, 1:SURNAME, 2:BLOODTYPE, 3:HEIGHT, 4:WEIGHT, 5:NATIONALITY, 6:STUDENT ID, 7:EMAIL, 8:DEGREE, 9:DOB, 10:CURRENT CGS, 11:PREVIOUS CGS, 12:YEAR}" << endl << endl;
     cin >> field;
 	cout << endl;
-	if(field==0 || field == 1 || field == 2 ||field==6 || field==10 || field==11 ){
+	if(field==0 || field == 1 || field == 2 ||field==5 || field==7 || field==8 ){
 			cout << "How would you like to sort" << endl << "1 = Ascending = A ---> Z" << endl << "2 = Descending = Z ---> A" << endl << endl;
 			cin >> direction;
 	}
-	else if (field == 3 || field == 4 || field==5 || field==7 || field==8 || field==9 || field==12) {
+	else if (field == 3 || field == 4 || field == 10 || field == 6 || field == 10 || field == 11 || field == 12) {
 		cout << "How would you like to sort" << endl << "1 = Ascending = Lowest ---> Highest" << endl << "2 = Descending = Highest ---> Lowest" << endl << endl;
+		cin >> direction;
+	}
+	else if (field == 9) {
+		cout << "How would you like to sort" << endl << "1 = Ascending = Youngest ---> Oldest" << endl << "2 = Descending = Oldest ---> Youngest" << endl << endl;
 		cin >> direction;
 	}
 	if (direction == 1 || direction == 2) {
