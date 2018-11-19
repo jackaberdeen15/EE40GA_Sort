@@ -2,9 +2,9 @@
 #include "generalArray.h"
 
 
-void test_array(int array_size, basic_item* ref_item)
+void test_array(int array_size, basic_item* ref_item, bool order)
 {
-	basic_sort_criteria srt_crt(true);
+	basic_sort_criteria srt_crt(order);
 	general_array test_array;
 	// attach the "integer item" as referecen item
 	test_array.attachRefrenceItem(ref_item);
@@ -27,6 +27,8 @@ void test_array(int array_size, basic_item* ref_item)
 
 int main2()
 {
+	int order;
+	bool ascending=true;
 	int array_size = 10;
 	int temp;
 	// Used as "example item" by the general_array to populate the entire array with integer_item 
@@ -35,12 +37,19 @@ int main2()
 	neg_int_item ref_nint_item;
 	// First test with the inger item
 	cout << " Testing array with integer (positve and negative) items: " << endl << endl;
-	test_array(array_size, &ref_int_item);
+	cout << "How do you want to sort the Array? 1:Ascending or 2:Descending?\nAscending is default." << endl;
+	cin >> order;
+	if (order == 2) { ascending = false; }
+	test_array(array_size, &ref_int_item, ascending);
 	cout << " Done. Enter any nymber to progress to the next test." << endl;
 	cin >> temp;
+	ascending = true;
 	// Next test with the negative ingteger item
 	cout << " Testing array with NEGATIVE ONLY integer items: " << endl << endl;
-	test_array(array_size, &ref_nint_item);
+	cout << "How do you want to sort the Array? 1:Ascending or 2:Descending?\nAscending is default." << endl;
+	cin >> order;
+	if (order == 2) { ascending = false; }
+	test_array(array_size, &ref_nint_item,ascending);
 	cout << " Done. Enter any nymber to finish." << endl;
 	cin >> temp;
 	return 0;
