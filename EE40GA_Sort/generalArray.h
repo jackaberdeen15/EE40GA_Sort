@@ -360,7 +360,7 @@ public:
 				//deallocateSpecificItem(curr_item);//removes item from general array
 			}
 			if (element_out_of_range == false) {
-				cout << "\nElement Position:" << curr_index << "->" << endl;
+				cout << "\nElement Position: " << curr_index << " ->" << endl;
 				printItemOnScreen(curr_index);
 			}
 		}
