@@ -333,11 +333,13 @@ public:
 
 	void findItemsWithinRange(basic_item* min_item, basic_item* max_item, basic_sort_criteria* sort_criteria_ptr = NULL)
 	{
-		for (int curr_index = 0; curr_index < getMaxSize()-1; curr_index++)
+		sort_criteria_ptr->setAscending(true);
+
+		for (int curr_index = 0; curr_index < getMaxSize(); curr_index++)
 		{
+			cout << "Current item: " << curr_index << endl;
 			bool element_out_of_range = false;
 			basic_item* curr_item = getElementPtr(curr_index);
-
 			// in case there are "empty (non allocated) items"
 			if (curr_item != NULL)
 			{
@@ -346,20 +348,24 @@ public:
 					//deallocateSpecificItem(curr_item);//removes item from general array
 					element_out_of_range = true;
 				}
-				else if (curr_item->IsSmallerThan(min_item, sort_criteria_ptr))
+				if (curr_item->IsSmallerThan(min_item, sort_criteria_ptr))
 				{
 					//deallocateSpecificItem(curr_item);//removes item from general array
 					element_out_of_range = true;
 				}
 			}
-			if (element_out_of_range)
-				getNremoveCurrElementPtr();//removes item from general array and alters array size to match
+			if (element_out_of_range == true) {
+				cout << "Removing item " << curr_index << endl;
+				//getNremoveCurrElementPtr();//removes item from general array and alters array size to match
+				deallocateSpecificItem(curr_item);//removes item from general array
+			}
 		}
 	}
 
 	void findItemsThatMatch(basic_item* search_item, basic_sort_criteria* sort_criteria_ptr)
 	{
-		for (int curr_index = 0; curr_index < getMaxSize()-1; curr_index++)
+		sort_criteria_ptr->setAscending(true);
+		for (int curr_index = 0; curr_index < getMaxSize(); curr_index++)
 		{
 			bool elements_not_match = false;
 			basic_item* curr_item = getElementPtr(curr_index);

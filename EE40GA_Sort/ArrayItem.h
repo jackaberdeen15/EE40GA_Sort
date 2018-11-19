@@ -2227,7 +2227,10 @@ public:
 
 		// now verify if the other item is larger than the curren
 		if (getItemVal() > (typecasted_other_item->getItemVal()))
+		{
 			result = true;
+		}
+			
 
 
 		// chek if there are sorting options to apply 
@@ -2259,9 +2262,11 @@ public:
 			// items of the wrong type (or null pointers) will be pushed to the end of the list
 		}
 
-		// now verify if the other item is larger than the curren
-		if (getItemVal() < (typecasted_other_item->getItemVal()))
+		// now verify if the other item is smaller than the curren
+		if (getItemVal() < (typecasted_other_item->getItemVal())) {
 			result = true;
+		}
+			
 
 
 		// chek if there are sorting options to apply
