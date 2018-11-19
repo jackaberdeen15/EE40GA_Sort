@@ -2155,7 +2155,7 @@ public:
         }
         
         // now verify if the other item is larger than the curren
-        if( getItemVal() < (typecasted_other_item->getItemVal()) )
+        if( getItemVal().compare(typecasted_other_item->getItemVal()) > 0)
             result=true;
         
         
