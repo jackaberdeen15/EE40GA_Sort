@@ -22,7 +22,7 @@ template <class Base, class Derived> Derived* typecastItem(Base* basic_ptr, Deri
 }
 //////
 
-typedef enum {FIRSTNAME, SURNAME, BLOODTYPE, HEIGHT, WEIGHT, NATIONALITY, STUDENTID, EMAIL, DEGREE, DOB, CURRENTCGS, PREVIOUSCGS, LEVEL} data_sort_type;
+typedef enum {FIRSTNAME, SURNAME, BLOODTYPE, HEIGHT, WEIGHT, NATIONALITY, STUDENTID, EMAIL, DEGREE, DOB, CURRENTCGS, PREVIOUSCGS, LEVEL, ALL} data_sort_type;
 //string path("/Users/willatherton/Desktop/output.csv");
 
 // this is the base version of an object that holds the information about sorting ctiteria.

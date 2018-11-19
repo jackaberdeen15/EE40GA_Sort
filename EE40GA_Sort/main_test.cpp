@@ -6,7 +6,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 {
 	basic_sort_criteria srt_crt(true);
 	general_array test_array;
-	int i;
+	int i, search, searchtype;
     
     switch (field){
         case HEIGHT:
@@ -94,212 +94,359 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 	cout << endl << "Sorting Array..." << endl << endl;
 	test_array.bubblesort(&srt_crt);
 	test_array.printArrayOnScreen();
-    cout << "search array by min and max ?" <<endl;
     
-    //typedef enum {FIRSTNAME, SURNAME, BLOODTYPE, HEIGHT, WEIGHT, NATIONALITY, STUDENTID, EMAIL, DEGREE, DOB, CURRENTCGS, PREVIOUSCGS} data_sort_type;
+	cout << "Would you like to search these records:" << endl << "1 = Yes" << endl << "2 = No" << endl << endl;
+	cin >> search;
+	cout << endl;
+	if (search == 1) {
+		cout << "Which type of search would you like to carry out:" << endl << "1 - Item is exactly value" << endl << "2 - Value appears anywhere in item" << endl << "3 - Item is between these values" << endl << "4 - I would like to search within dates" << endl << endl;
+		cin >> searchtype;
+		cout << endl;
+		if (searchtype == 1||searchtype==2) {
+			cout << "Within which field(s) would you like to search?" << endl << "Enter field to search by: {0:FIRSTNAME, 1:SURNAME, 2:BLOODTYPE, 3:HEIGHT, 4:WEIGHT, 5:NATIONALITY, 6:STUDENT ID, 7:EMAIL, 8:DEGREE, 9:DOB, 10:CURRENT CGS, 11:PREVIOUS CGS, 12:LEVEL, 13: ALL}" << endl << endl;
+			cin >> field;
+			cout << endl;
+			if (field==1|| field == 2 || field == 3 || field == 4 || field == 5 || field == 6 || field == 7 || field == 8 || field == 9 || field == 10 || field == 11 || field == 12 || field == 13) {
+				if (searchtype == 1) {
+					switch (field) {
+					case HEIGHT:
+					{
+						student_record exact;
+						cin.ignore();
+						cout << "What are you searching for? (not case sensitive):";
+						cout << endl;
+						exact.AssignSpeificItem(&srt_crt);
+						cout << "Printing records which match:\n";
+						test_array.findItemsThatMatch(&exact, &srt_crt);
+						//test_array.printArrayOnScreen();
+					}
+					break;
+					case WEIGHT:
+					{
+					}
+					break;
+					case BLOODTYPE:
+					{
+					}
+					break;
+					case SURNAME:
+					{
+					}
+					break;
+					case FIRSTNAME:
+					{
+					}
+					break;
+					case NATIONALITY:
+					{
+					}
+					break;
+					case STUDENTID:
+					{
+					}
+					break;
+					case EMAIL:
+					{
+					}
+					break;
+					case DEGREE:
+					{
+					}
+					break;
+					case DOB:
+					{
+					}
+					break;
+					case CURRENTCGS:
+					{
+					}
+					break;
+					case PREVIOUSCGS:
+					{
+					}
+					break;
+					case LEVEL:
+					{
+					}
+					break;
+					default:
+					break;
+					}
+				}
+				else if (searchtype == 2) {
+					switch (field) {
+					case HEIGHT:
+					{
+					}
+					break;
+					case WEIGHT:
+					{
+					}
+					break;
+					case BLOODTYPE:
+					{
+					}
+					break;
+					case SURNAME:
+					{
+					}
+					break;
+					case FIRSTNAME:
+					{
+					}
+					break;
+					case NATIONALITY:
+					{
+					}
+					break;
+					case STUDENTID:
+					{
+					}
+					break;
+					case EMAIL:
+					{
+					}
+					break;
+					case DEGREE:
+					{
+					}
+					break;
+					case DOB:
+					{
+					}
+					break;
+					case CURRENTCGS:
+					{
+					}
+					break;
+					case PREVIOUSCGS:
+					{
+					}
+					break;
+					case LEVEL:
+					{
+					}
+					break;
+					default:
+					break;
+					}
+				}
 
-    switch (field){
-
-        case HEIGHT:
-        {
-            student_record min;
-            student_record max;
-			cin.ignore();
-            cout << "min_HEIGHT=";
-            min.AssignSpeificItem(&srt_crt);
-            cout << "max_HEIGHT=";
-            max.AssignSpeificItem(&srt_crt);
-			cout << "Printing records within range:\n";
-            test_array.findItemsWithinRange(&min,&max,&srt_crt);
-            //test_array.printArrayOnScreen();
-        }
-            break;
-        case WEIGHT:
-        {
-            student_record min;
-            student_record max;
-			cin.ignore();
-            cout << "min_WEIGHT=";
-            min.AssignSpeificItem(&srt_crt);
-            cout << "max_WEIGHT=";
-            max.AssignSpeificItem(&srt_crt);
-			cout << "Printing records within range:\n";
-            test_array.findItemsWithinRange(&min,&max,&srt_crt);
-            //test_array.printArrayOnScreen();
-			cout << "\n";
-        }
-            break;
-        case BLOODTYPE:
-        {
-            student_record min;
-            student_record max;
-			cin.ignore();
-            cout << "min_BLOODTYPE=";
-            min.AssignSpeificItem(&srt_crt);
-            cout << "max_BLOODTYPE=";
-            max.AssignSpeificItem(&srt_crt);
-			cout << "Printing records within range:\n";
-            test_array.findItemsWithinRange(&min,&max,&srt_crt);
-            //test_array.printArrayOnScreen();
-			cout << "\n";
-        }
-            break;
-        case SURNAME:
-        {
-            student_record min;
-            student_record max;
-			cin.ignore();
-            cout << "min_SURNAME=";
-            min.AssignSpeificItem(&srt_crt);
-            cout << "max_SURNAME=";
-            max.AssignSpeificItem(&srt_crt);
-			cout << "Printing records within range:\n";
-            test_array.findItemsWithinRange(&min,&max,&srt_crt);
-            //test_array.printArrayOnScreen();
-			cout << "\n";
-        }
-            break;
-        case FIRSTNAME:
-        {
-            student_record min;
-            student_record max;
-			cin.ignore();
-            cout << "min_FIRSTNAME=";
-            min.AssignSpeificItem(&srt_crt);
-            cout << "max_FIRSTNAME=";
-            max.AssignSpeificItem(&srt_crt);
-			cout << "Printing records within range:\n";
-            test_array.findItemsWithinRange(&min,&max,&srt_crt);
-            //test_array.printArrayOnScreen();
-			cout << "\n";
-        }
-            break;
-        case NATIONALITY:
-        {
-            student_record min;
-            student_record max;
-			cin.ignore();
-            cout << "min_NATIONALITY=";
-            min.AssignSpeificItem(&srt_crt);
-            cout << "max_NATIONALITY=";
-            max.AssignSpeificItem(&srt_crt);
-			cout << "Printing records within range:\n";
-            test_array.findItemsWithinRange(&min,&max,&srt_crt);
-            //test_array.printArrayOnScreen();
-			cout << "\n";
-        }
-            break;
-        case STUDENTID:
-        {
-            student_record min;
-            student_record max;
-			cin.ignore();
-            cout << "min_STUDENTID=";
-            min.AssignSpeificItem(&srt_crt);
-            cout << "max_STUDENTID=";
-            max.AssignSpeificItem(&srt_crt);
-			cout << "Printing records within range:\n";
-            test_array.findItemsWithinRange(&min,&max,&srt_crt);
-            //test_array.printArrayOnScreen();
-			cout << "\n";
-        }
-            break;
-        case EMAIL:
-        {
-            student_record min;
-            student_record max;
-			cin.ignore();
-            cout << "email_STUDENTID=";
-            min.AssignSpeificItem(&srt_crt);
-            cout << "email_STUDENTID=";
-            max.AssignSpeificItem(&srt_crt);
-			cout << "Printing records within range:\n";
-            test_array.findItemsWithinRange(&min,&max,&srt_crt);
-            //test_array.printArrayOnScreen();
-			cout << "\n";
-        }
-            break;
-        case DEGREE:
-        {
-            student_record min;
-            student_record max;
-			cin.ignore();
-            cout << "min_DEGREE=";
-            min.AssignSpeificItem(&srt_crt);
-            cout << "max_DEGREE=";
-            max.AssignSpeificItem(&srt_crt);
-			cout << "Printing records within range:\n";
-            test_array.findItemsWithinRange(&min,&max,&srt_crt);
-            //test_array.printArrayOnScreen();
-			cout << "\n";
-        }
-            break;
-        case DOB:
-        {
-            student_record min;
-            student_record max;
-			cin.ignore();
-            cout << "min_DOB=";
-            min.AssignSpeificItem(&srt_crt);
-            cout << "max_DOB=";
-            max.AssignSpeificItem(&srt_crt);
-			cout << "Printing records within range:\n";
-            test_array.findItemsWithinRange(&min,&max,&srt_crt);
-            //test_array.printArrayOnScreen();
-			cout << "\n";
-        }
-            break;
-        case CURRENTCGS:
-        {
-            student_record min;
-            student_record max;
-			cin.ignore();
-            cout << "min_CURRENTCGS=";
-            min.AssignSpeificItem(&srt_crt);
-            cout << "max_CURRENTCGS=";
-            max.AssignSpeificItem(&srt_crt);
-			cout << "Printing records within range:\n";
-			test_array.findItemsWithinRange(&min, &max, &srt_crt);
-			//test_array.printArrayOnScreen();
-			cout << "\n";
-				
-				
-        }
-            break;
-        case PREVIOUSCGS:
-        {
-            student_record min;
-            student_record max;
-			cin.ignore();
-            cout << "min_PREVIOUSCGS=";
-            min.AssignSpeificItem(&srt_crt);
-            cout << "max_PREVIOUSCGS=";
-            max.AssignSpeificItem(&srt_crt);
-			cout << "Printing records within range:\n";
-            test_array.findItemsWithinRange(&min,&max,&srt_crt);
-            //test_array.printArrayOnScreen();
-			cout << "\n";
-        }
-            break;
-		case LEVEL:
-		{
-			student_record min;
-			student_record max;
-			cin.ignore();
-			cout << "min_YEAR=";
-			min.AssignSpeificItem(&srt_crt);
-			cout << "max_YEAR=";
-			max.AssignSpeificItem(&srt_crt);
-			cout << "Printing records within range:\n";
-			test_array.findItemsWithinRange(&min, &max, &srt_crt);
-			//test_array.printArrayOnScreen();
-			cout << "\n";
+			}
 		}
-		break;
-        default:
-            break;
-            
-    }
+		else if (searchtype == 3) {
+			cout << "Within which field(s) would you like to search?" << endl << "Enter field to search by: {3:HEIGHT, 4:WEIGHT, 6:STUDENT ID, 10:CURRENT CGS, 11:PREVIOUS CGS, 12:LEVEL}" << endl << endl;
+			cin >> field;
+			if (field == 3 || field == 4 || field == 6 || field == 10 || field == 11 || field == 12) {
+				switch (field) {
+
+				case HEIGHT:
+				{
+					student_record min;
+					student_record max;
+					cin.ignore();
+					cout << "Minimum Height:";
+					min.AssignSpeificItem(&srt_crt);
+					cout << "Maximum Height=";
+					max.AssignSpeificItem(&srt_crt);
+					cout << "Printing records within range:\n";
+					test_array.findItemsWithinRange(&min, &max, &srt_crt);
+					//test_array.printArrayOnScreen();
+				}
+				break;
+				case WEIGHT:
+				{
+					student_record min;
+					student_record max;
+					cin.ignore();
+					cout << "Minimum Weight:=";
+					min.AssignSpeificItem(&srt_crt);
+					cout << "Maximum Weight:=";
+					max.AssignSpeificItem(&srt_crt);
+					cout << "Printing records within range:\n";
+					test_array.findItemsWithinRange(&min, &max, &srt_crt);
+					//test_array.printArrayOnScreen();
+					cout << "\n";
+				}
+				break;
+				/*case BLOODTYPE:
+				{
+					student_record min;
+					student_record max;
+					cin.ignore();
+					cout << "min_BLOODTYPE=";
+					min.AssignSpeificItem(&srt_crt);
+					cout << "max_BLOODTYPE=";
+					max.AssignSpeificItem(&srt_crt);
+					cout << "Printing records within range:\n";
+					test_array.findItemsWithinRange(&min, &max, &srt_crt);
+					//test_array.printArrayOnScreen();
+					cout << "\n";
+				}
+				break;*/
+				/*case SURNAME:
+				{
+					student_record min;
+					student_record max;
+					cin.ignore();
+					cout << "min_SURNAME=";
+					min.AssignSpeificItem(&srt_crt);
+					cout << "max_SURNAME=";
+					max.AssignSpeificItem(&srt_crt);
+					cout << "Printing records within range:\n";
+					test_array.findItemsWithinRange(&min, &max, &srt_crt);
+					//test_array.printArrayOnScreen();
+					cout << "\n";
+				}
+				break;*/
+				/*case FIRSTNAME:
+				{
+					student_record min;
+					student_record max;
+					cin.ignore();
+					cout << "min_FIRSTNAME=";
+					min.AssignSpeificItem(&srt_crt);
+					cout << "max_FIRSTNAME=";
+					max.AssignSpeificItem(&srt_crt);
+					cout << "Printing records within range:\n";
+					test_array.findItemsWithinRange(&min, &max, &srt_crt);
+					//test_array.printArrayOnScreen();
+					cout << "\n";
+				}
+				break;*/
+				/*case NATIONALITY:
+				{
+					student_record min;
+					student_record max;
+					cin.ignore();
+					cout << "min_NATIONALITY=";
+					min.AssignSpeificItem(&srt_crt);
+					cout << "max_NATIONALITY=";
+					max.AssignSpeificItem(&srt_crt);
+					cout << "Printing records within range:\n";
+					test_array.findItemsWithinRange(&min, &max, &srt_crt);
+					//test_array.printArrayOnScreen();
+					cout << "\n";
+				}
+				break;*/
+				case STUDENTID:
+				{
+					student_record min;
+					student_record max;
+					cin.ignore();
+					cout << "Minimum Student ID:=";
+					min.AssignSpeificItem(&srt_crt);
+					cout << "Maximum Student ID=";
+					max.AssignSpeificItem(&srt_crt);
+					cout << "Printing records within range:\n";
+					test_array.findItemsWithinRange(&min, &max, &srt_crt);
+					//test_array.printArrayOnScreen();
+					cout << "\n";
+				}
+				break;
+				/*case EMAIL:
+				{
+					student_record min;
+					student_record max;
+					cin.ignore();
+					cout << "email_STUDENTID=";
+					min.AssignSpeificItem(&srt_crt);
+					cout << "email_STUDENTID=";
+					max.AssignSpeificItem(&srt_crt);
+					cout << "Printing records within range:\n";
+					test_array.findItemsWithinRange(&min, &max, &srt_crt);
+					//test_array.printArrayOnScreen();
+					cout << "\n";
+				}
+				break;*/
+				/*case DEGREE:
+				{
+					student_record min;
+					student_record max;
+					cin.ignore();
+					cout << "min_DEGREE=";
+					min.AssignSpeificItem(&srt_crt);
+					cout << "max_DEGREE=";
+					max.AssignSpeificItem(&srt_crt);
+					cout << "Printing records within range:\n";
+					test_array.findItemsWithinRange(&min, &max, &srt_crt);
+					//test_array.printArrayOnScreen();
+					cout << "\n";
+				}
+				break;*/
+				/*case DOB:
+				{
+					student_record min;
+					student_record max;
+					cin.ignore();
+					cout << "min_DOB=";
+					min.AssignSpeificItem(&srt_crt);
+					cout << "max_DOB=";
+					max.AssignSpeificItem(&srt_crt);
+					cout << "Printing records within range:\n";
+					test_array.findItemsWithinRange(&min, &max, &srt_crt);
+					//test_array.printArrayOnScreen();
+					cout << "\n";
+				}
+				break;*/
+				case CURRENTCGS:
+				{
+					student_record min;
+					student_record max;
+					cin.ignore();
+					cout << "Minimum Current CGS:=";
+					min.AssignSpeificItem(&srt_crt);
+					cout << "Maximum Current CGS:=";
+					max.AssignSpeificItem(&srt_crt);
+					cout << "Printing records within range:\n";
+					test_array.findItemsWithinRange(&min, &max, &srt_crt);
+					//test_array.printArrayOnScreen();
+					cout << "\n";
+
+
+				}
+				break;
+				case PREVIOUSCGS:
+				{
+					student_record min;
+					student_record max;
+					cin.ignore();
+					cout << "Minimum Previous CGS:=";
+					min.AssignSpeificItem(&srt_crt);
+					cout << "Maximum Previous CGS:=";
+					max.AssignSpeificItem(&srt_crt);
+					cout << "Printing records within range:\n";
+					test_array.findItemsWithinRange(&min, &max, &srt_crt);
+					//test_array.printArrayOnScreen();
+					cout << "\n";
+				}
+				break;
+				case LEVEL:
+				{
+					student_record min;
+					student_record max;
+					cin.ignore();
+					cout << "Minimum Level:=";
+					min.AssignSpeificItem(&srt_crt);
+					cout << "Maximum Level:=";
+					max.AssignSpeificItem(&srt_crt);
+					cout << "Printing records within range:\n";
+					test_array.findItemsWithinRange(&min, &max, &srt_crt);
+					//test_array.printArrayOnScreen();
+					cout << "\n";
+				}
+				break;
+				default:
+				break;
+				}
+			}
+		}
+		else if (searchtype == 4) {
+			field == 9;
+			cout << "Which type of search would you like to carry out:" << endl << "1 - ?" << endl << "2 - ?" << endl << "3 - ?" << endl;
+			cout << "This needs to be completed on like 9 different levels and it's making me want to kill myself. :,(";
+		}
+	}
 	}
 
 int main()
@@ -332,7 +479,7 @@ int main()
         cout << "Error: Please enter a valid choice." << endl;
 		return 0;
     }
-    cout << "Enter field to search by: {0:FIRSTNAME, 1:SURNAME, 2:BLOODTYPE, 3:HEIGHT, 4:WEIGHT, 5:NATIONALITY, 6:STUDENT ID, 7:EMAIL, 8:DEGREE, 9:DOB, 10:CURRENT CGS, 11:PREVIOUS CGS, 12:LEVEL}" << endl << endl;
+    cout << "Enter field to sort by: {0:FIRSTNAME, 1:SURNAME, 2:BLOODTYPE, 3:HEIGHT, 4:WEIGHT, 5:NATIONALITY, 6:STUDENT ID, 7:EMAIL, 8:DEGREE, 9:DOB, 10:CURRENT CGS, 11:PREVIOUS CGS, 12:LEVEL}" << endl << endl;
     cin >> field;
 	cout << endl;
 	if(field==0 || field == 1 || field == 2 ||field==5 || field==7 || field==8 ){

@@ -379,12 +379,17 @@ public:
 
 				if (!(curr_item->IsEqualTo(search_item, sort_criteria_ptr)))
 				{
-					deallocateSpecificItem(curr_item);//removes item from general array
+					//deallocateSpecificItem(curr_item);//removes item from general array
 					elements_not_match = true;
 				}
 			}
-			if (elements_not_match)
-				getNremoveCurrElementPtr();//removes item from general array and alters array size to match
+			if (elements_not_match) {
+				//getNremoveCurrElementPtr();//removes item from general array and alters array size to match
+			}
+			if (elements_not_match == false) {
+				cout << "\nElement Position:" << curr_index << "->" << endl;
+				printItemOnScreen(curr_index);
+			}
 		}
 	}
 	//
