@@ -223,9 +223,9 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
             student_record max;
             
             cout << "min_DOB=";
-            min.AssignSpeificItem();
+            min.AssignSpeificItem(&srt_crt);
             cout << "max_DOB=";
-            max.AssignSpeificItem();
+            max.AssignSpeificItem(&srt_crt);
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             test_array.printArrayOnScreen();
         }
