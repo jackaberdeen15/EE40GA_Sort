@@ -109,6 +109,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
             min.AssignSpeificItem(&srt_crt);
             cout << "max_HEIGHT=";
             max.AssignSpeificItem(&srt_crt);
+			cout << "Printing records within range:\n";
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             //test_array.printArrayOnScreen();
         }
@@ -122,6 +123,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
             min.AssignSpeificItem(&srt_crt);
             cout << "max_WEIGHT=";
             max.AssignSpeificItem(&srt_crt);
+			cout << "Printing records within range:\n";
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             //test_array.printArrayOnScreen();
         }
@@ -135,6 +137,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
             min.AssignSpeificItem(&srt_crt);
             cout << "max_BLOODTYPE=";
             max.AssignSpeificItem(&srt_crt);
+			cout << "Printing records within range:\n";
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             //test_array.printArrayOnScreen();
         }
@@ -148,6 +151,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
             min.AssignSpeificItem(&srt_crt);
             cout << "max_SURNAME=";
             max.AssignSpeificItem(&srt_crt);
+			cout << "Printing records within range:\n";
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             //test_array.printArrayOnScreen();
         }
@@ -161,6 +165,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
             min.AssignSpeificItem(&srt_crt);
             cout << "max_FIRSTNAME=";
             max.AssignSpeificItem(&srt_crt);
+			cout << "Printing records within range:\n";
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             //test_array.printArrayOnScreen();
         }
@@ -174,6 +179,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
             min.AssignSpeificItem(&srt_crt);
             cout << "max_NATIONALITY=";
             max.AssignSpeificItem(&srt_crt);
+			cout << "Printing records within range:\n";
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             //test_array.printArrayOnScreen();
         }
@@ -187,6 +193,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
             min.AssignSpeificItem(&srt_crt);
             cout << "max_STUDENTID=";
             max.AssignSpeificItem(&srt_crt);
+			cout << "Printing records within range:\n";
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             //test_array.printArrayOnScreen();
         }
@@ -200,6 +207,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
             min.AssignSpeificItem(&srt_crt);
             cout << "email_STUDENTID=";
             max.AssignSpeificItem(&srt_crt);
+			cout << "Printing records within range:\n";
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             //test_array.printArrayOnScreen();
         }
@@ -213,6 +221,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
             min.AssignSpeificItem(&srt_crt);
             cout << "max_DEGREE=";
             max.AssignSpeificItem(&srt_crt);
+			cout << "Printing records within range:\n";
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             //test_array.printArrayOnScreen();
         }
@@ -226,6 +235,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
             min.AssignSpeificItem(&srt_crt);
             cout << "max_DOB=";
             max.AssignSpeificItem(&srt_crt);
+			cout << "Printing records within range:\n";
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             //test_array.printArrayOnScreen();
         }
@@ -239,6 +249,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
             min.AssignSpeificItem(&srt_crt);
             cout << "max_CURRENTCGS=";
             max.AssignSpeificItem(&srt_crt);
+			cout << "Printing records within range:\n";
 			test_array.findItemsWithinRange(&min, &max, &srt_crt);
 			//test_array.printArrayOnScreen();
 				
@@ -254,6 +265,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
             min.AssignSpeificItem(&srt_crt);
             cout << "max_PREVIOUSCGS=";
             max.AssignSpeificItem(&srt_crt);
+			cout << "Printing records within range:\n";
             test_array.findItemsWithinRange(&min,&max,&srt_crt);
             //test_array.printArrayOnScreen();
         }
@@ -267,6 +279,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			min.AssignSpeificItem(&srt_crt);
 			cout << "max_YEAR=";
 			max.AssignSpeificItem(&srt_crt);
+			cout << "Printing records within range:\n";
 			test_array.findItemsWithinRange(&min, &max, &srt_crt);
 			//test_array.printArrayOnScreen();
 		}

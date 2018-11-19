@@ -424,7 +424,7 @@ public:
 				}
 					
 			}
-			cout << "Total loops: " << loop_index << endl;
+			//cout << "Total loops: " << loop_index << endl;
 			if (!swapped) break;
 		}
 	}
