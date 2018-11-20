@@ -487,6 +487,7 @@ int main()
     //char order;
     
 	student_record ref_item; 	//composite item reference for general array
+	ref_item.setupPrint();
 	cout << "How many records would you like to create?" << endl;
 	cin >> array_size;
 	cout << endl;

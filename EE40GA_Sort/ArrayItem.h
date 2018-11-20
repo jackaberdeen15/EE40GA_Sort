@@ -325,8 +325,9 @@ public:
 	virtual void printItemOnScreen()
 	{
         
-		if(isEmpty())
-			cout << "\"height_item\" is empty." << endl;
+		if (isEmpty())
+			//cout << "\"height_item\" is empty." << endl;
+			empty = 1;
 		else
 			cout << "Height(Cm): " << getItemVal() << endl;
         
@@ -500,7 +501,8 @@ public:
 	virtual void printItemOnScreen()
 	{
 		if (isEmpty())
-			cout << "\"weight_item\" is empty." << endl;
+			//cout << "\"weight_item\" is empty." << endl;
+			empty = 1;
 		else
 			cout << "Weight(Kg): " << getItemVal() << endl;
 	}
@@ -675,7 +677,8 @@ public:
 	virtual void printItemOnScreen()
 	{
 		if (isEmpty()) {
-			cout << "\"firstname_item\" is Empty." << endl;
+			//cout << "\"firstname_item\" is Empty." << endl;
+			empty = 1;
 		}
 		else
 			cout << "Firstname: " << getItemVal() << endl;
@@ -852,7 +855,8 @@ public:
 	virtual void printItemOnScreen()
 	{
 		if (isEmpty()) {
-			cout << "\"surname_item\" is Empty." << endl;
+			//cout << "\"surname_item\" is Empty." << endl;
+			empty = 1;
 		}
 		else
 			cout << "Surname: " << getItemVal() << endl;
@@ -1029,7 +1033,8 @@ public:
 	virtual void printItemOnScreen()
 	{
 		if (isEmpty()) {
-			cout << "\"bloodtype_item\" is Empty." << endl;
+			//cout << "\"bloodtype_item\" is Empty." << endl;
+			empty = 1;
 		}
 		else
 			cout << "Bloodtype: " << getItemVal() << endl;
@@ -1203,7 +1208,8 @@ public:
 	virtual void printItemOnScreen()
 	{
 		if (isEmpty()) {
-			cout << "\"nationality_item\" is Empty." << endl;
+			//cout << "\"nationality_item\" is Empty." << endl;
+			empty = 1;
 		}
 		else
 			cout << "Nationality: " << getItemVal() << endl;
@@ -1376,7 +1382,8 @@ public:
 	virtual void printItemOnScreen()
 	{
 		if (isEmpty()) {
-			cout << "\"studentid_item\" is Empty." << endl;
+			//cout << "\"studentid_item\" is Empty." << endl;
+			empty = 1;
 		}
 		else
 			cout << "Student ID: " << getItemVal() << endl;
@@ -1551,7 +1558,8 @@ public:
 	virtual void printItemOnScreen()
 	{
 		if (isEmpty()) {
-			cout << "\"email_item\" is Empty." << endl;
+			//cout << "\"email_item\" is Empty." << endl;
+			empty = 1;
 		}
 		else
 			cout << "E-mail Address: " << getItemVal() << endl;
@@ -1737,7 +1745,8 @@ public:
 	virtual void printItemOnScreen()
 	{
 		if (isEmpty()) {
-			cout << "\"degree_item\" is Empty." << endl;
+			//cout << "\"degree_item\" is Empty." << endl;
+			empty = 1;
 		}
 		else
 			cout << "Degree Programme: " << getItemVal() << endl;
@@ -1911,7 +1920,8 @@ public:
 	virtual void printItemOnScreen()
 	{
 		if (isEmpty()) {
-			cout << "\"dateofbirth_item\" is Empty." << endl;
+			//cout << "\"dateofbirth_item\" is Empty." << endl;
+			empty = 1;
 		}
 		else
 			cout << "Date of Birth: " << getItemVal() << endl;
@@ -2099,7 +2109,8 @@ public:
 	virtual void printItemOnScreen()
 	{
 		if (isEmpty()) {
-			cout << "\"currentcgs_item\" is Empty." << endl;
+			//cout << "\"currentcgs_item\" is Empty." << endl;
+			empty = 1;
 		}
 		else
 			cout << "Current CGS Grade: " << getItemVal() << endl;
@@ -2120,7 +2131,7 @@ public:
 	//function to get random string from the protected
 	virtual void generateRandomItem()
 	{
-		item_value = rand() % 22;
+		item_value = rand() % 22+1;
 		// item filled
 		empty = false;
 	}
@@ -2270,7 +2281,8 @@ public:
 	virtual void printItemOnScreen()
 	{
 		if (isEmpty()) {
-			cout << "\"pastcgs_item\" is Empty." << endl;
+			//cout << "\"pastcgs_item\" is Empty." << endl;
+			empty = 1;
 		}
 		else
 			cout << "Previous CGS Grade: " << getItemVal() << endl;
@@ -2290,7 +2302,7 @@ public:
 	//function to get random string from the protected
 	virtual void generateRandomItem()
 	{
-		item_value = rand() % 22;
+		item_value = rand() % 22+1;
 		// item filled
 		empty = false;
 	}
@@ -2441,7 +2453,8 @@ public:
 	{
 
 		if (isEmpty())
-			cout << "\"level_item\" is empty." << endl;
+			//cout << "\"level_item\" is empty." << endl;
+			empty = 1;
 		else
 			cout << "Level: " << getItemVal() << endl;
 
@@ -2645,6 +2658,12 @@ public:
 	student_record() { ; }
 	~student_record() { ; }
     
+	virtual void setupWriteItemToFile() {
+		string path("/Users/tgb19/documents/output.csv");
+		std::ofstream outfile;
+		outfile.open(path, std::ios_base::app);
+		outfile << "Firstname," << "Surname," << "Bloodtype," << "Height(Cm)," << "Weight(Kg)," << "Nationality," << "Student ID," << "E-mail Address," << "Degree Programme," << "Date of Birth," << "Current CGS," << "Previous_CGS," << "Level," << endl;
+	}
     virtual void writeItemToFile(){
         string path("/Users/tgb19/documents/output.csv");
         std::ofstream outfile;
@@ -2652,6 +2671,10 @@ public:
 		outfile << fn_item.getItemVal() << "," << sn_item.getItemVal() << "," << bt_item.getItemVal() << "," << h_item.getItemVal() << "," << w_item.getItemVal() << "," << n_item.getItemVal() << "," << sid_item.getItemVal() << "," << e_item.getItemVal() << "," << d_item.getItemVal() << "," << dob_item.getItemVal() << "," << ccgs_item.getItemVal() << "," << pcgs_item.getItemVal() << "," << l_item.getItemVal() << "," << endl;
         //outfile << "test.txt";
     }
+
+	virtual void setupPrint() {
+		setupWriteItemToFile();
+	}
 
 	virtual void printItemOnScreen()
 	{
@@ -2669,7 +2692,7 @@ public:
 		ccgs_item.printItemOnScreen();
 		pcgs_item.printItemOnScreen();
 		l_item.printItemOnScreen();
-        writeItemToFile();
+		writeItemToFile();
 	}
 
 	virtual void enterItemFromKeyboard()

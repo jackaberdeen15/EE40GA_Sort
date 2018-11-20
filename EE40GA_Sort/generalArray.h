@@ -401,16 +401,17 @@ public:
 			bool elements_not_include = false;
 			basic_item* curr_item = getElementPtr(curr_index);
 			string container;
+			
 			// Need curr_item held within a string, which is what I created container for. If you can do that this code works. 
 
-			if (curr_item != NULL) {
+			/*if (curr_item != NULL) {
 
 				if (!(container.find(search_item) != string::npos));   // help - (!(container.find(search_item) != string::npos));
 				{
 					//deallocateSpecificItem(curr_item);//removes item from general array
 					elements_not_include = true;
 				}
-			}
+			}*/
 			
 
 			if (elements_not_include) {
