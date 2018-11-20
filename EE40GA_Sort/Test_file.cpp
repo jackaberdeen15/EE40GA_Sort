@@ -6,6 +6,7 @@ void test_array(int array_size, basic_item* ref_item, bool order)
 {
 	basic_sort_criteria srt_crt(order);
 	general_array test_array;
+	char data_entry_method='r';
 	// attach the "integer item" as referecen item
 	test_array.attachRefrenceItem(ref_item);
 	// now allocate the array	
@@ -13,9 +14,23 @@ void test_array(int array_size, basic_item* ref_item, bool order)
 	// print content to screen (empty)
 	cout << " Array is empty at this time." << endl << endl;
 	test_array.printArrayOnScreen();
-	// fill with random items
-	cout << endl << " Filling Array with random values." << endl;
-	test_array.fillRandomValueArray();
+
+	cout << "How would you like to generate your database:" << endl << "R = Randomly Generated" << endl << "M = Manual Input" << endl << endl;
+	cin >> data_entry_method;
+
+	if (data_entry_method == 'r' || data_entry_method == 'R') {
+		cout << endl << "Filling Array..." << endl << endl;
+		test_array.fillRandomValueArray();
+	}
+	else if (data_entry_method == 'm' || data_entry_method == 'M') {
+		//cout << "Populating database manually" << endl;
+		test_array.enterArrayFromKeyboard();
+	}
+	else
+	{
+		cout << "Invalid Entry. Ending Program." << endl;
+		return;
+	}
 	// print content to screen
 	test_array.printArrayOnScreen();
 	// sort the array 
