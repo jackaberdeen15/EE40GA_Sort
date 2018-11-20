@@ -482,6 +482,7 @@ public:
 			cout << " Error in height_item::allocateItem(): out of memory"<< endl;
 		return result;
 	}
+
 };
 
 //weight item child

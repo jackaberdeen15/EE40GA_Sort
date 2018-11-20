@@ -392,6 +392,37 @@ public:
 			}
 		}
 	}
+	//int getItemVal() { return item_value; }
+	void findItemsThatInclude(basic_item* search_item, basic_sort_criteria* sort_criteria_ptr)
+	{
+		sort_criteria_ptr->setAscending(true);
+		for (int curr_index = 0; curr_index < getMaxSize(); curr_index++)
+		{
+			bool elements_not_include = false;
+			basic_item* curr_item = getElementPtr(curr_index);
+			string container;
+			// Need curr_item held within a string, which is what I created container for. If you can do that this code works. 
+
+			if (curr_item != NULL) {
+
+				if (!(container.find(search_item) != string::npos));   // help - (!(container.find(search_item) != string::npos));
+				{
+					//deallocateSpecificItem(curr_item);//removes item from general array
+					elements_not_include = true;
+				}
+			}
+			
+
+			if (elements_not_include) {
+				//getNremoveCurrElementPtr();//removes item from general array and alters array size to match
+			}
+			if (elements_not_include == false) {
+				cout << "\nElement Position:" << curr_index << "->" << endl;
+				printItemOnScreen(curr_index);
+			}
+		}
+	}
+
 	//
 	void bubblesort(basic_sort_criteria* sort_criteria_ptr=NULL)
 	{

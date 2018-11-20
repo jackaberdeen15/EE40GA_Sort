@@ -6,7 +6,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 {
 	basic_sort_criteria srt_crt(true);
 	general_array test_array;
-	int i, search, searchtype;
+	int search, searchtype;
     
     switch (field){
         case HEIGHT:
@@ -117,7 +117,13 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 				//test_array.printArrayOnScreen();
 			}
 			else if (searchtype == 2) {
-
+				student_record exact;
+				cin.ignore();
+				cout << "What are you searching for? (not case sensitive):";
+				exact.AssignSpeificItem(&srt_crt);
+				cout << "Printing records which contain value:\n";
+				test_array.findItemsThatInclude(&exact, &srt_crt);
+				//test_array.printArrayOnScreen();
 			}
 			else if (searchtype == 3) {
 				student_record min;
@@ -350,6 +356,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 		break;
 		case DOB:
 		{
+
 		}
 		break;
 		case CURRENTCGS:
