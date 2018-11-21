@@ -108,7 +108,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			if (searchtype == 1) {
 				student_record exact;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				exact.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -123,7 +123,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 
 				student_record within;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				within.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -159,7 +159,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			if (searchtype == 1) {
 				student_record exact;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				exact.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -170,7 +170,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			else if (searchtype == 2) {
 				student_record within;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				within.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -203,7 +203,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			if (searchtype == 1) {
 				student_record exact;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				exact.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -213,7 +213,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			else if (searchtype == 2) {
 				student_record within;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				within.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -233,7 +233,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			if (searchtype == 1) {
 				student_record exact;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				exact.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -243,7 +243,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			else if (searchtype == 2) {
 				student_record within;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				within.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -263,7 +263,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			if (searchtype == 1) {
 				student_record exact;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				exact.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -273,7 +273,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			else if (searchtype == 2) {
 				student_record within;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				within.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -293,7 +293,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			if (searchtype == 1) {
 				student_record exact;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				exact.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -303,7 +303,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			else if (searchtype == 2) {
 				student_record within;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				within.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -323,7 +323,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			if (searchtype == 1) {
 				student_record exact;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				exact.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -334,7 +334,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			else if (searchtype == 2) {
 				student_record within;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				within.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -367,7 +367,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			if (searchtype == 1) {
 				student_record exact;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				exact.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -377,7 +377,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			else if (searchtype == 2) {
 				student_record within;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				within.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -397,7 +397,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			if (searchtype == 1) {
 				student_record exact;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				exact.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -407,7 +407,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			else if (searchtype == 2) {
 				student_record within;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				within.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -422,6 +422,39 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 		case DOB:
 		{
 
+
+
+
+
+
+
+
+			cout << "Which type of search would you like to carry out:" << endl << "1 - Item is exactly value" << endl << "2 - Value appears anywhere in item" << endl << "3 - Item is between these values" << endl << endl;
+			cin >> searchtype;
+			cout << endl;
+			if (searchtype == 1) {
+
+			}
+			else if (searchtype == 2) {
+
+			}
+			else if (searchtype == 3) {
+
+			}
+			else {
+				cout << "Please enter a valid input." << endl;
+			}
+
+
+
+
+
+
+
+
+
+
+
 		}
 		break;
 		case CURRENTCGS:
@@ -432,7 +465,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			if (searchtype == 1) {
 				student_record exact;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				exact.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -443,7 +476,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			else if (searchtype == 2) {
 				student_record within;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				within.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -476,7 +509,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			if (searchtype == 1) {
 				student_record exact;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				exact.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -487,7 +520,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			else if (searchtype == 2) {
 				student_record within;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				within.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -520,7 +553,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			if (searchtype == 1) {
 				student_record exact;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				exact.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -531,7 +564,7 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 			else if (searchtype == 2) {
 				student_record within;
 				cin.ignore();
-				cout << "What are you searching for? (not case sensitive):";
+				cout << "What are you searching for? (case sensitive):";
 				within.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
