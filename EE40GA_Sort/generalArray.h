@@ -337,31 +337,19 @@ public:
 
 		for (int curr_index = 0; curr_index < getMaxSize(); curr_index++)
 		{
-			bool element_out_of_range = false;
 			basic_item* curr_item = getElementPtr(curr_index);
 			// in case there are "empty (non allocated) items"
 			if (curr_item != NULL)
 			{
-				if (curr_item->IsLargerThan(max_item, sort_criteria_ptr))
+				if (!curr_item->IsLargerThan(max_item, sort_criteria_ptr)&&!curr_item->IsSmallerThan(min_item, sort_criteria_ptr))
 				{
-					//deallocateSpecificItem(curr_item);//removes item from general array
-					element_out_of_range = true;
+					cout << "\nElement Position: " << curr_index << " ->" << endl;
+					printItemOnScreen(curr_index);
 				}
 				if (curr_item->IsSmallerThan(min_item, sort_criteria_ptr))
 				{
-					//deallocateSpecificItem(curr_item);//removes item from general array
-					element_out_of_range = true;
-					
+
 				}
-			}
-			if (element_out_of_range == true) {
-				//cout << "Removing item " << curr_index << endl;
-				//getNremoveCurrElementPtr();//removes item from general array and alters array size to match
-				//deallocateSpecificItem(curr_item);//removes item from general array
-			}
-			if (element_out_of_range == false) {
-				cout << "\nElement Position: " << curr_index << " ->" << endl;
-				printItemOnScreen(curr_index);
 			}
 		}
 	}
@@ -371,24 +359,16 @@ public:
 		sort_criteria_ptr->setAscending(true);
 		for (int curr_index = 0; curr_index < getMaxSize(); curr_index++)
 		{
-			bool elements_not_match = false;
 			basic_item* curr_item = getElementPtr(curr_index);
 
 			// in case there are "empty (non allocated) items"
 			if (curr_item != NULL) {
 
-				if (!(curr_item->IsEqualTo(search_item, sort_criteria_ptr)))
+				if (curr_item->IsEqualTo(search_item, sort_criteria_ptr))
 				{
-					//deallocateSpecificItem(curr_item);//removes item from general array
-					elements_not_match = true;
+					cout << "\nElement Position:" << curr_index << "->" << endl;
+					printItemOnScreen(curr_index);
 				}
-			}
-			if (elements_not_match) {
-				//getNremoveCurrElementPtr();//removes item from general array and alters array size to match
-			}
-			if (elements_not_match == false) {
-				cout << "\nElement Position:" << curr_index << "->" << endl;
-				printItemOnScreen(curr_index);
 			}
 		}
 	}
