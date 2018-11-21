@@ -422,23 +422,26 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 		case DOB:
 		{
 
-
-
-
-
-
-
-
-			cout << "Which type of search would you like to carry out:" << endl << "1 - Item is exactly value" << endl << "2 - Value appears anywhere in item" << endl << "3 - Item is between these values" << endl << endl;
+			cout << "Which type of search would you like to carry out:" << endl << "1 - Exact Date: YYYY-MM-DD" << endl << "2 - All Birthdays within a year" << endl << "3 - All Birthdays within a month" << endl << "4 - Closest Birthday" << endl << endl;
 			cin >> searchtype;
 			cout << endl;
 			if (searchtype == 1) {
-
+				student_record exact;
+				cin.ignore();
+				cout << "What are you searching for? (case sensitive):";
+				exact.AssignSpeificItem(&srt_crt);
+				cout << endl;
+				cout << "Printing records which match:\n";
+				test_array.findItemsThatMatch(&exact, &srt_crt);
+				//test_array.printArrayOnScreen();
 			}
 			else if (searchtype == 2) {
 
 			}
 			else if (searchtype == 3) {
+
+			}
+			else if (searchtype == 4) {
 
 			}
 			else {
