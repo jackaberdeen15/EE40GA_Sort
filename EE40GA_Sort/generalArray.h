@@ -346,10 +346,6 @@ public:
 					cout << "\nElement Position: " << curr_index << " ->" << endl;
 					printItemOnScreen(curr_index);
 				}
-				if (curr_item->IsSmallerThan(min_item, sort_criteria_ptr))
-				{
-
-				}
 			}
 		}
 	}
