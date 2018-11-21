@@ -460,6 +460,22 @@ public:
 
 		return result;
 	}
+	
+
+	virtual bool IsWithin(basic_item* other_item, basic_sort_criteria* sort_criteria, string search_for)
+	{
+		string search_within;
+		bool inside;
+		search_within = getItemVal();
+		if (search_within.find(search_for) != string::npos) {
+			inside = true;
+			return inside;
+		}
+		else {
+			inside = false;
+			return inside;
+		}
+	}
 
 	virtual void deallocateItem(basic_item* item_ptr)
 	{
