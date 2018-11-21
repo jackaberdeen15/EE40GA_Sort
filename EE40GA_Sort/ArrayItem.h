@@ -10,6 +10,8 @@ using namespace std;
 #include <sstream>
 #include <fstream>
 
+#include <locale>
+
 ////// this is needed to check compatibility between items (and to use a derived-class pointer that is passes as "base class")
 template <class Base, class Derived> Derived* typecastItem(Base* basic_ptr, Derived* derivedItem_ptr)
 {
@@ -74,7 +76,7 @@ public:
 
 	virtual bool IsEqualTo(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL) = 0;
 
-	virtual bool IsWithin(basic_item* search_item, basic_sort_criteria* sort_criteria = NULL) { return true; }
+	virtual bool IsWithin(basic_item* search_item, basic_sort_criteria* sort_criteria = NULL)=0;
 
 
 	virtual basic_item* allocateItem()=0;
@@ -233,6 +235,32 @@ public:
 		}
 
 		return result;
+	}
+
+	virtual bool IsWithin(basic_item* search_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		string currentitem;
+		currentitem = to_string(getItemVal());
+		integer_item* typecasted_item_ptr = typecastItem(search_item, this);
+		int match = 0;
+		bool matchbool = false;
+		string sitem;
+		sitem = to_string(typecasted_item_ptr->getItemVal());
+		int i;
+		int l1 = currentitem.length();
+		int l2 = sitem.length();
+		std::locale loc;
+		for (i = 0; i < l2; i++) {
+			currentitem[i] = tolower(currentitem[i], loc);
+		}
+		for (i = 0; i < l2; i++) {
+			sitem[i] = tolower(sitem[i], loc);
+		}
+		match = (currentitem.find(sitem) != string::npos);
+		if (match == 1) {
+			matchbool = true;
+		}
+		return matchbool;
 	}
 
 	virtual void deallocateItem(basic_item* item_ptr)
@@ -470,16 +498,24 @@ public:
 	virtual bool IsWithin(basic_item* search_item, basic_sort_criteria* sort_criteria = NULL)
 	{
 		string currentitem;
-		currentitem = getItemVal();
+		currentitem = to_string(getItemVal());
 		height_item* typecasted_item_ptr = typecastItem(search_item, this);
-		int match=0;
+		int match = 0;
 		bool matchbool = false;
 		string sitem;
-
-		sitem = typecasted_item_ptr->getItemVal();
+		sitem = to_string(typecasted_item_ptr->getItemVal());
+		int i;
+		int l1 = currentitem.length();
+		int l2 = sitem.length();
+		std::locale loc;
+		for (i = 0; i < l2; i++) {
+			currentitem[i] = tolower(currentitem[i], loc);
+		}
+		for (i = 0; i < l2; i++) {
+			sitem[i] = tolower(sitem[i], loc);
+		}
 		match = (currentitem.find(sitem) != string::npos);
-
-		if (match==1) {
+		if (match == 1) {
 			matchbool = true;
 		}
 		return matchbool;
@@ -658,6 +694,32 @@ public:
 		}
 
 		return result;
+	}
+
+	virtual bool IsWithin(basic_item* search_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		string currentitem;
+		currentitem = to_string(getItemVal());
+		weight_item* typecasted_item_ptr = typecastItem(search_item, this);
+		int match = 0;
+		bool matchbool = false;
+		string sitem;
+		sitem = to_string(typecasted_item_ptr->getItemVal());
+		int i;
+		int l1 = currentitem.length();
+		int l2 = sitem.length();
+		std::locale loc;
+		for (i = 0; i < l2; i++) {
+			currentitem[i] = tolower(currentitem[i], loc);
+		}
+		for (i = 0; i < l2; i++) {
+			sitem[i] = tolower(sitem[i], loc);
+		}
+		match = (currentitem.find(sitem) != string::npos);
+		if (match == 1) {
+			matchbool = true;
+		}
+		return matchbool;
 	}
 
 	virtual void deallocateItem(basic_item* item_ptr)
@@ -849,6 +911,32 @@ public:
 		delete typecasted_item_ptr;
 	}
 
+	virtual bool IsWithin(basic_item* search_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		string currentitem;
+		currentitem = getItemVal();
+		firstname_item* typecasted_item_ptr = typecastItem(search_item, this);
+		int match = 0;
+		bool matchbool = false;
+		string sitem;
+		sitem = typecasted_item_ptr->getItemVal();
+		int i;
+		int l1 = currentitem.length();
+		int l2 = sitem.length();
+		std::locale loc;
+		for (i = 0; i < l2; i++) {
+			currentitem[i] = tolower(currentitem[i], loc);
+		}
+		for (i = 0; i < l2; i++) {
+			sitem[i] = tolower(sitem[i], loc);
+		}
+		match = (currentitem.find(sitem) != string::npos);
+		if (match == 1) {
+			matchbool = true;
+		}
+		return matchbool;
+	}
+
 	virtual basic_item* allocateItem()
 	{
 		firstname_item* result = new firstname_item;
@@ -1025,6 +1113,32 @@ public:
 			return;
 		}
 		delete typecasted_item_ptr;
+	}
+
+	virtual bool IsWithin(basic_item* search_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		string currentitem;
+		currentitem = getItemVal();
+		surname_item* typecasted_item_ptr = typecastItem(search_item, this);
+		int match = 0;
+		bool matchbool = false;
+		string sitem;
+		sitem = typecasted_item_ptr->getItemVal();
+		int i;
+		int l1 = currentitem.length();
+		int l2 = sitem.length();
+		std::locale loc;
+		for (i = 0; i < l2; i++) {
+			currentitem[i] = tolower(currentitem[i], loc);
+		}
+		for (i = 0; i < l2; i++) {
+			sitem[i] = tolower(sitem[i], loc);
+		}
+		match = (currentitem.find(sitem) != string::npos);
+		if (match == 1) {
+			matchbool = true;
+		}
+		return matchbool;
 	}
 
 	virtual basic_item* allocateItem()
@@ -1205,6 +1319,32 @@ public:
 		delete typecasted_item_ptr;
 	}
 
+	virtual bool IsWithin(basic_item* search_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		string currentitem;
+		currentitem = getItemVal();
+		bloodtype_item* typecasted_item_ptr = typecastItem(search_item, this);
+		int match = 0;
+		bool matchbool = false;
+		string sitem;
+		sitem = typecasted_item_ptr->getItemVal();
+		int i;
+		int l1 = currentitem.length();
+		int l2 = sitem.length();
+		std::locale loc;
+		for (i = 0; i < l2; i++) {
+			currentitem[i] = tolower(currentitem[i], loc);
+		}
+		for (i = 0; i < l2; i++) {
+			sitem[i] = tolower(sitem[i], loc);
+		}
+		match = (currentitem.find(sitem) != string::npos);
+		if (match == 1) {
+			matchbool = true;
+		}
+		return matchbool;
+	}
+
 	virtual basic_item* allocateItem()
 	{
 		bloodtype_item* result = new bloodtype_item;
@@ -1380,6 +1520,32 @@ public:
 		delete typecasted_item_ptr;
 	}
 
+	virtual bool IsWithin(basic_item* search_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		string currentitem;
+		currentitem = getItemVal();
+		nationality_item* typecasted_item_ptr = typecastItem(search_item, this);
+		int match = 0;
+		bool matchbool = false;
+		string sitem;
+		sitem = typecasted_item_ptr->getItemVal();
+		int i;
+		int l1 = currentitem.length();
+		int l2 = sitem.length();
+		std::locale loc;
+		for (i = 0; i < l2; i++) {
+			currentitem[i] = tolower(currentitem[i], loc);
+		}
+		for (i = 0; i < l2; i++) {
+			sitem[i] = tolower(sitem[i], loc);
+		}
+		match = (currentitem.find(sitem) != string::npos);
+		if (match == 1) {
+			matchbool = true;
+		}
+		return matchbool;
+	}
+
 	virtual basic_item* allocateItem()
 	{
 		nationality_item* result = new nationality_item;
@@ -1551,6 +1717,32 @@ public:
 			return;
 		}
 		delete typecasted_item_ptr;
+	}
+
+	virtual bool IsWithin(basic_item* search_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		string currentitem;
+		currentitem = to_string(getItemVal());
+		studentid_item* typecasted_item_ptr = typecastItem(search_item, this);
+		int match = 0;
+		bool matchbool = false;
+		string sitem;
+		sitem = to_string(typecasted_item_ptr->getItemVal());
+		int i;
+		int l1 = currentitem.length();
+		int l2 = sitem.length();
+		std::locale loc;
+		for (i = 0; i < l2; i++) {
+			currentitem[i] = tolower(currentitem[i], loc);
+		}
+		for (i = 0; i < l2; i++) {
+			sitem[i] = tolower(sitem[i], loc);
+		}
+		match = (currentitem.find(sitem) != string::npos);
+		if (match == 1) {
+			matchbool = true;
+		}
+		return matchbool;
 	}
 
 	virtual basic_item* allocateItem()
@@ -1742,6 +1934,32 @@ public:
 		delete typecasted_item_ptr;
 	}
 
+	virtual bool IsWithin(basic_item* search_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		string currentitem;
+		currentitem = getItemVal();
+		email_item* typecasted_item_ptr = typecastItem(search_item, this);
+		int match = 0;
+		bool matchbool = false;
+		string sitem;
+		sitem = typecasted_item_ptr->getItemVal();
+		int i;
+		int l1 = currentitem.length();
+		int l2 = sitem.length();
+		std::locale loc;
+		for (i = 0; i < l2; i++) {
+			currentitem[i] = tolower(currentitem[i], loc);
+		}
+		for (i = 0; i < l2; i++) {
+			sitem[i] = tolower(sitem[i], loc);
+		}
+		match = (currentitem.find(sitem) != string::npos);
+		if (match == 1) {
+			matchbool = true;
+		}
+		return matchbool;
+	}
+
 	virtual basic_item* allocateItem()
 	{
 		email_item* result = new email_item;
@@ -1919,6 +2137,32 @@ public:
 		delete typecasted_item_ptr;
 	}
 
+	virtual bool IsWithin(basic_item* search_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		string currentitem;
+		currentitem = getItemVal();
+		degree_item* typecasted_item_ptr = typecastItem(search_item, this);
+		int match = 0;
+		bool matchbool = false;
+		string sitem;
+		sitem = typecasted_item_ptr->getItemVal();
+		int i;
+		int l1 = currentitem.length();
+		int l2 = sitem.length();
+		std::locale loc;
+		for (i = 0; i < l2; i++) {
+			currentitem[i] = tolower(currentitem[i], loc);
+		}
+		for (i = 0; i < l2; i++) {
+			sitem[i] = tolower(sitem[i], loc);
+		}
+		match = (currentitem.find(sitem) != string::npos);
+		if (match == 1) {
+			matchbool = true;
+		}
+		return matchbool;
+	}
+
 	virtual basic_item* allocateItem()
 	{
 		degree_item* result = new degree_item;
@@ -2092,6 +2336,34 @@ public:
 		return result;
 	}
 
+
+	virtual bool IsWithin(basic_item* search_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		string currentitem;
+		currentitem = getItemVal();
+		dateofbirth_item* typecasted_item_ptr = typecastItem(search_item, this);
+		int match = 0;
+		bool matchbool = false;
+		string sitem;
+		sitem = typecasted_item_ptr->getItemVal();
+		int i;
+		int l1 = currentitem.length();
+		int l2 = sitem.length();
+		std::locale loc;
+		for (i = 0; i < l2; i++) {
+			currentitem[i] = tolower(currentitem[i], loc);
+		}
+		for (i = 0; i < l2; i++) {
+			sitem[i] = tolower(sitem[i], loc);
+		}
+		match = (currentitem.find(sitem) != string::npos);
+		if (match == 1) {
+			matchbool = true;
+		}
+		return matchbool;
+	}
+
+
 	virtual void deallocateItem(basic_item* item_ptr)
 	{
 		// first typecast the other item to confimr it is the same as this;
@@ -2109,7 +2381,7 @@ public:
 
 	virtual basic_item* allocateItem()
 	{
-		degree_item* result = new degree_item;
+		dateofbirth_item* result = new dateofbirth_item;
 		if (result == NULL)
 			cout << " Error in degree_item::allocateItem(): out of memory" << endl;
 		return result;
@@ -2263,6 +2535,33 @@ public:
 
 		return result;
 	}
+
+	virtual bool IsWithin(basic_item* search_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		string currentitem;
+		currentitem = to_string(getItemVal());
+		currentcgs_item* typecasted_item_ptr = typecastItem(search_item, this);
+		int match = 0;
+		bool matchbool = false;
+		string sitem;
+		sitem = to_string(typecasted_item_ptr->getItemVal());
+		int i;
+		int l1 = currentitem.length();
+		int l2 = sitem.length();
+		std::locale loc;
+		for (i = 0; i < l2; i++) {
+			currentitem[i] = tolower(currentitem[i], loc);
+		}
+		for (i = 0; i < l2; i++) {
+			sitem[i] = tolower(sitem[i], loc);
+		}
+		match = (currentitem.find(sitem) != string::npos);
+		if (match == 1) {
+			matchbool = true;
+		}
+		return matchbool;
+	}
+
 
 	virtual void deallocateItem(basic_item* item_ptr)
 	{
@@ -2450,6 +2749,32 @@ public:
 		delete typecasted_item_ptr;
 	}
 
+	virtual bool IsWithin(basic_item* search_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		string currentitem;
+		currentitem = to_string(getItemVal());
+		pastcgs_item* typecasted_item_ptr = typecastItem(search_item, this);
+		int match = 0;
+		bool matchbool = false;
+		string sitem;
+		sitem = to_string(typecasted_item_ptr->getItemVal());
+		int i;
+		int l1 = currentitem.length();
+		int l2 = sitem.length();
+		std::locale loc;
+		for (i = 0; i < l2; i++) {
+			currentitem[i] = tolower(currentitem[i], loc);
+		}
+		for (i = 0; i < l2; i++) {
+			sitem[i] = tolower(sitem[i], loc);
+		}
+		match = (currentitem.find(sitem) != string::npos);
+		if (match == 1) {
+			matchbool = true;
+		}
+		return matchbool;
+	}
+
 	virtual basic_item* allocateItem()
 	{
 		pastcgs_item* result = new pastcgs_item;
@@ -2610,6 +2935,34 @@ public:
 
 		return result;
 	}
+
+	virtual bool IsWithin(basic_item* search_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		string currentitem;
+		currentitem = to_string(getItemVal());
+		level_item* typecasted_item_ptr = typecastItem(search_item, this);
+		int match = 0;
+		bool matchbool = false;
+		string sitem;
+		sitem = to_string(typecasted_item_ptr->getItemVal());
+		int i;
+		int l1 = currentitem.length();
+		int l2 = sitem.length();
+		std::locale loc;
+		for (i = 0; i < l2; i++) {
+			currentitem[i] = tolower(currentitem[i], loc);
+		}
+		for (i = 0; i < l2; i++) {
+			sitem[i] = tolower(sitem[i], loc);
+		}
+		match = (currentitem.find(sitem) != string::npos);
+		if (match == 1) {
+			matchbool = true;
+		}
+		return matchbool;
+	}
+
+
 
 	virtual void deallocateItem(basic_item* item_ptr)
 	{
@@ -2963,6 +3316,77 @@ public:
 		return result;
 	}
 
+	virtual bool IsWithin(basic_item* search_item, basic_sort_criteria* sort_criteria = NULL)
+	{
+		{
+			bool matchbool = false;
+
+			// first typecast the other item to confimr it is the same as this;
+			student_record* typecasted_other_item = typecastItem(search_item, this);
+			//data_sorting_type =
+
+			switch (sort_criteria->get_data_sort_type())
+			{
+			case HEIGHT:
+				//cout << "Item is height" << endl;
+				matchbool = h_item.IsWithin(typecasted_other_item->return_height_pointer(), sort_criteria);
+				break;
+			case WEIGHT:
+				//cout << "Item is weight" << endl;
+				matchbool = w_item.IsWithin(typecasted_other_item->return_weight_pointer(), sort_criteria);
+				break;
+			case FIRSTNAME:
+				//cout << "Item is firstname" << endl;
+				matchbool = fn_item.IsWithin(typecasted_other_item->return_firstname_pointer(), sort_criteria);
+				break;
+			case SURNAME:
+				//cout << "Item is surname" << endl;
+				matchbool = sn_item.IsWithin(typecasted_other_item->return_surname_pointer(), sort_criteria);
+				break;
+			case BLOODTYPE:
+				//cout << "Item is bloodtype" << endl;
+				matchbool = bt_item.IsWithin(typecasted_other_item->return_bloodtype_pointer(), sort_criteria);
+				break;
+			case NATIONALITY:
+				//cout << "Item is nationality" << endl;
+				matchbool = n_item.IsWithin(typecasted_other_item->return_nationality_pointer(), sort_criteria);
+				break;
+			case STUDENTID:
+				//cout << "Item is student id" << endl;
+				matchbool = sid_item.IsWithin(typecasted_other_item->return_studentid_pointer(), sort_criteria);
+				break;
+			case EMAIL:
+				//cout << "Item is email address" << endl;
+				matchbool = e_item.IsWithin(typecasted_other_item->return_email_pointer(), sort_criteria);
+				break;
+			case DEGREE:
+				//cout << "Item is degree programme" << endl;
+				matchbool = d_item.IsWithin(typecasted_other_item->return_degree_pointer(), sort_criteria);
+				break;
+			case DOB:
+				//cout << "Item is date of birth" << endl;
+				matchbool = dob_item.IsWithin(typecasted_other_item->return_dob_pointer(), sort_criteria);
+				break;
+			case CURRENTCGS:
+				//cout << "Item is current cgs grade" << endl;
+				matchbool = ccgs_item.IsWithin(typecasted_other_item->return_currentcgs_pointer(), sort_criteria);
+				break;
+			case PREVIOUSCGS:
+				//cout << "Item is previous cgs grade" << endl;
+				matchbool = pcgs_item.IsWithin(typecasted_other_item->return_previouscgs_pointer(), sort_criteria);
+				break;
+			case LEVEL:
+				//cout << "Item is previous cgs grade" << endl;
+				matchbool = l_item.IsWithin(typecasted_other_item->return_level_pointer(), sort_criteria);
+				break;
+			default:
+				break;
+			}
+			return matchbool;
+		}
+	
+	}
+
 	virtual void deallocateItem(basic_item* item_ptr)
 	{
 		// first typecast the other item to confimr it is the same as this;
@@ -2977,6 +3401,7 @@ public:
 		}
 		delete typecasted_item_ptr;
 	}
+
 
 	virtual basic_item* allocateItem()
 	{

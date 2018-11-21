@@ -398,27 +398,37 @@ public:
 		sort_criteria_ptr->setAscending(true);
 		for (int curr_index = 0; curr_index < getMaxSize(); curr_index++)
 		{
-			bool element_found = false;
+			bool elements_not_match = false;
 			basic_item* curr_item = getElementPtr(curr_index);
 
 			// in case there are "empty (non allocated) items"
 			if (curr_item != NULL) {
 
-				if (curr_item->IsWithin(search_item, sort_criteria_ptr))
+				if (!curr_item->IsWithin(search_item, sort_criteria_ptr))
 				{
 					//deallocateSpecificItem(curr_item);//removes item from general array
-					element_found = true;
+					elements_not_match = true;
 				}
 			}
-			if (element_found) {
+			if (elements_not_match) {
 				//getNremoveCurrElementPtr();//removes item from general array and alters array size to match
 			}
-			if (element_found == true) {
+			if (elements_not_match == false) {
 				cout << "\nElement Position:" << curr_index << "->" << endl;
 				printItemOnScreen(curr_index);
 			}
 		}
 	}
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -85,7 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main_test.cpp" />
-    <ClCompile Include="Practice_String.cpp" />
     <ClCompile Include="SomeStringTests.cpp" />
     <ClCompile Include="Test_file.cpp" />
   </ItemGroup>

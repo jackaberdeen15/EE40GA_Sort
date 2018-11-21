@@ -168,7 +168,14 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 				//test_array.printArrayOnScreen();
 			}
 			else if (searchtype == 2) {
-
+				student_record within;
+				cin.ignore();
+				cout << "What are you searching for? (not case sensitive):";
+				within.AssignSpeificItem(&srt_crt);
+				cout << endl;
+				cout << "Printing records which match:\n";
+				test_array.findItemsThatInclude(&within, &srt_crt);
+				cout << endl;
 			}
 			else if (searchtype == 3) {
 				student_record min;
@@ -204,7 +211,14 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 				//test_array.printArrayOnScreen();
 			}
 			else if (searchtype == 2) {
-
+				student_record within;
+				cin.ignore();
+				cout << "What are you searching for? (not case sensitive):";
+				within.AssignSpeificItem(&srt_crt);
+				cout << endl;
+				cout << "Printing records which match:\n";
+				test_array.findItemsThatInclude(&within, &srt_crt);
+				cout << endl;
 			}
 			else {
 				cout << "Please enter a valid input." << endl;
@@ -227,7 +241,14 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 				//test_array.printArrayOnScreen();
 			}
 			else if (searchtype == 2) {
-
+				student_record within;
+				cin.ignore();
+				cout << "What are you searching for? (not case sensitive):";
+				within.AssignSpeificItem(&srt_crt);
+				cout << endl;
+				cout << "Printing records which match:\n";
+				test_array.findItemsThatInclude(&within, &srt_crt);
+				cout << endl;
 			}
 			else {
 				cout << "Please enter a valid input." << endl;
@@ -250,7 +271,14 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 				//test_array.printArrayOnScreen();
 			}
 			else if (searchtype == 2) {
-
+				student_record within;
+				cin.ignore();
+				cout << "What are you searching for? (not case sensitive):";
+				within.AssignSpeificItem(&srt_crt);
+				cout << endl;
+				cout << "Printing records which match:\n";
+				test_array.findItemsThatInclude(&within, &srt_crt);
+				cout << endl;
 			}
 			else {
 				cout << "Please enter a valid input." << endl;
@@ -273,7 +301,14 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 				//test_array.printArrayOnScreen();
 			}
 			else if (searchtype == 2) {
-
+				student_record within;
+				cin.ignore();
+				cout << "What are you searching for? (not case sensitive):";
+				within.AssignSpeificItem(&srt_crt);
+				cout << endl;
+				cout << "Printing records which match:\n";
+				test_array.findItemsThatInclude(&within, &srt_crt);
+				cout << endl;
 			}
 			else {
 				cout << "Please enter a valid input." << endl;
@@ -297,7 +332,14 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 				//test_array.printArrayOnScreen();
 			}
 			else if (searchtype == 2) {
-
+				student_record within;
+				cin.ignore();
+				cout << "What are you searching for? (not case sensitive):";
+				within.AssignSpeificItem(&srt_crt);
+				cout << endl;
+				cout << "Printing records which match:\n";
+				test_array.findItemsThatInclude(&within, &srt_crt);
+				cout << endl;
 			}
 			else if (searchtype == 3) {
 				student_record min;
@@ -333,7 +375,14 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 				//test_array.printArrayOnScreen();
 			}
 			else if (searchtype == 2) {
-
+				student_record within;
+				cin.ignore();
+				cout << "What are you searching for? (not case sensitive):";
+				within.AssignSpeificItem(&srt_crt);
+				cout << endl;
+				cout << "Printing records which match:\n";
+				test_array.findItemsThatInclude(&within, &srt_crt);
+				cout << endl;
 			}
 			else {
 				cout << "Please enter a valid input." << endl;
@@ -356,7 +405,14 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 				//test_array.printArrayOnScreen();
 			}
 			else if (searchtype == 2) {
-
+				student_record within;
+				cin.ignore();
+				cout << "What are you searching for? (not case sensitive):";
+				within.AssignSpeificItem(&srt_crt);
+				cout << endl;
+				cout << "Printing records which match:\n";
+				test_array.findItemsThatInclude(&within, &srt_crt);
+				cout << endl;
 			}
 			else {
 				cout << "Please enter a valid input." << endl;
@@ -385,7 +441,14 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 				//test_array.printArrayOnScreen();
 			}
 			else if (searchtype == 2) {
-
+				student_record within;
+				cin.ignore();
+				cout << "What are you searching for? (not case sensitive):";
+				within.AssignSpeificItem(&srt_crt);
+				cout << endl;
+				cout << "Printing records which match:\n";
+				test_array.findItemsThatInclude(&within, &srt_crt);
+				cout << endl;
 			}
 			else if (searchtype == 3) {
 				student_record min;
@@ -422,7 +485,14 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 				//test_array.printArrayOnScreen();
 			}
 			else if (searchtype == 2) {
-
+				student_record within;
+				cin.ignore();
+				cout << "What are you searching for? (not case sensitive):";
+				within.AssignSpeificItem(&srt_crt);
+				cout << endl;
+				cout << "Printing records which match:\n";
+				test_array.findItemsThatInclude(&within, &srt_crt);
+				cout << endl;
 			}
 			else if (searchtype == 3) {
 				student_record min;
@@ -459,7 +529,14 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 				//test_array.printArrayOnScreen();
 			}
 			else if (searchtype == 2) {
-
+				student_record within;
+				cin.ignore();
+				cout << "What are you searching for? (not case sensitive):";
+				within.AssignSpeificItem(&srt_crt);
+				cout << endl;
+				cout << "Printing records which match:\n";
+				test_array.findItemsThatInclude(&within, &srt_crt);
+				cout << endl;
 			}
 			else if (searchtype == 3) {
 				student_record min;
