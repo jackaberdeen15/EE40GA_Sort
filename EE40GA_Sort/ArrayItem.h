@@ -64,6 +64,8 @@ public:
 	//virtual void loadItemFromFile(FILE* fin)=0;
 	virtual void generateRandomItem()=0;
 	
+	
+
 	// Needed for sorting; the second paratmer holds the information about soritng ctireria;
 	// If you do not supply a second parameter, a default option (simple ascending sorting) is assumed 
 	virtual bool IsLargerThan(basic_item* other_item, basic_sort_criteria* sort_criteria=NULL)=0;
@@ -71,6 +73,9 @@ public:
     virtual bool IsSmallerThan(basic_item* other_item, basic_sort_criteria* sort_criteria=NULL)=0;
 
 	virtual bool IsEqualTo(basic_item* other_item, basic_sort_criteria* sort_criteria = NULL) = 0;
+
+	virtual bool IsWithin(basic_item* search_item, basic_sort_criteria* sort_criteria = NULL) { return true; }
+
 
 	virtual basic_item* allocateItem()=0;
 	virtual void deallocateItem(basic_item* item_ptr)=0;
@@ -462,19 +467,22 @@ public:
 	}
 	
 
-	virtual bool IsWithin(basic_item* other_item, basic_sort_criteria* sort_criteria, string search_for)
+	virtual bool IsWithin(basic_item* search_item, basic_sort_criteria* sort_criteria = NULL)
 	{
-		string search_within;
-		bool inside;
-		search_within = getItemVal();
-		if (search_within.find(search_for) != string::npos) {
-			inside = true;
-			return inside;
+		string currentitem;
+		currentitem = getItemVal();
+		height_item* typecasted_item_ptr = typecastItem(search_item, this);
+		int match=0;
+		bool matchbool = false;
+		string sitem;
+
+		sitem = typecasted_item_ptr->getItemVal();
+		match = (currentitem.find(sitem) != string::npos);
+
+		if (match==1) {
+			matchbool = true;
 		}
-		else {
-			inside = false;
-			return inside;
-		}
+		return matchbool;
 	}
 
 	virtual void deallocateItem(basic_item* item_ptr)

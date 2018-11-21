@@ -117,13 +117,22 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 				//test_array.printArrayOnScreen();
 			}
 			else if (searchtype == 2) {
-				student_record exact;
+				
+
+
+
+				student_record within;
 				cin.ignore();
 				cout << "What are you searching for? (not case sensitive):";
-				exact.AssignSpeificItem(&srt_crt);
-				cout << "Printing records which contain value:\n";
-				test_array.findItemsThatInclude(&exact, &srt_crt);
-				//test_array.printArrayOnScreen();
+				within.AssignSpeificItem(&srt_crt);
+				cout << endl;
+				cout << "Printing records which match:\n";
+				test_array.findItemsThatInclude(&within, &srt_crt);
+				cout << endl;
+
+
+
+
 			}
 			else if (searchtype == 3) {
 				student_record min;
