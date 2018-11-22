@@ -2388,7 +2388,6 @@ public:
 			cout << " Error in degree_item::allocateItem(): out of memory" << endl;
 		return result;
 	}
-
 	
 	virtual bool FindMonth(basic_item* search_month, basic_sort_criteria* sort_criteria = NULL)
 	{
