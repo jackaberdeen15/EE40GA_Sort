@@ -389,9 +389,43 @@ public:
 	}
 
 
+	void findmonthsThatMatch(basic_item* search_month, basic_sort_criteria* sort_criteria_ptr)
+	{
+		sort_criteria_ptr->setAscending(true);
+		for (int curr_index = 0; curr_index < getMaxSize(); curr_index++)
+		{
+			basic_item* curr_item = getElementPtr(curr_index);
 
+			// in case there are "empty (non allocated) items"
+			if (curr_item != NULL) {
 
+				if (curr_item->FindMonth(search_month, sort_criteria_ptr))
+				{
+					cout << "\nElement Position:" << curr_index << "->" << endl;
+					printItemOnScreen(curr_index);
+				}
+			}
+		}
+	}
 
+	void findyearsThatMatch(basic_item* search_year, basic_sort_criteria* sort_criteria_ptr)
+	{
+		sort_criteria_ptr->setAscending(true);
+		for (int curr_index = 0; curr_index < getMaxSize(); curr_index++)
+		{
+			basic_item* curr_item = getElementPtr(curr_index);
+
+			// in case there are "empty (non allocated) items"
+			if (curr_item != NULL) {
+
+				if (curr_item->FindYear(search_year, sort_criteria_ptr))
+				{
+					cout << "\nElement Position:" << curr_index << "->" << endl;
+					printItemOnScreen(curr_index);
+				}
+			}
+		}
+	}
 
 
 

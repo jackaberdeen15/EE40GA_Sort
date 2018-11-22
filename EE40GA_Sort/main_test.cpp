@@ -422,13 +422,13 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 		case DOB:
 		{
 
-			cout << "Which type of search would you like to carry out:" << endl << "1 - Exact Date: YYYY-MM-DD" << endl << "2 - All Birthdays within a year" << endl << "3 - All Birthdays within a month" << endl << "4 - Closest Birthday" << endl << endl;
+			cout << "Which type of search would you like to carry out:" << endl << "1 - Exact Date: YYYY-MM-DD" << endl << "2 - All Birthdays within a year" << endl << "3 - All Birthdays within a month" << endl << endl;
 			cin >> searchtype;
 			cout << endl;
 			if (searchtype == 1) {
 				student_record exact;
 				cin.ignore();
-				cout << "What are you searching for? (case sensitive):";
+				cout << "What date are you searching for? (case sensitive):";
 				exact.AssignSpeificItem(&srt_crt);
 				cout << endl;
 				cout << "Printing records which match:\n";
@@ -436,28 +436,26 @@ void test_array(int array_size, basic_item* ref_item, char data_entry_method, in
 				//test_array.printArrayOnScreen();
 			}
 			else if (searchtype == 2) {
-
+				student_record year;
+				cin.ignore();
+				cout << "What year are you searching for? (please enter the year in format: YYYY):";
+				year.AssignSpeificItem(&srt_crt);
+				cout << endl;
+				cout << "Printing records which match:\n";
+				test_array.findyearsThatMatch(&year, &srt_crt);
 			}
 			else if (searchtype == 3) {
-
-			}
-			else if (searchtype == 4) {
-
+				student_record month;
+				cin.ignore();
+				cout << "What month are you searching for? (please enter the month no, e.g. January = 01, December = 12):";
+				month.AssignSpeificItem(&srt_crt);
+				cout << endl;
+				cout << "Printing records which match:\n";
+				test_array.findmonthsThatMatch(&month, &srt_crt);
 			}
 			else {
 				cout << "Please enter a valid input." << endl;
 			}
-
-
-
-
-
-
-
-
-
-
-
 		}
 		break;
 		case CURRENTCGS:

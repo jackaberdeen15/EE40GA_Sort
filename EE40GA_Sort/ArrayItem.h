@@ -9,7 +9,6 @@ using namespace std;
 #include <string>
 #include <sstream>
 #include <fstream>
-
 #include <locale>
 
 ////// this is needed to check compatibility between items (and to use a derived-class pointer that is passes as "base class")
@@ -78,6 +77,9 @@ public:
 
 	virtual bool IsWithin(basic_item* search_item, basic_sort_criteria* sort_criteria = NULL)=0;
 
+	virtual bool FindMonth(basic_item* search_item, basic_sort_criteria* sort_criteria = NULL) { return true; }
+
+	virtual bool FindYear(basic_item* search_year, basic_sort_criteria* sort_criteria = NULL) { return true; }
 
 	virtual basic_item* allocateItem()=0;
 	virtual void deallocateItem(basic_item* item_ptr)=0;
@@ -2387,8 +2389,52 @@ public:
 		return result;
 	}
 
-	//virtual void setstringtype(int i) { type = i; }
+	
+	virtual bool FindMonth(basic_item* search_month, basic_sort_criteria* sort_criteria = NULL)
+	{
+		string currentMonthStr;
+		string currentMonthStr2;
+		int currentMonthInt;
+		string givenMonthStr;
+		int givenMonthInt;
+		int matchbool;
+		currentMonthStr = getItemVal();
+		currentMonthStr2 = currentMonthStr.substr(5, 2);
+		currentMonthInt = std::stoi(currentMonthStr2);
+		dateofbirth_item* typecasted_item_ptr = typecastItem(search_month, this);
+		givenMonthStr = typecasted_item_ptr->getItemVal();
+		givenMonthInt = std::stoi(givenMonthStr);
+		if (givenMonthInt == currentMonthInt) {
+			matchbool = true;
+		}
+		else{
+			matchbool = false;
+		}
+		return matchbool;
+	}
 
+	virtual bool FindYear(basic_item* search_year, basic_sort_criteria* sort_criteria = NULL)
+	{
+		string currentYearStr;
+		string currentYearStr2;
+		int currentYearInt;
+		string givenYearStr;
+		int givenYearInt;
+		int matchbool;
+		currentYearStr = getItemVal();
+		currentYearStr2 = currentYearStr.substr(0, 4);
+		currentYearInt = std::stoi(currentYearStr2);
+		dateofbirth_item* typecasted_item_ptr = typecastItem(search_year, this);
+		givenYearStr = typecasted_item_ptr->getItemVal();
+		givenYearInt = std::stoi(givenYearStr);
+		if (givenYearInt == currentYearInt) {
+			matchbool = true;
+		}
+		else {
+			matchbool = false;
+		}
+		return matchbool;
+	}
 };
 
 //class for current cgs child
@@ -3385,6 +3431,30 @@ public:
 			return matchbool;
 		}
 	
+	}
+
+
+	virtual bool FindMonth(basic_item* search_month, basic_sort_criteria* sort_criteria = NULL) 
+	{
+		
+			bool matchbool = false;
+
+			// first typecast the other item to confimr it is the same as this;
+			student_record* typecasted_other_item = typecastItem(search_month, this);
+			//data_sorting_type =
+			matchbool = dob_item.FindMonth(typecasted_other_item->return_dob_pointer(), sort_criteria);
+			return matchbool;
+		
+	}
+		
+	virtual bool FindYear(basic_item* search_year, basic_sort_criteria* sort_criteria = NULL)
+	{
+		bool matchbool = false;
+
+		// first typecast the other item to confimr it is the same as this;
+		student_record* typecasted_other_item = typecastItem(search_year, this);
+		matchbool = dob_item.FindYear(typecasted_other_item->return_dob_pointer(), sort_criteria);
+		return matchbool;
 	}
 
 	virtual void deallocateItem(basic_item* item_ptr)
