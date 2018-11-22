@@ -371,7 +371,6 @@ public:
 
 	void findItemsThatInclude(basic_item* search_item, basic_sort_criteria* sort_criteria_ptr)
 	{
-		sort_criteria_ptr->setAscending(true);
 		for (int curr_index = 0; curr_index < getMaxSize(); curr_index++)
 		{
 			basic_item* curr_item = getElementPtr(curr_index);
