@@ -882,8 +882,20 @@ public:
 			// items of the wrong type (or null pointers) will be pushed to the end of the list
 		}
 
+		string currentitem = getItemVal();
+		string sitem = typecasted_other_item->getItemVal();
+		int l1 = currentitem.length();
+		int l2 = sitem.length();
+		std::locale loc;
+		for (int i = 0; i < l2; i++) {
+			currentitem[i] = tolower(currentitem[i], loc);
+		}
+		for (int i = 0; i < l2; i++) {
+			sitem[i] = tolower(sitem[i], loc);
+		}
+
 		// now verify if the other item is larger than the curren
-		if ((getItemVal().compare(typecasted_other_item->getItemVal()) == 0))
+		if ((currentitem.compare(sitem) == 0))
 			result = true;
 
 
@@ -1086,8 +1098,20 @@ public:
 			// items of the wrong type (or null pointers) will be pushed to the end of the list
 		}
 
+		string currentitem = getItemVal();
+		string sitem = typecasted_other_item->getItemVal();
+		int l1 = currentitem.length();
+		int l2 = sitem.length();
+		std::locale loc;
+		for (int i = 0; i < l2; i++) {
+			currentitem[i] = tolower(currentitem[i], loc);
+		}
+		for (int i = 0; i < l2; i++) {
+			sitem[i] = tolower(sitem[i], loc);
+		}
+
 		// now verify if the other item is larger than the curren
-		if ((getItemVal().compare(typecasted_other_item->getItemVal()) == 0))
+		if ((currentitem.compare(sitem) == 0))
 			result = true;
 
 
@@ -1290,8 +1314,20 @@ public:
 			// items of the wrong type (or null pointers) will be pushed to the end of the list
 		}
 
+		string currentitem = getItemVal();
+		string sitem = typecasted_other_item->getItemVal();
+		int l1 = currentitem.length();
+		int l2 = sitem.length();
+		std::locale loc;
+		for (int i = 0; i < l2; i++) {
+			currentitem[i] = tolower(currentitem[i], loc);
+		}
+		for (int i = 0; i < l2; i++) {
+			sitem[i] = tolower(sitem[i], loc);
+		}
+
 		// now verify if the other item is larger than the curren
-		if ((getItemVal().compare(typecasted_other_item->getItemVal()) == 0))
+		if ((currentitem.compare(sitem) == 0))
 			result = true;
 
 
@@ -1491,8 +1527,20 @@ public:
 			// items of the wrong type (or null pointers) will be pushed to the end of the list
 		}
 
+		string currentitem = getItemVal();
+		string sitem = typecasted_other_item->getItemVal();
+		int l1 = currentitem.length();
+		int l2 = sitem.length();
+		std::locale loc;
+		for (int i = 0; i < l2; i++) {
+			currentitem[i] = tolower(currentitem[i], loc);
+		}
+		for (int i = 0; i < l2; i++) {
+			sitem[i] = tolower(sitem[i], loc);
+		}
+
 		// now verify if the other item is larger than the curren
-		if ((getItemVal().compare(typecasted_other_item->getItemVal()) == 0))
+		if ((currentitem.compare(sitem) == 0))
 			result = true;
 
 
@@ -1905,8 +1953,20 @@ public:
 			// items of the wrong type (or null pointers) will be pushed to the end of the list
 		}
 
+		string currentitem = getItemVal();
+		string sitem = typecasted_other_item->getItemVal();
+		int l1 = currentitem.length();
+		int l2 = sitem.length();
+		std::locale loc;
+		for (int i = 0; i < l2; i++) {
+			currentitem[i] = tolower(currentitem[i], loc);
+		}
+		for (int i = 0; i < l2; i++) {
+			sitem[i] = tolower(sitem[i], loc);
+		}
+
 		// now verify if the other item is larger than the curren
-		if ((getItemVal().compare(typecasted_other_item->getItemVal()) == 0))
+		if ((currentitem.compare(sitem) == 0))
 			result = true;
 
 
@@ -2108,8 +2168,20 @@ public:
 			// items of the wrong type (or null pointers) will be pushed to the end of the list
 		}
 
+		string currentitem = getItemVal();
+		string sitem = typecasted_other_item->getItemVal();
+		int l1 = currentitem.length();
+		int l2 = sitem.length();
+		std::locale loc;
+		for (int i = 0; i < l2; i++) {
+			currentitem[i] = tolower(currentitem[i], loc);
+		}
+		for (int i = 0; i < l2; i++) {
+			sitem[i] = tolower(sitem[i], loc);
+		}
+
 		// now verify if the other item is larger than the curren
-		if ((getItemVal().compare(typecasted_other_item->getItemVal()) == 0))
+		if ((currentitem.compare(sitem) == 0))
 			result = true;
 
 
@@ -2321,9 +2393,20 @@ public:
 			return false;
 			// items of the wrong type (or null pointers) will be pushed to the end of the list
 		}
+		string currentitem = getItemVal();
+		string sitem = typecasted_other_item->getItemVal();
+		int l1 = currentitem.length();
+		int l2 = sitem.length();
+		std::locale loc;
+		for (int i = 0; i < l2; i++) {
+			currentitem[i] = tolower(currentitem[i], loc);
+		}
+		for (int i = 0; i < l2; i++) {
+			sitem[i] = tolower(sitem[i], loc);
+		}
 
 		// now verify if the other item is larger than the curren
-		if ((getItemVal().compare(typecasted_other_item->getItemVal()) == 0))
+		if ((currentitem.compare(sitem) == 0))
 			result = true;
 
 
